@@ -37,12 +37,13 @@ public class GenerateOnclick : MonoBehaviour {
 		clone.transform.localScale=BuildBase[0].transform.localScale; 
 		clone.transform.localPosition = new Vector3 (0,-0.49f,0);
 
-		PathCheker.SendMessage ("SetLatestTurret",clone.gameObject);
+		PathCheker.SendMessage ("SetLatestTurret",this.gameObject);
 
 	}
 	void ReverseTurret(){
 		Debug.Log ("Destruyendo");
-		rend.enabled = false;
-		navMeshObstacle.enabled = false;
+		//rend.enabled = false;
+		//navMeshObstacle.enabled = false;
+		Destroy (clone);
 	}
 }

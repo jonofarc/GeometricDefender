@@ -81,6 +81,7 @@ public class CheckPath : MonoBehaviour {
 	void SetLatestTurret (GameObject RecivedTurret){
 		LatestTurret = RecivedTurret;
 		elapsed += PathCheckInterval;
+			Debug.Log (LatestTurret.name);
 	
 	}
 	
