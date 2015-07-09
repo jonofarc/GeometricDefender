@@ -7,15 +7,14 @@ public class GenerateOnclick : MonoBehaviour {
 
 	public GameObject[] BuildBase;
 
-	NavMeshObstacle navMeshObstacle;
-	Renderer rend;
+
+
 	// Use this for initialization
 	void Start () {
 
 		BuildBase=GameObject.FindGameObjectsWithTag("Turret");
 		PathCheker=GameObject.FindGameObjectWithTag("PathCheker");
-		rend = GetComponent<Renderer>();
-		navMeshObstacle = GetComponent<NavMeshObstacle>();
+
 	
 	}
 	
@@ -26,8 +25,8 @@ public class GenerateOnclick : MonoBehaviour {
 	}
 	void OnMouseDown(){
 
-		//rend.enabled = true;
-		//navMeshObstacle.enabled = true;
+
+	
 	
 
 		clone = Instantiate(BuildBase[0], BuildBase[0].transform.position, BuildBase[0].transform.rotation) as GameObject;
@@ -42,8 +41,7 @@ public class GenerateOnclick : MonoBehaviour {
 	}
 	void ReverseTurret(){
 		Debug.Log ("Destruyendo");
-		//rend.enabled = false;
-		//navMeshObstacle.enabled = false;
+	
 		Destroy (clone);
 	}
 }
