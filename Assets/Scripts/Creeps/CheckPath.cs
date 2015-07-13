@@ -10,13 +10,16 @@ public class CheckPath : MonoBehaviour {
 	public float PathCheckInterval=1f; 
 	private NavMeshPath path;
 	private float elapsed = 0.0f;  
-	private GameObject LatestTurret; 
+	private float elapsed2 = 0.0f;
+	public GameObject[] LatestTurret; 
+	private int LatestTurretNumber=0;
 	 
-		public NavMeshAgent agent { get; private set; } // the navmesh agent required for the path finding
+	public NavMeshAgent agent { get; private set; } // the navmesh agent required for the path finding
 		
 
 	
 	void Start () { 
+		LatestTurret = new GameObject[10];
 		path = new NavMeshPath();
 		elapsed = 0.0f;
 
@@ -29,6 +32,7 @@ public class CheckPath : MonoBehaviour {
 		
 	}
 	void Update () {
+		//Debug.Log (LatestTurretNumber);
 
 		// Update the way to the goal every second.
 		elapsed += Time.deltaTime;
@@ -44,8 +48,20 @@ public class CheckPath : MonoBehaviour {
 			Debug.DrawLine(path.corners[i], path.corners[i+1], Color.red);	
 		}
 	
-		if(path.status.ToString()!="PathComplete"&&LatestTurret!=null){
-			LatestTurret.SendMessage("ReverseTurret");
+		if(path.status.ToString()!="PathComplete"&&LatestTurret[0]!=null){
+			Debug.Log ("am quitando");
+
+			elapsed2 += Time.deltaTime;
+			if (elapsed2 > PathCheckInterval) {
+				elapsed2 = 0;
+				Destroy(LatestTurret[0].transform.GetChild(0).gameObject);
+				DecreaseLatestTurret();
+				
+			}
+
+
+
+
 			/*
 			GameObject[] creeps;
 			creeps = GameObject.FindGameObjectsWithTag("Creeps");
@@ -77,11 +93,45 @@ public class CheckPath : MonoBehaviour {
 	}
 	
 	void SetLatestTurret (GameObject RecivedTurret){
-		LatestTurret = RecivedTurret;
+
+
+		ReArrangeLatestTurret();
+		LatestTurret[0] = RecivedTurret;
 		elapsed += PathCheckInterval;
-			Debug.Log (LatestTurret.name);
+		if(LatestTurretNumber+1<LatestTurret.Length){
+			LatestTurretNumber++;
+		}
+		else{
+
+		}
+
 	
 	}
+	void ReArrangeLatestTurret (){
+
+		for(int i=LatestTurretNumber; i>0; i--){
+
+			if(LatestTurret[i-1]!=null){
+				LatestTurret[i] = LatestTurret[i-1];
+			}
+
+		}
+
+
+	}
+	void DecreaseLatestTurret(){
+		LatestTurret[LatestTurretNumber] = null;
+		for(int i=0; i<LatestTurretNumber-1; i++){
+
+			if(LatestTurret[i+1]!=null){
+				LatestTurret[i] = LatestTurret[i+1];
+			}
+			
+		}
+		LatestTurretNumber--;
+
+	}
+
 	
 	
 	

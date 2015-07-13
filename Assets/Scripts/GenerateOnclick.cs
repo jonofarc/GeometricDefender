@@ -35,6 +35,8 @@ public class GenerateOnclick : MonoBehaviour {
 		clone.transform.parent=this.transform;
 		clone.transform.localScale=BuildBase[0].transform.localScale; 
 		clone.transform.localPosition = new Vector3 (0,-0.49f,0);
+		clone.name = clone.name + (CurrentTurret.TurretNumber.ToString ());
+		CurrentTurret.TurretNumber++;
 
 		PathCheker.SendMessage ("SetLatestTurret",this.gameObject);
 
