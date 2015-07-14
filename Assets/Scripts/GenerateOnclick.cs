@@ -8,6 +8,7 @@ public class GenerateOnclick : MonoBehaviour {
 	public GameObject[] BuildBase;
 
 
+	private int TurretToBuild=0;
 
 	// Use this for initialization
 	void Start () {
@@ -24,21 +25,27 @@ public class GenerateOnclick : MonoBehaviour {
 	
 	}
 	void OnMouseDown(){
+		BuildBase [TurretToBuild].SendMessage ("getCost");
+		if (MoneyCount.Money >= MoneyCount.TurretCost) {
 
+			MoneyCount.Money=MoneyCount.Money-MoneyCount.TurretCost;
+			clone = Instantiate (BuildBase [TurretToBuild], BuildBase [TurretToBuild].transform.position, BuildBase [TurretToBuild].transform.rotation) as GameObject;
+			clone.gameObject.SetActive (true);
+			
+			clone.transform.parent = this.transform;
+			clone.transform.localScale = BuildBase [TurretToBuild].transform.localScale; 
+			clone.transform.localPosition = new Vector3 (0, -0.49f, 0);
+			clone.name = clone.name + (CurrentTurret.TurretNumber.ToString ());
+			CurrentTurret.TurretNumber++;
+			
+			PathCheker.SendMessage ("SetLatestTurret", this.gameObject);
+		} else {
+			Debug.Log("no price set for turret or selected turret not valid");
+		}
 
 	
 	
 
-		clone = Instantiate(BuildBase[0], BuildBase[0].transform.position, BuildBase[0].transform.rotation) as GameObject;
-		clone.gameObject.SetActive(true);
-		
-		clone.transform.parent=this.transform;
-		clone.transform.localScale=BuildBase[0].transform.localScale; 
-		clone.transform.localPosition = new Vector3 (0,-0.49f,0);
-		clone.name = clone.name + (CurrentTurret.TurretNumber.ToString ());
-		CurrentTurret.TurretNumber++;
-
-		PathCheker.SendMessage ("SetLatestTurret",this.gameObject);
 
 	}
 	void ReverseTurret(){

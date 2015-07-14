@@ -2,6 +2,7 @@
 using System.Collections;
 
 public class SelectTurret : MonoBehaviour {
+	public int TurretCost=10;
 	public GameObject RangeAura;
 	public GameObject Base;
 	public GameObject[] Auras;
@@ -31,6 +32,9 @@ public class SelectTurret : MonoBehaviour {
 	}
 	void resetMaterial(){
 		Base.GetComponent<Renderer> ().material = OriginalMaterial;
+	}
+	void getCost(){
+		MoneyCount.TurretCost = TurretCost;
 	}
 }
  

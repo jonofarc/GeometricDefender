@@ -12,7 +12,8 @@ public class CreepSpawner : MonoBehaviour {
 	public int WaveCreeps=10;
 	public int CurrentWave=0;
 	public int NextWaveTime=10;
-	public float waveHpIncrement=1f;
+	public float waveHpPercentageIncrement=1f;
+	public int waveCreepsIncrement=1;
 
 
 	private float elapsed = 0.0f; 
@@ -74,12 +75,12 @@ public class CreepSpawner : MonoBehaviour {
 		if(spawnInterval<0.1f){
 			spawnInterval=0.1f;
 		}
-		WaveCreeps++;
+		WaveCreeps= WaveCreeps+waveCreepsIncrement;
 		Invoke ("CreateCreep",spawnInterval);
 
 		for(int i=0; i<BaseCreeps.Length; i++){
 			BaseCreeps[i].SetActive(true);
-			BaseCreeps[i].SendMessage("IncreaseLife",waveHpIncrement);
+			BaseCreeps[i].SendMessage("IncreaseLife",waveHpPercentageIncrement);
 			BaseCreeps[i].SetActive(false);
 		}
 
