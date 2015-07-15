@@ -4,7 +4,7 @@ using System.Collections;
 public class TargetCreep : MonoBehaviour {
 	public GameObject[] Creeps; 
 	public GameObject ClosestCreep; 
-	public string targetTag="Creeps";
+	public string targetTag="CreepG";
 	public float turretRange=3;
 	public GameObject turretRangeAreaMarker;
 

@@ -13,7 +13,7 @@ public class AutoDestroyOncollision : MonoBehaviour {
 	
 	}
 	void OnCollisionEnter(Collision collision) {
-		if(collision.gameObject.tag=="Creeps"){
+		if(collision.gameObject.tag=="CreepG"){
 			Destroy (this.gameObject);
 		}
 

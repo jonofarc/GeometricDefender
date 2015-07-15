@@ -5,12 +5,13 @@ TagManager:
   serializedVersion: 2
   tags:
   - Fire
-  - Creep
-  - Creeps
+  - CreepG
+  - CreepF
   - Graveyard
   - PathCheker
   - Turret
   - RangeAura
+  - Creeps
   layers:
   - Default
   - TransparentFX

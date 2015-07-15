@@ -16,6 +16,6 @@ public class LoadLevel : MonoBehaviour {
 		Application.LoadLevel (LevelToLoad);
 	}
 	void OnMouseDown(){
-		Invoke ("loadlevel",2);
+		loadlevel ();
 	}
 }

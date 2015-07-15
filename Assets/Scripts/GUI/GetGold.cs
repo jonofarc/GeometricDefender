@@ -12,6 +12,6 @@ public class GetGold : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		GoldText.text = "Oro: " + MoneyCount.Money.ToString ();
+		GoldText.text = "Oro: " + GlobalVariables.Money.ToString ();
 	}
 }

@@ -5,7 +5,7 @@ public class GenerateOnclick : MonoBehaviour {
 	private GameObject PathCheker;
 	private GameObject clone;
 
-	public GameObject[] BuildBase;
+
 
 
 	private int TurretToBuild=0;
@@ -13,7 +13,7 @@ public class GenerateOnclick : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 
-		BuildBase=GameObject.FindGameObjectsWithTag("Turret");
+
 		PathCheker=GameObject.FindGameObjectWithTag("PathCheker");
 
 	
@@ -25,15 +25,15 @@ public class GenerateOnclick : MonoBehaviour {
 	
 	}
 	void OnMouseDown(){
-		BuildBase [TurretToBuild].SendMessage ("getCost");
-		if (MoneyCount.Money >= MoneyCount.TurretCost) {
 
-			MoneyCount.Money=MoneyCount.Money-MoneyCount.TurretCost;
-			clone = Instantiate (BuildBase [TurretToBuild], BuildBase [TurretToBuild].transform.position, BuildBase [TurretToBuild].transform.rotation) as GameObject;
+		if (GlobalVariables.Money >= GlobalVariables.TurretCost) {
+
+			GlobalVariables.Money=GlobalVariables.Money-GlobalVariables.TurretCost;
+			clone = Instantiate (GlobalVariables.CurrentTurret, GlobalVariables.CurrentTurret.transform.position, GlobalVariables.CurrentTurret.transform.rotation) as GameObject;
 			clone.gameObject.SetActive (true);
-			
+			 
 			clone.transform.parent = this.transform;
-			clone.transform.localScale = BuildBase [TurretToBuild].transform.localScale; 
+			clone.transform.localScale = GlobalVariables.CurrentTurret.transform.localScale; 
 			clone.transform.localPosition = new Vector3 (0, -0.49f, 0);
 			clone.name = clone.name + (CurrentTurret.TurretNumber.ToString ());
 			CurrentTurret.TurretNumber++;
@@ -50,7 +50,9 @@ public class GenerateOnclick : MonoBehaviour {
 	}
 	void ReverseTurret(){
 		Debug.Log ("Destruyendo");
-	
-		Destroy (clone);
+		if(clone != null){
+			Destroy (clone);
+		}
+
 	}
 }

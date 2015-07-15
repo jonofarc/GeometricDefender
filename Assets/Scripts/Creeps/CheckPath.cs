@@ -64,7 +64,7 @@ public class CheckPath : MonoBehaviour {
 
 			/*
 			GameObject[] creeps;
-			creeps = GameObject.FindGameObjectsWithTag("Creeps");
+			creeps = GameObject.FindGameObjectsWithTag("CreepG");
 
 			foreach (GameObject creep in creeps) {
 				NavMeshAgent creepNav;

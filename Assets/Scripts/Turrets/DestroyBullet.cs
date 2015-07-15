@@ -5,6 +5,7 @@ public class DestroyBullet : MonoBehaviour {
 	public float BulletDamage=10;
 	public bool DamageDone=false;
 	public float BulletSpeed = 20f;
+	public float TimeToDisapear = 2f;
 	private GameObject CreepTarget;
 	// Use this for initialization
 	void Start () {
@@ -35,8 +36,9 @@ public class DestroyBullet : MonoBehaviour {
 		}
 	}
 	void OnCollisionEnter(Collision collision) {
-		
-		if(collision.gameObject.tag=="Creeps" && DamageDone==false){
+
+
+		if(collision.gameObject.tag=="CreepG" && DamageDone==false){
 		
 			collision.gameObject.SendMessage("takeDamage",BulletDamage);
 			DamageDone = true;
@@ -45,7 +47,7 @@ public class DestroyBullet : MonoBehaviour {
 		}
 
 
-		Invoke ("AutoDestroy",2);
+		Invoke ("AutoDestroy",TimeToDisapear);
 
 
 	} 

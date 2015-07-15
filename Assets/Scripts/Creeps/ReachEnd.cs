@@ -10,7 +10,7 @@ public class ReachEnd : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		HPtext.text = "Vidas: " + HP.ToString ();
-		MoneyCount.Money = StartMoney;
+		GlobalVariables.Money = StartMoney;
 	}
 	
 	// Update is called once per frame
@@ -18,7 +18,8 @@ public class ReachEnd : MonoBehaviour {
 	
 	}
 	void OnTriggerEnter(Collider other) {
-		if(other.gameObject.tag=="Creeps"){
+	
+		if(other.gameObject.tag=="CreepG" || other.gameObject.tag=="CreepF"){
 			Destroy(other.gameObject);
 			//	Debug.Log ("-1 hp");
 			HP--;
