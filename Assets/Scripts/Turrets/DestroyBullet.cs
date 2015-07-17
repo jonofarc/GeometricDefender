@@ -37,20 +37,28 @@ public class DestroyBullet : MonoBehaviour {
 	}
 	void OnCollisionEnter(Collision collision) {
 
-
-		if(collision.gameObject.tag=="CreepG" && DamageDone==false){
-		
-			collision.gameObject.SendMessage("takeDamage",BulletDamage);
-			DamageDone = true;
-			Destroy(this.gameObject.GetComponent<Collider>());
-
-		}
-
-
-		Invoke ("AutoDestroy",TimeToDisapear);
+		RecivedCollision (collision.gameObject);
 
 
 	} 
+	void RecivedCollision (GameObject collision) {
+		
+		
+		
+		if(collision.gameObject.tag=="CreepG" && DamageDone==false){
+			
+			collision.gameObject.SendMessage("takeDamage",BulletDamage);
+			DamageDone = true;
+			Destroy(this.gameObject.GetComponent<Collider>());
+			
+		}
+		
+		
+		Invoke ("AutoDestroy",TimeToDisapear);
+		
+		
+	}//end RecivedCollision
+
 	void AutoDestroy(){
 		Destroy(this.gameObject);
 	}

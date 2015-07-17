@@ -57,4 +57,12 @@ public class CreepLife : MonoBehaviour {
 		CreepHP *= increment;
 		maxHP = CreepHP;
 	}
+	void OnTriggerEnter(Collider other) {
+
+		if(other.gameObject.tag=="Bullet"){
+			Debug.Log (other.gameObject.name);
+			other.SendMessage ("RecivedCollision",this.gameObject);
+		}
+
+	}
 }

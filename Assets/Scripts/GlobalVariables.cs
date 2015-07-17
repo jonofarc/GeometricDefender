@@ -3,7 +3,8 @@ using System.Collections;
 
 public class GlobalVariables : MonoBehaviour {
 
-	public static int Money=90;
+	public static int Money=0;
+	public static int HP=0;
 	public static int TurretCost=1000;
 	public static GameObject CurrentTurret;
 	public static bool DestroyTurret=false;

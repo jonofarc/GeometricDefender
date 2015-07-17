@@ -12,6 +12,7 @@ TagManager:
   - Turret
   - RangeAura
   - Creeps
+  - Bullet
   layers:
   - Default
   - TransparentFX

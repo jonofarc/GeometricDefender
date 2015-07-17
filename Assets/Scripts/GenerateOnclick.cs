@@ -8,7 +8,7 @@ public class GenerateOnclick : MonoBehaviour {
 
 
 
-	private int TurretToBuild=0;
+
 
 	// Use this for initialization
 	void Start () {

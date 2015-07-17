@@ -9,6 +9,7 @@ public class ReachEnd : MonoBehaviour {
 	public Text HPtext;
 	// Use this for initialization
 	void Start () {
+		GlobalVariables.HP = HP;
 		HPtext.text = "Vidas: " + HP.ToString ();
 		GlobalVariables.Money = StartMoney;
 	}
@@ -22,10 +23,10 @@ public class ReachEnd : MonoBehaviour {
 		if(other.gameObject.tag=="CreepG" || other.gameObject.tag=="CreepF"){
 			Destroy(other.gameObject);
 			//	Debug.Log ("-1 hp");
-			HP--;
-			HPtext.text = "Vidas: " + HP.ToString ();
+			GlobalVariables.HP=GlobalVariables.HP-1;
+			HPtext.text = "Vidas: " + GlobalVariables.HP.ToString ();
 			//	Debug.Log ("Remaining health "+HP);
-			if(HP<=0){
+			if(GlobalVariables.HP<=0){
 				Application.LoadLevel("GameOver");
 			}
 		}

@@ -9,9 +9,12 @@ public class GameGUI : MonoBehaviour {
 	public GameObject MachineGunTurret;
 
 
+	private int x=0;
+
+
 	// Use this for initialization
 	void Start () {
-
+		Time.timeScale = 1.0F;
 	}
 	
 	// Update is called once per frame
@@ -24,13 +27,36 @@ public class GameGUI : MonoBehaviour {
 	
 
 	}
-	public void FastFoward(){
-		/*if(){
-			Time.timeScale = 2.0F;
+	public void InfiniteGold (){
+		x++;
+		Debug.Log (x);
+		if(x==10){
+			GlobalVariables.Money=99999;
 		}
-		else{
+		GlobalVariables.HP = 9999; 
+	}
+	public void GameSpeed(){
+		if(Time.timeScale == 1.0F){
+			Time.timeScale = 2.0F;
+		}else{
+
 			Time.timeScale = 1.0F;
-		}*/
+		}
+	}
+	public void Pause(){
+		
+		Time.timeScale = 0.0F;
+		
+	}
+	public void FastFoward(){
+
+			Time.timeScale = 2.0F;
+		 
+	}
+	public void NormalSpeed(){
+		
+		Time.timeScale = 1.0F;
+		
 	}
 	public void MainMenuButtton (){
 		Application.LoadLevel("MainMenu");
