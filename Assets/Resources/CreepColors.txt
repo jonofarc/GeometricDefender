@@ -1,0 +1,3 @@
+Creep,0,0,0,1
+FastCreep,0.31,0.85,1,1
+StraightCreep,1,0.77,0.39,1

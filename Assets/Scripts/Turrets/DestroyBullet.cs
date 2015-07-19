@@ -52,12 +52,12 @@ public class DestroyBullet : MonoBehaviour {
 			Destroy(this.gameObject.GetComponent<Collider>());
 			
 		}
-		
-#if UNITY_aNDROID 
+		 
+
 		AutoDestroy();
-#else
-		Invoke ("AutoDestroy",TimeToDisapear);
-#endif		
+
+		//Invoke ("AutoDestroy",TimeToDisapear);
+
 		
 	}//end RecivedCollision
 

@@ -2,6 +2,9 @@
 using System.Collections;
 using System.Collections.Generic;
 
+using System.Linq;
+using System.IO;
+
 public class CreepSpawner : MonoBehaviour {
 	public bool CombinedWaves = false;
 	public bool WaveLoop = false;
@@ -11,6 +14,7 @@ public class CreepSpawner : MonoBehaviour {
 	//public float StartSpawnTime=3;
 	public float spawnInterval=1;
 	public bool SpawnActive=true; 
+	public bool StartFirstWave=false; 
 	public int CreepsSpawned=0;
 
 	public int WaveCreeps=10;
@@ -20,12 +24,24 @@ public class CreepSpawner : MonoBehaviour {
 	public float waveHpPercentageIncrement=1f;
 	public int waveCreepsIncrement=1;
 
+
+	public TextAsset CreepColors;
+
+	private List<string> fileLines;
 	private int CreepType = 0;
 	private float elapsed = 0.0f; 
 	private int creepSeparator=0;
+	private GameObject Canvas;
+	private Color myCreepColor;
+
 
 	// Use this for initialization
 	void Start () {
+		//we set nextWaveType
+		Canvas = GameObject.FindGameObjectWithTag ("Canvas"); 
+		getNextWaveType ();
+
+
 		GlobalVariables.CurrentWave = CurrentWave;
 		// we create a list of the unique creep types in this level
 		for(int i=0; i<BaseCreeps.Length; i++){
@@ -51,7 +67,7 @@ public class CreepSpawner : MonoBehaviour {
 		elapsed += Time.deltaTime;
 		if (elapsed > spawnInterval) {
 			elapsed -= spawnInterval;
-			if(SpawnActive){
+			if(SpawnActive && StartFirstWave){
 				CreateCreep();
 			}
 
@@ -64,7 +80,8 @@ public class CreepSpawner : MonoBehaviour {
 
 
 		if(BaseCreeps.Length>1 && CombinedWaves){
-			CreepType=Random.Range(0, BaseCreeps.Length);
+
+		//	CreepType=Random.Range(0, BaseCreeps.Length);
 		}
 
 		CreepClone = Instantiate(BaseCreeps[CreepType], BaseCreeps[CreepType].transform.position, BaseCreeps[CreepType].transform.rotation) as GameObject;
@@ -121,6 +138,19 @@ public class CreepSpawner : MonoBehaviour {
 		}
 		if(CombinedWaves==false){
 			CreepType++;
+
+			// we set he name of the extwave creeps
+
+			if(CreepType+1<BaseCreeps.Length){
+				getNextWaveType();
+			}
+			else{
+
+				GameGUI GameGUIScript = (GameGUI) Canvas.GetComponent(typeof(GameGUI));
+				GameGUIScript.getNextWave(" " ,myCreepColor); 
+			}
+
+		
 			if(CreepType==BaseCreeps.Length){
 				if(WaveLoop){
 					CreepType=0;
@@ -128,6 +158,7 @@ public class CreepSpawner : MonoBehaviour {
 				else{
 					GlobalVariables.LevelCleared=true;
 					SpawnActive=false;
+
 
 				}
 
@@ -143,6 +174,43 @@ public class CreepSpawner : MonoBehaviour {
 
 	}
 	public void startCreeps(){
-		SpawnActive = true;
+		StartFirstWave = true;
 	}
+	public void getNextWaveType(){
+	
+		myCreepColor =ReadFile ();
+		//GlobalVariables.NextWaveCreepName=BaseCreeps[CreepType+1].gameObject.name;
+		//SelectTurret cost = (SelectTurret) CannonTurret.GetComponent(typeof(SelectTurret));
+		GameGUI GameGUIScript = (GameGUI) Canvas.GetComponent(typeof(GameGUI));
+
+		GameGUIScript.getNextWave(BaseCreeps[CreepType+1].gameObject.name,myCreepColor); 
+	}
+
+
+	
+	public Color ReadFile()
+	{
+		Color myColor = new Color (0,0,0,0);
+		fileLines = CreepColors.text.Split('\n',',').ToList();
+
+		//if (fileLines.Contains(BaseCreeps[CreepType+1].name))
+		//{
+		//	myColor = new Color (1,1,1,1);
+		//} 
+		for(int i=0; i<fileLines.Count(); i++){
+
+			if(fileLines[i].ToString()==BaseCreeps[CreepType+1].gameObject.name){
+
+				myColor = new Color (float.Parse(fileLines[i+1]),float.Parse(fileLines[i+2]),float.Parse(fileLines[i+3]),float.Parse(fileLines[i+4])); 
+			
+			}
+		}
+		
+		return myColor;
+
+	}
+	
+	
+	
+	
 }

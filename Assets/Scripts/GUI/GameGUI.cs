@@ -11,13 +11,15 @@ public class GameGUI : MonoBehaviour {
 	public GameObject CannonTurret;
 	public GameObject MachineGunTurret;
 	public GameObject LevelClearedUI;
-
+	public GameObject NextWaveType;
+ 
 
 	private int x=0;
 
 
 	// Use this for initialization
 	void Start () {
+
 		GlobalVariables.LevelCleared = false;
 		LevelClearedUI.SetActive (false);
 		Time.timeScale = 1.0F;
@@ -25,6 +27,8 @@ public class GameGUI : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+
+
 		GoldText.text = "Oro: "+ GlobalVariables.Money.ToString(); 
 		CurrentWave.text = "Oleada: "+ GlobalVariables.CurrentWave.ToString(); 
 		if(GlobalVariables.LevelCleared==true){
@@ -95,6 +99,11 @@ public class GameGUI : MonoBehaviour {
 		GlobalVariables.CurrentTurret = null;
 	}
 	public void LoadLevel(string LevelToLoad){
-		Application.LoadLevel (LevelToLoad);
+		Application.LoadLevel (LevelToLoad); 
 	}
+	public void getNextWave(string NextWaveCreepName ,Color CreepColor){
+		NextWaveType.GetComponent<Image>().color= CreepColor; 
+		NextWaveType.GetComponentInChildren<Text>().text="Siguiente Oleada: \n"+ NextWaveCreepName; 
+	}
+
 }

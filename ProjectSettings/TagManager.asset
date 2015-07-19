@@ -14,6 +14,7 @@ TagManager:
   - Creeps
   - Bullet
   - LevelClearedUI
+  - Canvas
   layers:
   - Default
   - TransparentFX

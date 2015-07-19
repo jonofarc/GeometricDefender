@@ -11,6 +11,7 @@ public class GlobalVariables : MonoBehaviour {
 	public static int CurrentWave=0;
 	public static bool LevelCleared=false;
 
+
 	// Use this for initialization
 	void Start () {
 	
