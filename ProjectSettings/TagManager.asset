@@ -13,6 +13,7 @@ TagManager:
   - RangeAura
   - Creeps
   - Bullet
+  - LevelClearedUI
   layers:
   - Default
   - TransparentFX

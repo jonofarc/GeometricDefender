@@ -26,7 +26,7 @@ public class GenerateOnclick : MonoBehaviour {
 	}
 	void OnMouseDown(){
 
-		if (GlobalVariables.Money >= GlobalVariables.TurretCost) {
+		if (GlobalVariables.Money >= GlobalVariables.TurretCost && GlobalVariables.CurrentTurret != null) {
 
 			GlobalVariables.Money=GlobalVariables.Money-GlobalVariables.TurretCost;
 			clone = Instantiate (GlobalVariables.CurrentTurret, GlobalVariables.CurrentTurret.transform.position, GlobalVariables.CurrentTurret.transform.rotation) as GameObject;

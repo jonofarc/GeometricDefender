@@ -20,7 +20,7 @@ public class MainMenu : MonoBehaviour {
 	}
 	public void Exit(){
 		
-		Application.Quit ();
+		Application.Quit();
 	}
 	void OnGUI(){
 		//if (GUI.Button (new Rect (10, 70, 50, 30), "Click")) {

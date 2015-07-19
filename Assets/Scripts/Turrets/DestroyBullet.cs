@@ -53,9 +53,11 @@ public class DestroyBullet : MonoBehaviour {
 			
 		}
 		
-		
+#if UNITY_aNDROID 
+		AutoDestroy();
+#else
 		Invoke ("AutoDestroy",TimeToDisapear);
-		
+#endif		
 		
 	}//end RecivedCollision
 

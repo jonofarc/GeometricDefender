@@ -4,9 +4,13 @@ using UnityEngine.UI;
 
 public class GameGUI : MonoBehaviour {
 
+
 	public Text InfoText;
+	public Text GoldText;
+	public Text CurrentWave;
 	public GameObject CannonTurret;
 	public GameObject MachineGunTurret;
+	public GameObject LevelClearedUI;
 
 
 	private int x=0;
@@ -14,12 +18,18 @@ public class GameGUI : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+		GlobalVariables.LevelCleared = false;
+		LevelClearedUI.SetActive (false);
 		Time.timeScale = 1.0F;
 	}
 	
 	// Update is called once per frame
 	void Update () {
-	
+		GoldText.text = "Oro: "+ GlobalVariables.Money.ToString(); 
+		CurrentWave.text = "Oleada: "+ GlobalVariables.CurrentWave.ToString(); 
+		if(GlobalVariables.LevelCleared==true){
+			LevelClearedUI.SetActive(true);
+		}
 	}
 	void OnGUI()
 	{
@@ -82,5 +92,9 @@ public class GameGUI : MonoBehaviour {
 	public void DestroyTurretButton(){
 		GlobalVariables.DestroyTurret=true; 
 		InfoText.text = "Selecciona torre a destruir (se regresara la mitad del costo de la torre)";
+		GlobalVariables.CurrentTurret = null;
+	}
+	public void LoadLevel(string LevelToLoad){
+		Application.LoadLevel (LevelToLoad);
 	}
 }

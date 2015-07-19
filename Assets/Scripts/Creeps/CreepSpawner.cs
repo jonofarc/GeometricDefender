@@ -4,6 +4,7 @@ using System.Collections.Generic;
 
 public class CreepSpawner : MonoBehaviour {
 	public bool CombinedWaves = false;
+	public bool WaveLoop = false;
 	public GameObject[] BaseCreeps;
 	public List<GameObject> CurrentCreeps;
 	private GameObject CreepClone;
@@ -21,9 +22,11 @@ public class CreepSpawner : MonoBehaviour {
 
 	private int CreepType = 0;
 	private float elapsed = 0.0f; 
+	private int creepSeparator=0;
 
 	// Use this for initialization
 	void Start () {
+		GlobalVariables.CurrentWave = CurrentWave;
 		// we create a list of the unique creep types in this level
 		for(int i=0; i<BaseCreeps.Length; i++){
 			bool AlreadyIn=false;
@@ -58,13 +61,20 @@ public class CreepSpawner : MonoBehaviour {
 	}
 	public void CreateCreep(){
 
-		Debug.Log (CreepType);
+
 
 		if(BaseCreeps.Length>1 && CombinedWaves){
 			CreepType=Random.Range(0, BaseCreeps.Length);
 		}
 
 		CreepClone = Instantiate(BaseCreeps[CreepType], BaseCreeps[CreepType].transform.position, BaseCreeps[CreepType].transform.rotation) as GameObject;
+		//we separate spawn site to minimise physics calculation on runtime
+		if(creepSeparator>20){
+			creepSeparator=0;
+		}
+		CreepClone.transform.position = new Vector3 (CreepClone.transform.position.x+creepSeparator,CreepClone.transform.position.y,CreepClone.transform.position.z);
+		creepSeparator=creepSeparator+2;
+
 		CreepClone.gameObject.SetActive(true);
 		
 		CreepClone.transform.parent=this.transform;
@@ -90,14 +100,15 @@ public class CreepSpawner : MonoBehaviour {
 
 
 		CurrentWave++;
-		SpawnActive=true;
+		GlobalVariables.CurrentWave = CurrentWave;
+
 		CreepsSpawnedThisWave = 0;
 	
 		if(spawnInterval<0.1f){
 			spawnInterval=0.1f;
 		}
 		WaveCreeps= WaveCreeps+waveCreepsIncrement;
-		Invoke ("CreateCreep",spawnInterval);
+
 
 
 		//we increase creep hp once per type
@@ -111,9 +122,24 @@ public class CreepSpawner : MonoBehaviour {
 		if(CombinedWaves==false){
 			CreepType++;
 			if(CreepType==BaseCreeps.Length){
-				CreepType=0;
+				if(WaveLoop){
+					CreepType=0;
+				}
+				else{
+					GlobalVariables.LevelCleared=true;
+					SpawnActive=false;
+
+				}
+
 			}
 		}
+		if (GlobalVariables.LevelCleared == false) {
+			//Invoke ("CreateCreep", spawnInterval);
+			SpawnActive=true;
+		} else {
+
+		}
+
 
 	}
 	public void startCreeps(){

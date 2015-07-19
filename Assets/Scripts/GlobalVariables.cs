@@ -8,6 +8,8 @@ public class GlobalVariables : MonoBehaviour {
 	public static int TurretCost=1000;
 	public static GameObject CurrentTurret;
 	public static bool DestroyTurret=false;
+	public static int CurrentWave=0;
+	public static bool LevelCleared=false;
 
 	// Use this for initialization
 	void Start () {
