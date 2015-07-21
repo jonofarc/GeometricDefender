@@ -67,6 +67,11 @@ public class GameGUI : MonoBehaviour {
 			Time.timeScale = 2.0F;
 		 
 	}
+	public void SuperFastFoward(){
+		
+		Time.timeScale = 10.0F;  
+		
+	}
 	public void NormalSpeed(){
 		
 		Time.timeScale = 1.0F;

@@ -9,7 +9,9 @@ public class CreepSpawner : MonoBehaviour {
 	public bool CombinedWaves = false;
 	public bool WaveLoop = false;
 	public GameObject[] BaseCreeps;
+	public List<int> CreepBossWaves;
 	public List<GameObject> CurrentCreeps;
+
 	private GameObject CreepClone;
 	//public float StartSpawnTime=3;
 	public float spawnInterval=1;
@@ -81,7 +83,7 @@ public class CreepSpawner : MonoBehaviour {
 
 		if(BaseCreeps.Length>1 && CombinedWaves){
 
-		//	CreepType=Random.Range(0, BaseCreeps.Length);
+			CreepType=Random.Range(0, BaseCreeps.Length);
 		}
 
 		CreepClone = Instantiate(BaseCreeps[CreepType], BaseCreeps[CreepType].transform.position, BaseCreeps[CreepType].transform.rotation) as GameObject;
@@ -101,13 +103,21 @@ public class CreepSpawner : MonoBehaviour {
 		CreepClone.name = BaseCreeps [CreepType] + CreepsSpawned.ToString ();
 
 		CreepsSpawnedThisWave++;
-		if(CreepsSpawnedThisWave==WaveCreeps){
+
+		// we check to see if this wave is a boss wave
+
+		if(CreepBossWaves.Contains(CurrentWave-1)){
+			Debug.Log("this is a boss creep");
+			CreepsSpawnedThisWave=WaveCreeps;
+		}
+
+		if(CreepsSpawnedThisWave==WaveCreeps && CurrentWave<=BaseCreeps.Length){
 			SpawnActive=false;
 			Invoke("NextWave",NextWaveTime);
 
 		//	Debug.Log("Time for next wave"+(spawnInterval*WaveCreeps));
 
-		}
+		} 
 
 
 
@@ -151,26 +161,26 @@ public class CreepSpawner : MonoBehaviour {
 			}
 
 		
-			if(CreepType==BaseCreeps.Length){
+			if(CreepType+1==BaseCreeps.Length){ 
 				if(WaveLoop){
 					CreepType=0;
 				}
 				else{
-					GlobalVariables.LevelCleared=true;
-					SpawnActive=false;
 
+					Invoke("callLevelCleared",2);
 
 				}
 
 			}
 		}
-		if (GlobalVariables.LevelCleared == false) {
+		Debug.Log ((CreepType+1)+"::"+BaseCreeps.Length);
+		if (GlobalVariables.LevelCleared == false &&CreepType!=BaseCreeps.Length) {
 			//Invoke ("CreateCreep", spawnInterval);
 			SpawnActive=true;
 		} else {
 
 		}
-
+		 
 
 	}
 	public void startCreeps(){
@@ -207,6 +217,17 @@ public class CreepSpawner : MonoBehaviour {
 		}
 		
 		return myColor;
+
+	}
+	public void callLevelCleared(){
+		//check if final wave is destroyed
+		SpawnActive=false;
+		if (this.transform.childCount <= 2) {
+			GlobalVariables.LevelCleared = true;
+		} else {
+			Invoke("callLevelCleared",2);
+		}
+
 
 	}
 	
