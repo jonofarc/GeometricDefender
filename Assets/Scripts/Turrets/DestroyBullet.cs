@@ -54,9 +54,9 @@ public class DestroyBullet : MonoBehaviour {
 		}
 		 
 
-		AutoDestroy();
+		//AutoDestroy();
 
-		//Invoke ("AutoDestroy",TimeToDisapear);
+		Invoke ("AutoDestroy",TimeToDisapear);
 
 		
 	}//end RecivedCollision
