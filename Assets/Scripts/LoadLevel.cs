@@ -13,7 +13,8 @@ public class LoadLevel : MonoBehaviour {
 	
 	}
 	void loadlevel(){
-		Application.LoadLevel (LevelToLoad);
+		//Application.LoadLevel (LevelToLoad);
+		Application.LoadLevel ("GeometricDefenseLvl"+PlayerPrefs.GetInt("CurrentLevel".ToString()));
 	}
 	void OnMouseDown(){
 		loadlevel ();

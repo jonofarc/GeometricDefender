@@ -106,6 +106,14 @@ public class GameGUI : MonoBehaviour {
 	public void LoadLevel(string LevelToLoad){
 		Application.LoadLevel (LevelToLoad); 
 	}
+	public void LoadNextLevel(){
+		if (PlayerPrefs.GetInt ("NextLevel") == 1) {
+			Application.LoadLevel ("MainMenu"); 
+		} else {
+			Application.LoadLevel ("GeometricDefenseLvl"+PlayerPrefs.GetInt("NextLevel".ToString())); 
+		}
+
+	}
 	public void getNextWave(string NextWaveCreepName ,Color CreepColor){
 		NextWaveType.GetComponent<Image>().color= CreepColor; 
 		NextWaveType.GetComponentInChildren<Text>().text="Siguiente Oleada: \n"+ NextWaveCreepName; 

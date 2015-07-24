@@ -9,7 +9,8 @@ public class GlobalVariables : MonoBehaviour {
 	public static GameObject CurrentTurret;
 	public static bool DestroyTurret=false;
 	public static int CurrentWave=0;
-	public static bool LevelCleared=false;
+	public static int LastLevel=3;
+	public static bool LevelCleared=false; 
 
 
 	// Use this for initialization
