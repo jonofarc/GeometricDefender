@@ -173,11 +173,11 @@ public class CreepSpawner : MonoBehaviour {
 
 			}
 		}
-		Debug.Log ((CreepType+1)+"::"+BaseCreeps.Length);
+
 		if (GlobalVariables.LevelCleared == false &&CreepType!=BaseCreeps.Length) {
 			//Invoke ("CreateCreep", spawnInterval);
 			SpawnActive=true;
-		} else {
+		} else { 
 
 		}
 		 
