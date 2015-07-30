@@ -124,7 +124,7 @@ public class Lang
 		if (!Strings.ContainsKey(name)) {
 			Debug.LogError("The specified string does not exist: " + name);
 			
-			return "";
+			return " N/T ";
 		}
 		
 		return (string)Strings[name];

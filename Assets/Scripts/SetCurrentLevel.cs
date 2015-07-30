@@ -15,7 +15,7 @@ public class SetCurrentLevel : MonoBehaviour {
 			PlayerPrefs.SetInt ("NextLevel", myLevel + 1); 
 
 		}
-		Debug.Log (PlayerPrefs.GetInt("NextLevel").ToString());
+
 
 	}
 	
