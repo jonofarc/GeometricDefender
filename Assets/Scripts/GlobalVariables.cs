@@ -11,6 +11,7 @@ public class GlobalVariables : MonoBehaviour {
 	public static int CurrentWave=0;
 	public static int LastLevel=3;
 	public static bool LevelCleared=false; 
+	public static string Language="Spanish";
 
 
 	// Use this for initialization
