@@ -5,14 +5,6 @@
 		<string name="Continue">Continue</string>
 		<string name="Language">Language</string>
 		<string name="Exit">Continue</string>
-		<string name="Level">Level</string>
-		<string name="Gold">Gold</string>
-		<string name="Wave">Wave</string>
-		<string name="HP">HP</string>
-		<string name="TurretCost">Turret Cost</string>
-		<string name="DestroyTurret">Select the tower to destroy (only half the money will be returned)</string>
-		<string name="NextWave">Next Wave</string>
-		<string name="Start">Start</string>
 	</English>
 
 	<Spanish>
@@ -20,14 +12,6 @@
 		<string name="Continue">Continuar</string>
 		<string name="Language">Idioma</string>
 		<string name="Exit">Salir</string> 
-		<string name="Level">Nivel</string>
-		<string name="Gold">Oro</string>
-		<string name="Wave">Oleada</string>
-		<string name="HP">Vidas</string>
-		<string name="TurretCost">Costo Torre</string>
-		<string name="DestroyTurret">Selecciona torre a destruir (se regresara la mitad del costo de la torre)</string>
-		<string name="NextWave">Siguiente Oleada</string>
-		<string name="Start">Comenzar</string>
 	</Spanish>
 
 

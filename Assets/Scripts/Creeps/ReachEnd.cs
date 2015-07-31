@@ -1,8 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
-using System.IO;
-
 
 public class ReachEnd : MonoBehaviour {
 
@@ -10,22 +8,10 @@ public class ReachEnd : MonoBehaviour {
 	public int DefaultDamage=1;
 	public int StartMoney=20;
 	public Text HPtext;
-	 
-	private Lang LMan;
-
-
-
-	public void OnEnable()
-	{	
-		
-		
-		LMan = new Lang(Path.Combine(Application.dataPath+"/Resources/I18N", "MainGameTexts.xml"), PlayerPrefs.GetString("Language"), false);
-		LMan.setLanguage(Path.Combine(Application.dataPath+"/Resources/I18N", "MainGameTexts.xml"), PlayerPrefs.GetString("Language"));
-	}
 	// Use this for initialization
 	void Start () {
 		GlobalVariables.HP = HP;
-		HPtext.text = LMan.getString ("HP")+": " + HP.ToString ();
+		HPtext.text = "Vidas: " + HP.ToString ();
 		GlobalVariables.Money = StartMoney;
 	}
 	
@@ -47,7 +33,7 @@ public class ReachEnd : MonoBehaviour {
 
 		//	Debug.Log ("-1 hp");
 		GlobalVariables.HP=GlobalVariables.HP-Damage;
-		HPtext.text = LMan.getString ("HP")+": "+ GlobalVariables.HP.ToString ();
+		HPtext.text = "Vidas: " + GlobalVariables.HP.ToString ();
 		//	Debug.Log ("Remaining health "+HP);
 		if(GlobalVariables.HP<=0){
 			Application.LoadLevel("GameOver");

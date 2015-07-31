@@ -9,7 +9,7 @@ public class ChangeTexts : MonoBehaviour {
 
 	public Text myText;
 	private Lang LMan;
-	private string currentLang = "English";
+	private string currentLang = GlobalVariables.Language;
 
 	// Use this for initialization
 
@@ -39,14 +39,14 @@ public class ChangeTexts : MonoBehaviour {
 
 	}
 	public void EnglishLanguage(){
-
-		currentLang = "English";
+		GlobalVariables.Language = "English";
+		currentLang = GlobalVariables.Language;
 		LMan.setLanguage(Path.Combine(Application.dataPath+"/Resources/I18N", "MainGameTexts.xml"), currentLang);
 		refreshTexts ();
 	}
 	public void SpanishLanguage(){
-
-		currentLang = "Spanish";
+		GlobalVariables.Language = "Spanish";
+		currentLang = GlobalVariables.Language;
 		LMan.setLanguage(Path.Combine(Application.dataPath+"/Resources/I18N", "MainGameTexts.xml"), currentLang);
 		refreshTexts ();
 	}

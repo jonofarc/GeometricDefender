@@ -13,40 +13,33 @@ public class MainMenuTexts : MonoBehaviour {
 	public Text ExitText;
 
 	private Lang LMan;
-
+	private string currentLang = "Spanish";
 	
 	// Use this for initialization
 	
 	
 	
 	public void OnEnable()
-	{	
-	
-
-		LMan = new Lang(Path.Combine(Application.dataPath+"/Resources/I18N", "MainGameTexts.xml"), PlayerPrefs.GetString("Language"), false);
-		LMan.setLanguage(Path.Combine(Application.dataPath+"/Resources/I18N", "MainGameTexts.xml"), PlayerPrefs.GetString("Language"));
+	{
+		LMan = new Lang(Path.Combine(Application.dataPath+"/Resources/I18N", "MainGameTexts.xml"), currentLang, false);
+		LMan.setLanguage(Path.Combine(Application.dataPath+"/Resources/I18N", "MainGameTexts.xml"), currentLang);
 	}
 	void Start () {
-		if (PlayerPrefs.GetString ("Language") == null) {
-			
-			PlayerPrefs.SetString ("Language", "Spanish");
-			Debug.Log(PlayerPrefs.GetString("Language"));
-		}
 		refreshTexts ();
 		
 	}
-	public void EnglishLanguage(){ 
-		PlayerPrefs.SetString("Language","English");
-		LMan.setLanguage(Path.Combine(Application.dataPath+"/Resources/I18N", "MainGameTexts.xml"), PlayerPrefs.GetString("Language"));
+	public void EnglishLanguage(){
+		currentLang = "English";
+		LMan.setLanguage(Path.Combine(Application.dataPath+"/Resources/I18N", "MainGameTexts.xml"), currentLang);
 		refreshTexts ();
 	}
 	public void SpanishLanguage(){
-		PlayerPrefs.SetString("Language","Spanish");
-		LMan.setLanguage(Path.Combine(Application.dataPath+"/Resources/I18N", "MainGameTexts.xml"), PlayerPrefs.GetString("Language"));
+		currentLang = "Spanish";
+		LMan.setLanguage(Path.Combine(Application.dataPath+"/Resources/I18N", "MainGameTexts.xml"), currentLang);
 		refreshTexts ();
 	}
 	public void refreshTexts(){
-	
+		//myText.text = LMan.getString ("NewGame");
 		NewGameText.text= LMan.getString ("NewGame");
 		ContinueText.text= LMan.getString ("Continue");
 		LanguageText.text= LMan.getString ("Language");

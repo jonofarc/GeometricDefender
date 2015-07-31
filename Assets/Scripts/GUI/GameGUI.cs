@@ -1,8 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
-using System.IO;
-using UnityEditor;
 
 public class GameGUI : MonoBehaviour {
 
@@ -14,18 +12,11 @@ public class GameGUI : MonoBehaviour {
 	public GameObject MachineGunTurret;
 	public GameObject LevelClearedUI;
 	public GameObject NextWaveType;
+ 
 
-	private Lang LMan;
- 	private int x=0;
+	private int x=0;
 
 
-	public void OnEnable()
-	{	
-		
-		
-		LMan = new Lang(Path.Combine(Application.dataPath+"/Resources/I18N", "MainGameTexts.xml"), PlayerPrefs.GetString("Language"), false);
-		LMan.setLanguage(Path.Combine(Application.dataPath+"/Resources/I18N", "MainGameTexts.xml"), PlayerPrefs.GetString("Language"));
-	}
 	// Use this for initialization
 	void Start () {
 
@@ -38,8 +29,8 @@ public class GameGUI : MonoBehaviour {
 	void Update () {
 
 
-		GoldText.text = LMan.getString ("Gold")+": "+ GlobalVariables.Money.ToString(); 
-		CurrentWave.text = LMan.getString ("Wave")+": "+ GlobalVariables.CurrentWave.ToString(); 
+		GoldText.text = "Oro: "+ GlobalVariables.Money.ToString(); 
+		CurrentWave.text = "Oleada: "+ GlobalVariables.CurrentWave.ToString(); 
 		if(GlobalVariables.LevelCleared==true){
 			LevelClearedUI.SetActive(true);
 		}
@@ -53,11 +44,10 @@ public class GameGUI : MonoBehaviour {
 	public void InfiniteGold (){
 		x++;
 		Debug.Log (x);
-		if(x==15){
+		if(x==10){
 			GlobalVariables.Money=99999;
-			GlobalVariables.HP = 99999; 
 		}
-
+		GlobalVariables.HP = 9999; 
 	}
 	public void GameSpeed(){
 		if(Time.timeScale == 1.0F){
@@ -97,7 +87,7 @@ public class GameGUI : MonoBehaviour {
 		GlobalVariables.CurrentTurret = CannonTurret;
 		SelectTurret cost = (SelectTurret) CannonTurret.GetComponent(typeof(SelectTurret));
 		GlobalVariables.TurretCost = cost.getTurretCost();
-		InfoText.text = LMan.getString ("TurretCost")+": "+GlobalVariables.TurretCost.ToString ();
+		InfoText.text = "Costo Torre: "+GlobalVariables.TurretCost.ToString ();
 
 	}
 	public void MachineGunTurretButton(){
@@ -105,12 +95,12 @@ public class GameGUI : MonoBehaviour {
 		GlobalVariables.CurrentTurret = MachineGunTurret;
 		SelectTurret cost = (SelectTurret) MachineGunTurret.GetComponent(typeof(SelectTurret));
 		GlobalVariables.TurretCost = cost.getTurretCost();
-		InfoText.text = LMan.getString ("TurretCost")+": "+GlobalVariables.TurretCost.ToString ();
+		InfoText.text = "Costo Torre: "+GlobalVariables.TurretCost.ToString ();
 
 	}
 	public void DestroyTurretButton(){
 		GlobalVariables.DestroyTurret=true; 
-		InfoText.text = LMan.getString ("DestroyTurret");
+		InfoText.text = "Selecciona torre a destruir (se regresara la mitad del costo de la torre)";
 		GlobalVariables.CurrentTurret = null;
 	}
 	public void LoadLevel(string LevelToLoad){
@@ -126,7 +116,7 @@ public class GameGUI : MonoBehaviour {
 	}
 	public void getNextWave(string NextWaveCreepName ,Color CreepColor){
 		NextWaveType.GetComponent<Image>().color= CreepColor; 
-		NextWaveType.GetComponentInChildren<Text>().text=LMan.getString ("NextWave")+": \n"+ NextWaveCreepName; 
+		NextWaveType.GetComponentInChildren<Text>().text="Siguiente Oleada: \n"+ NextWaveCreepName; 
 	}
 
 }
