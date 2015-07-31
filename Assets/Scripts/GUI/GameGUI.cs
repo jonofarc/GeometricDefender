@@ -29,8 +29,8 @@ public class GameGUI : MonoBehaviour {
 	void Update () {
 
 
-		GoldText.text = "Oro: "+ GlobalVariables.Money.ToString(); 
-		CurrentWave.text = "Oleada: "+ GlobalVariables.CurrentWave.ToString(); 
+		GoldText.text = LocalizationText.GetText("Gold")+": "+ GlobalVariables.Money.ToString(); 
+		CurrentWave.text = LocalizationText.GetText("Wave")+": "+ GlobalVariables.CurrentWave.ToString(); 
 		if(GlobalVariables.LevelCleared==true){
 			LevelClearedUI.SetActive(true);
 		}
@@ -45,9 +45,10 @@ public class GameGUI : MonoBehaviour {
 		x++;
 		Debug.Log (x);
 		if(x==10){
-			GlobalVariables.Money=99999;
+			GlobalVariables.Money = 99999;
+			GlobalVariables.HP = 99999; 
 		}
-		GlobalVariables.HP = 9999; 
+
 	}
 	public void GameSpeed(){
 		if(Time.timeScale == 1.0F){
@@ -87,7 +88,7 @@ public class GameGUI : MonoBehaviour {
 		GlobalVariables.CurrentTurret = CannonTurret;
 		SelectTurret cost = (SelectTurret) CannonTurret.GetComponent(typeof(SelectTurret));
 		GlobalVariables.TurretCost = cost.getTurretCost();
-		InfoText.text = "Costo Torre: "+GlobalVariables.TurretCost.ToString ();
+		InfoText.text = LocalizationText.GetText("TurretCost")+": "+GlobalVariables.TurretCost.ToString ();
 
 	}
 	public void MachineGunTurretButton(){
@@ -95,12 +96,12 @@ public class GameGUI : MonoBehaviour {
 		GlobalVariables.CurrentTurret = MachineGunTurret;
 		SelectTurret cost = (SelectTurret) MachineGunTurret.GetComponent(typeof(SelectTurret));
 		GlobalVariables.TurretCost = cost.getTurretCost();
-		InfoText.text = "Costo Torre: "+GlobalVariables.TurretCost.ToString ();
+		InfoText.text = LocalizationText.GetText("TurretCost")+": "+GlobalVariables.TurretCost.ToString ();
 
 	}
 	public void DestroyTurretButton(){
 		GlobalVariables.DestroyTurret=true; 
-		InfoText.text = "Selecciona torre a destruir (se regresara la mitad del costo de la torre)";
+		InfoText.text = LocalizationText.GetText("DestroyTurret");
 		GlobalVariables.CurrentTurret = null;
 	}
 	public void LoadLevel(string LevelToLoad){
@@ -116,7 +117,7 @@ public class GameGUI : MonoBehaviour {
 	}
 	public void getNextWave(string NextWaveCreepName ,Color CreepColor){
 		NextWaveType.GetComponent<Image>().color= CreepColor; 
-		NextWaveType.GetComponentInChildren<Text>().text="Siguiente Oleada: \n"+ NextWaveCreepName; 
+		NextWaveType.GetComponentInChildren<Text>().text=LocalizationText.GetText("NextWave")+":  \n"+ NextWaveCreepName; 
 	}
 
 }

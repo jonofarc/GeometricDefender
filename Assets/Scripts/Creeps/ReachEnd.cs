@@ -11,7 +11,7 @@ public class ReachEnd : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		GlobalVariables.HP = HP;
-		HPtext.text = "Vidas: " + HP.ToString ();
+		HPtext.text = LocalizationText.GetText("HP")+": " + HP.ToString ();
 		GlobalVariables.Money = StartMoney;
 	}
 	
@@ -33,7 +33,7 @@ public class ReachEnd : MonoBehaviour {
 
 		//	Debug.Log ("-1 hp");
 		GlobalVariables.HP=GlobalVariables.HP-Damage;
-		HPtext.text = "Vidas: " + GlobalVariables.HP.ToString ();
+		HPtext.text = LocalizationText.GetText("HP")+": " + GlobalVariables.HP.ToString ();
 		//	Debug.Log ("Remaining health "+HP);
 		if(GlobalVariables.HP<=0){
 			Application.LoadLevel("GameOver");

@@ -15,6 +15,6 @@ public class GetCurrentLevel : MonoBehaviour {
 	
 	}
 	void DelayFunction () {
-		CurrentLevel.text = "Nivel: " + PlayerPrefs.GetInt ("CurrentLevel").ToString(); 
+		CurrentLevel.text = LocalizationText.GetText("Level")+": " + PlayerPrefs.GetInt ("CurrentLevel").ToString(); 
 	}
 }
