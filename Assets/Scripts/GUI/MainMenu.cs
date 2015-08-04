@@ -9,6 +9,7 @@ public class MainMenu : MonoBehaviour {
 
 	public Text NewGameText;
 	public Text ContinueText;
+	public Text InfiniteText;
 	public Text LanguageText;
 	public Text ExitText;
 
@@ -62,6 +63,7 @@ public class MainMenu : MonoBehaviour {
 	public void RefreshTexts(){
 		NewGameText.text=LocalizationText.GetText("NewGame");
 		ContinueText.text=LocalizationText.GetText("Continue");
+		InfiniteText.text=LocalizationText.GetText("Infinite");
 		LanguageText.text=LocalizationText.GetText("Language");
 		ExitText.text=LocalizationText.GetText("Exit");
 	}

@@ -3,6 +3,7 @@ using System.Collections;
 
 public class TargetCreep : MonoBehaviour {
 	public GameObject[] Creeps; 
+	public bool AimAtCreep=true;
 	public GameObject ClosestCreep; 
 	public string targetTag="CreepG";
 	public float turretRange=3;
@@ -35,13 +36,19 @@ public class TargetCreep : MonoBehaviour {
 			//aim at the center of the target
 			targetDir.y=target.position.y+(target.localScale.y/2);
 			float step = speed * Time.deltaTime;
-			Vector3 newDir = Vector3.RotateTowards(transform.forward, targetDir, step, 0.0F);
-			Debug.DrawRay(transform.position, newDir, Color.red);
-			transform.rotation = Quaternion.LookRotation(newDir); 
+
+
+			if(AimAtCreep){
+				Vector3 newDir = Vector3.RotateTowards(transform.forward, targetDir, step, 0.0F);
+				Debug.DrawRay(transform.position, newDir, Color.red);
+				transform.rotation = Quaternion.LookRotation(newDir);  
+			}
+
 
 			if(myTimeTillNextShoot<Time.time){
 				myTimeTillNextShoot=Time.time+ShootingSpeed;
-				Invoke("FireBullet",ShootingSpeed);
+				Invoke("FireBullet",0.1f);
+				//FireBullet();
 			}
 
 

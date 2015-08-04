@@ -10,6 +10,7 @@ public class GameGUI : MonoBehaviour {
 	public Text CurrentWave;
 	public GameObject CannonTurret;
 	public GameObject MachineGunTurret;
+	public GameObject AreaTurret;
 	public GameObject LevelClearedUI;
 	public GameObject NextWaveType;
  
@@ -99,6 +100,15 @@ public class GameGUI : MonoBehaviour {
 		InfoText.text = LocalizationText.GetText("TurretCost")+": "+GlobalVariables.TurretCost.ToString ();
 
 	}
+	public void AreaTurretButton(){
+		
+		GlobalVariables.DestroyTurret=false;
+		GlobalVariables.CurrentTurret = AreaTurret;
+		SelectTurret cost = (SelectTurret) CannonTurret.GetComponent(typeof(SelectTurret));
+		GlobalVariables.TurretCost = cost.getTurretCost();
+		InfoText.text = LocalizationText.GetText("TurretCost")+": "+GlobalVariables.TurretCost.ToString ();
+		
+	}
 	public void DestroyTurretButton(){
 		GlobalVariables.DestroyTurret=true; 
 		InfoText.text = LocalizationText.GetText("DestroyTurret");
@@ -118,6 +128,10 @@ public class GameGUI : MonoBehaviour {
 	public void getNextWave(string NextWaveCreepName ,Color CreepColor){
 		NextWaveType.GetComponent<Image>().color= CreepColor; 
 		NextWaveType.GetComponentInChildren<Text>().text=LocalizationText.GetText("NextWave")+":  \n"+ NextWaveCreepName; 
+	}
+	public void CombinedWaves(){ 
+		NextWaveType.GetComponent<Image>().color= Color.black; 
+		NextWaveType.GetComponentInChildren<Text>().text=LocalizationText.GetText("CombinedWaves"); 
 	}
 
 }

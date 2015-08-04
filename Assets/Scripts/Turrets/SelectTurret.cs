@@ -44,6 +44,7 @@ public class SelectTurret : MonoBehaviour {
 		Destroy (this.gameObject);
 	}
 	public int getTurretCost(){
+		Debug.Log (this.gameObject.name);
 		return TurretCost;
 	}
 	public void DisableAura(){
