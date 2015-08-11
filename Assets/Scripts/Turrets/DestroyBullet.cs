@@ -3,6 +3,7 @@ using System.Collections;
 
 public class DestroyBullet : MonoBehaviour {
 	public float BulletDamage=10;
+	public float BulletDamageIncrease=1; 
 	public bool ContinousDamage=false;
 	public bool DamageDone=false;
 	public float BulletSpeed = 20f;
@@ -74,5 +75,11 @@ public class DestroyBullet : MonoBehaviour {
 	void AutoDestroy(){
 		Debug.Log ("destroying bullet");
 		Destroy(this.gameObject);
+	}
+	void CancelAutoDestroy(){
+		CancelInvoke ("AutoDestroy");
+	}
+	void ChangeDamage(){
+		BulletDamage *= BulletDamageIncrease;
 	}
 }

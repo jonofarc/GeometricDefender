@@ -6826,9 +6826,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BulletDamage: 7
+  ContinousDamage: 0
   DamageDone: 0
   BulletSpeed: 20
   TimeToDisapear: 2
+  TargetsHit: 0
 --- !u!54 &739947538
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -9615,6 +9617,7 @@ MonoBehaviour:
   CurrentWave: {fileID: 938953714}
   CannonTurret: {fileID: 235477010}
   MachineGunTurret: {fileID: 913693454}
+  AreaTurret: {fileID: 0}
   LevelClearedUI: {fileID: 489624809}
   NextWaveType: {fileID: 591701737}
 --- !u!1 &991533264
@@ -11325,6 +11328,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Creeps: []
+  AimAtCreep: 1
   ClosestCreep: {fileID: 0}
   targetTag: CreepG
   turretRange: 7
@@ -12383,7 +12387,7 @@ Transform:
   m_PrefabParentObject: {fileID: 454696, guid: 54eb5844754051b40a918a84c33b7c1a, type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1239785997}
-  m_LocalRotation: {x: .532675147, y: .0703404471, z: .836132646, w: -.110415131}
+  m_LocalRotation: {x: .532675207, y: .0703404546, z: .836132765, w: -.110415146}
   m_LocalPosition: {x: 2.22714643e-05, y: -6.1504652e-05, z: .0260270257}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -16412,6 +16416,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Creeps: []
+  AimAtCreep: 1
   ClosestCreep: {fileID: 0}
   targetTag: CreepG
   turretRange: 6
@@ -16608,9 +16613,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BulletDamage: 12
+  ContinousDamage: 0
   DamageDone: 0
   BulletSpeed: 20
   TimeToDisapear: 1.5
+  TargetsHit: 0
 --- !u!54 &1738204607
 Rigidbody:
   m_ObjectHideFlags: 0

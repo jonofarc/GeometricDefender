@@ -77,7 +77,13 @@ public class TargetCreep : MonoBehaviour {
 
 	
 	}
-
+	void ChangeBulletDamage(){
+		Debug.Log ("entrando ChangeBulletDamage");
+		projectile.SetActive (true);
+		projectile.SendMessage ("CancelAutoDestroy");
+		projectile.SendMessage ("ChangeDamage");
+		projectile.SetActive (false);
+	}
 
 
 

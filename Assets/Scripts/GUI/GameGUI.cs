@@ -133,5 +133,11 @@ public class GameGUI : MonoBehaviour {
 		NextWaveType.GetComponent<Image>().color= Color.black; 
 		NextWaveType.GetComponentInChildren<Text>().text=LocalizationText.GetText("CombinedWaves"); 
 	}
+	public void UpgradeCurrentTurret(){ 
+		if(CurrentTurret.myCurrentTurret != null){
+			CurrentTurret.myCurrentTurret.SendMessage ("UpgradeTurret");
+		}
 
+	}
+	
 }
