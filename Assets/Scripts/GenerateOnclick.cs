@@ -39,6 +39,8 @@ public class GenerateOnclick : MonoBehaviour {
 			CurrentTurret.TurretNumber++;
 			
 			PathCheker.SendMessage ("SetLatestTurret", this.gameObject);
+
+			this.gameObject.GetComponent<Collider>().enabled=false;
 		} else {
 			Debug.Log("no price set for turret or selected turret not valid");
 		}
@@ -52,6 +54,7 @@ public class GenerateOnclick : MonoBehaviour {
 		Debug.Log ("Destruyendo");
 		if(clone != null){
 			Destroy (clone);
+
 		}
 
 	}

@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class SelectTurret : MonoBehaviour {
 	public int TurretCost=20;
@@ -26,7 +27,12 @@ public class SelectTurret : MonoBehaviour {
 	
 	}
 	void OnMouseDown(){
+
 		if(CurrentTurret.myCurrentTurret != this.gameObject){
+
+			refreshText();
+
+
 
 			if(GlobalVariables.DestroyTurret==false){
 				GlobalVariables.CurrentTurretLevel=TurretLevel;
@@ -62,7 +68,7 @@ public class SelectTurret : MonoBehaviour {
 		Destroy (this.gameObject);
 	}
 	public int getTurretCost(){
-		Debug.Log (this.gameObject.name);
+	
 		return TurretCost;
 	}
 	public void DisableAura(){
@@ -83,7 +89,24 @@ public class SelectTurret : MonoBehaviour {
 				OriginalMaterial=MaxLevelMaterial;
 				//Base.GetComponent<Renderer> ().material = OriginalMaterial;
 			}
+			UpgradeCost =(int)(UpgradeCost * 2.5f);
+			refreshText();
 		}
+	}
+
+	public void refreshText(){
+
+		GameObject info=GameObject.FindWithTag("Info");
+
+		DestroyBullet[] Bullets=this.gameObject.GetComponentsInChildren<DestroyBullet>(true);
+		if (TurretLevel >= MaxLevel) {
+			info.GetComponent<Text>().text=LocalizationText.GetText("MaximiunLevel")+"\n"+LocalizationText.GetText("Damage")+" : "+Bullets[0].BulletDamage.ToString();
+		} else {
+			info.GetComponent<Text>().text=LocalizationText.GetText("UpgradeCost")+": "+UpgradeCost+"\n "+LocalizationText.GetText("DamageIncrease")+": "+(Bullets[0].BulletDamage*Bullets[0].BulletDamageIncrease).ToString();
+		}
+		//GameObject.Find ("Upgrade").transform.GetChild (0).SendMessage ("GetTurretLevel");
+		//thisText.text = CurrentTurret.myCurrentTurret.GetComponent<SelectTurret> ().TurretLevel.ToString();
+
 	}
 }
  

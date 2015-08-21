@@ -54,8 +54,11 @@ public class CheckPath : MonoBehaviour {
 			elapsed2 += Time.deltaTime;
 			if (elapsed2 > PathCheckInterval) {
 				elapsed2 = 0;
+				Debug.Log(LatestTurret[0].transform.gameObject.name);
+				LatestTurret[0].transform.gameObject.GetComponent<Collider>().enabled=true;
 				Destroy(LatestTurret[0].transform.GetChild(0).gameObject);
 				DecreaseLatestTurret();
+
 				
 			}
 

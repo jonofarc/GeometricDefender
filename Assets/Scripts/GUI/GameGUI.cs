@@ -104,7 +104,7 @@ public class GameGUI : MonoBehaviour {
 		
 		GlobalVariables.DestroyTurret=false;
 		GlobalVariables.CurrentTurret = AreaTurret;
-		SelectTurret cost = (SelectTurret) CannonTurret.GetComponent(typeof(SelectTurret));
+		SelectTurret cost = (SelectTurret) AreaTurret.GetComponent(typeof(SelectTurret));
 		GlobalVariables.TurretCost = cost.getTurretCost();
 		InfoText.text = LocalizationText.GetText("TurretCost")+": "+GlobalVariables.TurretCost.ToString ();
 		
@@ -136,6 +136,7 @@ public class GameGUI : MonoBehaviour {
 	public void UpgradeCurrentTurret(){ 
 		if(CurrentTurret.myCurrentTurret != null){
 			CurrentTurret.myCurrentTurret.SendMessage ("UpgradeTurret");
+//			Debug.Log("el nuevo nivel de la torre es!!!!! : "+CurrentTurret.myCurrentTurret.GetComponent<SelectTurret>().TurretLevel);
 		}
 
 	}

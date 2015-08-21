@@ -36,7 +36,10 @@ public class ReachEnd : MonoBehaviour {
 		HPtext.text = LocalizationText.GetText("HP")+": " + GlobalVariables.HP.ToString ();
 		//	Debug.Log ("Remaining health "+HP);
 		if(GlobalVariables.HP<=0){
-			Application.LoadLevel("GameOver");
+			Invoke("GameOver",1);
 		}
+	}
+	public void GameOver (){
+		Application.LoadLevel("GameOver");
 	}
 }

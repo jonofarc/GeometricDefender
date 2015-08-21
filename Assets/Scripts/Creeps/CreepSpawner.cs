@@ -9,8 +9,8 @@ public class CreepSpawner : MonoBehaviour {
 	public bool CombinedWaves = false;
 	public bool WaveLoop = false;
 	public GameObject[] BaseCreeps;
-	public List<int> CreepBossWaves;
 	public List<GameObject> CurrentCreeps;
+	public GameObject[] BossCreeps;
 
 	private GameObject CreepClone;
 	//public float StartSpawnTime=3;
@@ -82,6 +82,9 @@ public class CreepSpawner : MonoBehaviour {
 	}
 	public void CreateCreep(){
 
+		if(GlobalVariables.HP<=0){
+			saveHighScores();
+		}
 
 
 		if(BaseCreeps.Length>1 && CombinedWaves){
@@ -109,10 +112,24 @@ public class CreepSpawner : MonoBehaviour {
 
 		// we check to see if this wave is a boss wave
 
-		if(CreepBossWaves.Contains(CurrentWave-1)){
-			Debug.Log("this is a boss creep");
-			CreepsSpawnedThisWave=WaveCreeps;
-		}
+	
+
+		if(BossCreeps.Length>=0){
+			Debug.Log (BossCreeps.Length);
+			for(int i=0; i<BossCreeps.Length; i++){
+				Debug.Log(BaseCreeps[CreepType].gameObject.name+"   :   "+BossCreeps[i].gameObject.name);
+				if(BaseCreeps[CreepType].gameObject.name==BossCreeps[i].gameObject.name){
+					Debug.Log("this is a boss creep");
+					CreepsSpawnedThisWave=WaveCreeps;
+				}//end if 
+
+			}//end for
+
+
+		}// end if
+		//if(BaseCreeps[CreepType]==){
+
+		//}
 
 		if(CreepsSpawnedThisWave==WaveCreeps && (CurrentWave<=BaseCreeps.Length|| WaveLoop)){
 			SpawnActive=false;
@@ -241,11 +258,44 @@ public class CreepSpawner : MonoBehaviour {
 	public void callLevelCleared(){
 		//check if final wave is destroyed
 		SpawnActive=false;
-		if (this.transform.childCount <= 2) {
+	
+		if (this.transform.childCount <= (CurrentCreeps.Count())+1) {// +1 added to count the creepPathCheker
+
+
+
 			GlobalVariables.LevelCleared = true;
+			saveHighScores();
 		} else {
 			Invoke("callLevelCleared",2);
 		}
+
+
+	}
+
+	public void saveHighScores(){
+
+
+		Debug.Log ("gravando highscores");
+		if(PlayerPrefs.GetInt(Application.loadedLevelName+"Wave") != null){
+			if(PlayerPrefs.GetInt(Application.loadedLevelName+"Wave")<=(CurrentWave-1)){
+				PlayerPrefs.SetInt(Application.loadedLevelName+"Wave",(CurrentWave-1));
+				Debug.Log("new wave score:"+PlayerPrefs.GetInt(Application.loadedLevelName+"Wave"));
+				if(PlayerPrefs.GetInt(Application.loadedLevelName+"HP")<=GlobalVariables.HP){
+					PlayerPrefs.SetInt(Application.loadedLevelName+"HP",GlobalVariables.HP);
+
+					Debug.Log("new hp score:"+PlayerPrefs.GetInt(Application.loadedLevelName+"HP"));
+				}
+				
+				
+			} 
+			
+		}
+		else{
+			PlayerPrefs.SetInt(Application.loadedLevelName+"Wave",0);
+			PlayerPrefs.SetInt(Application.loadedLevelName+"HP",0);
+		}
+
+
 
 
 	}

@@ -3,8 +3,13 @@ using System.Collections;
 
 public class CreepLife : MonoBehaviour {
 	public float CreepHP=20;
+	public float CreepShield=0;
+	public int LootAmount=1;
+	public bool EffectBeforeDiying=false;
+	public bool LootOnEfect=false;
+	public float HPLeftTrigger=0;
 	private float maxHP;
-	public int LootAmount=2;
+
 
 	public GameObject HPBar;
 	public Material HP66;
@@ -22,8 +27,10 @@ public class CreepLife : MonoBehaviour {
 	
 	}
 	void takeDamage(float Damage){
+		if(Damage>CreepShield){
+			CreepHP -= Damage;
+		}
 
-		CreepHP -= Damage;
 
 		if(CreepHP>(maxHP*0.66)){
 			HPBar.GetComponent<Renderer>().material=HP66;
@@ -35,22 +42,38 @@ public class CreepLife : MonoBehaviour {
 			HPBar.GetComponent<Renderer>().material=HP0;
 			
 		}
+		if((CreepHP / maxHP)>=0 && (CreepHP / maxHP)<=1){
 
-		HPBar.transform.localScale = new Vector3( CreepHP / maxHP,
-		                                         HPBar.transform.localScale.y, 
-		                                         HPBar.transform.localScale.z);
 
-		HPBar.transform.localPosition = new Vector3 (0.5f-(HPBar.transform.localScale.x/2),
-		                                             HPBar.transform.localPosition.y, 
-		                                             HPBar.transform.localPosition.z);
+			HPBar.transform.localScale = new Vector3( CreepHP / maxHP,
+			                                         HPBar.transform.localScale.y, 
+			                                         HPBar.transform.localScale.z);
+			
+			HPBar.transform.localPosition = new Vector3 (0.5f-(HPBar.transform.localScale.x/2),
+			                                             HPBar.transform.localPosition.y, 
+			                                             HPBar.transform.localPosition.z);
+
+		}
+
+
+
 
 		if(CreepHP<=0){
-			 
+
 			GlobalVariables.Money=GlobalVariables.Money+LootAmount;
 			Destroy(this.gameObject); 
 
 
 		}
+
+		Debug.Log (maxHP *(HPLeftTrigger/100));
+		if(EffectBeforeDiying && CreepHP<=(maxHP *HPLeftTrigger)){
+			if(LootOnEfect){
+				GlobalVariables.Money=GlobalVariables.Money+LootAmount;
+			}
+			this.SendMessage("CreepEfect");
+		}
+
 
 	}
 	void IncreaseLife(float increment){
@@ -60,7 +83,7 @@ public class CreepLife : MonoBehaviour {
 	void OnTriggerEnter(Collider other) {
 
 		if(other.gameObject.tag=="Bullet"){
-			Debug.Log (other.gameObject.name);
+
 			other.SendMessage ("RecivedCollision",this.gameObject);
 		}
 

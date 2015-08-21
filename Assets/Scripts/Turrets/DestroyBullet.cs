@@ -80,6 +80,6 @@ public class DestroyBullet : MonoBehaviour {
 		CancelInvoke ("AutoDestroy");
 	}
 	void ChangeDamage(){
-		BulletDamage *= BulletDamageIncrease;
+		BulletDamage = BulletDamage* BulletDamageIncrease;
 	}
 }

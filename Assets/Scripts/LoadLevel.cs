@@ -14,8 +14,14 @@ public class LoadLevel : MonoBehaviour {
 	}
 	void loadlevel(){
 		//Application.LoadLevel (LevelToLoad);
-		Application.LoadLevel ("GeometricDefenseLvl"+PlayerPrefs.GetInt("CurrentLevel".ToString()));
+		if (PlayerPrefs.GetInt ("CurrentLevel") == -1) {
+			Application.LoadLevel ("InfiniteLevel");
+		} else {
+			Application.LoadLevel ("GeometricDefenseLvl" + PlayerPrefs.GetInt ("CurrentLevel".ToString ()));
+		
+		}
 	}
+
 	void OnMouseDown(){
 		loadlevel ();
 	}
