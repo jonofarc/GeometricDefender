@@ -19,7 +19,7 @@ public class MultiCreep : MonoBehaviour {
 
 		if(miniCreeps!=null){
 
-			Debug.Log(miniCreeps.transform.childCount);
+			//Debug.Log(miniCreeps.transform.childCount);
 
 			currentMiniCreep=miniCreeps.transform.childCount-1;
 			for(int i=miniCreeps.transform.childCount-1; i>=0; i--){
@@ -33,9 +33,11 @@ public class MultiCreep : MonoBehaviour {
 
 	}
 	void moveMiniCreeps () {
-		Debug.Log (currentMiniCreep);
+		//Debug.Log (currentMiniCreep);
 		if(currentMiniCreep>=0){
 			miniCreeps.transform.GetChild (currentMiniCreep).gameObject.SetActive (true);
+			miniCreeps.transform.GetChild (currentMiniCreep).gameObject.GetComponent<CreepLife>().CreepHP=(this.gameObject.GetComponent<CreepLife>().maxHP/10);
+
 			miniCreeps.transform.GetChild(currentMiniCreep).transform.parent=this.transform.parent;
 			currentMiniCreep--;
 			if(currentMiniCreep<=0){

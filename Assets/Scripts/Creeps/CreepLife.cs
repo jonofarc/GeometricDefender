@@ -8,7 +8,7 @@ public class CreepLife : MonoBehaviour {
 	public bool EffectBeforeDiying=false;
 	public bool LootOnEfect=false;
 	public float HPLeftTrigger=0;
-	private float maxHP;
+	public float maxHP;
 
 
 	public GameObject HPBar;
@@ -66,7 +66,7 @@ public class CreepLife : MonoBehaviour {
 
 		}
 
-		Debug.Log (maxHP *(HPLeftTrigger/100));
+//		Debug.Log (maxHP *(HPLeftTrigger/100));
 		if(EffectBeforeDiying && CreepHP<=(maxHP *HPLeftTrigger)){
 			if(LootOnEfect){
 				GlobalVariables.Money=GlobalVariables.Money+LootAmount;

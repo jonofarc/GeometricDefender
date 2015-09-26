@@ -73,7 +73,7 @@ public class DestroyBullet : MonoBehaviour {
 	}//end RecivedCollision
 
 	void AutoDestroy(){
-		Debug.Log ("destroying bullet");
+//		Debug.Log ("destroying bullet");
 		Destroy(this.gameObject);
 	}
 	void CancelAutoDestroy(){

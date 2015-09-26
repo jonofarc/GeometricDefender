@@ -115,11 +115,11 @@ public class CreepSpawner : MonoBehaviour {
 	
 
 		if(BossCreeps.Length>=0){
-			Debug.Log (BossCreeps.Length);
+//			Debug.Log (BossCreeps.Length);
 			for(int i=0; i<BossCreeps.Length; i++){
-				Debug.Log(BaseCreeps[CreepType].gameObject.name+"   :   "+BossCreeps[i].gameObject.name);
+//				Debug.Log(BaseCreeps[CreepType].gameObject.name+"   :   "+BossCreeps[i].gameObject.name);
 				if(BaseCreeps[CreepType].gameObject.name==BossCreeps[i].gameObject.name){
-					Debug.Log("this is a boss creep");
+					//Debug.Log("this is a boss creep");
 					CreepsSpawnedThisWave=WaveCreeps;
 				}//end if 
 
