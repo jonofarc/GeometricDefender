@@ -7,6 +7,7 @@ public class LimitedInvincibility : MonoBehaviour {
 	public Material ShieldMaterial;
 	private Material OriginalMaterial;
 	private float OriginalShield=0;
+	public bool ShieldUsed=false;
 	// Use this for initialization
 	void Start () {
 		OriginalMaterial = this.gameObject.GetComponent<Renderer>().material;
@@ -18,9 +19,12 @@ public class LimitedInvincibility : MonoBehaviour {
 	
 	}
 	public void CreepEfect(){
-		
-		SetShield ();
-		Invoke ("DestroyShield",InvincibilityTime);
+
+		if(ShieldUsed==false){
+			SetShield ();
+			Invoke ("DestroyShield",InvincibilityTime);
+		}
+
 		
 	}
 	public void SetShield(){

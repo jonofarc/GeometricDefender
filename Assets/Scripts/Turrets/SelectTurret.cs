@@ -38,7 +38,7 @@ public class SelectTurret : MonoBehaviour {
 				GlobalVariables.CurrentTurretLevel=TurretLevel;
 				CurrentTurret.myCurrentTurret = this.gameObject;
 				DisableAura();
-				Base.GetComponent<Renderer> ().material = SelectMaterial;
+				UpdateMaterial (true);
 				RangeAura.GetComponent<Renderer>().enabled=true;
 				Invoke ("DisableAura",SelectedTime);
 			}else{
@@ -85,10 +85,7 @@ public class SelectTurret : MonoBehaviour {
 			GlobalVariables.Money=GlobalVariables.Money-GlobalVariables.UpgradeCost;
 			Base.SendMessage("ChangeBulletDamage");
 			TurretLevel++;
-			if(TurretLevel>=MaxLevel){
-				OriginalMaterial=MaxLevelMaterial;
-				//Base.GetComponent<Renderer> ().material = OriginalMaterial;
-			}
+			UpdateMaterial (false);
 			UpgradeCost =(int)(UpgradeCost * 2.5f);
 			refreshText();
 		}
@@ -106,6 +103,18 @@ public class SelectTurret : MonoBehaviour {
 		}
 		//GameObject.Find ("Upgrade").transform.GetChild (0).SendMessage ("GetTurretLevel");
 		//thisText.text = CurrentTurret.myCurrentTurret.GetComponent<SelectTurret> ().TurretLevel.ToString();
+
+	}
+	public void UpdateMaterial(bool TurretSelected){
+		Debug.Log (TurretLevel);
+		if(TurretLevel>=MaxLevel){
+			OriginalMaterial=MaxLevelMaterial;
+			Base.GetComponent<Renderer> ().material = OriginalMaterial;
+			//Base.GetComponent<Renderer> ().material = OriginalMaterial;
+		}
+		if(TurretSelected){
+			Base.GetComponent<Renderer> ().material = SelectMaterial;
+		}
 
 	}
 }

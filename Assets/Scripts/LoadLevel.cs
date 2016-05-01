@@ -3,8 +3,14 @@ using System.Collections;
 
 public class LoadLevel : MonoBehaviour {
 	public string LevelToLoad="";
+	public bool Autostart=false;
+	public float time=2f;
+
 	// Use this for initialization
 	void Start () {
+		if(Autostart){
+			Invoke ("AutoLoadLevel",time);
+		}
 
 	}
 	
@@ -24,5 +30,10 @@ public class LoadLevel : MonoBehaviour {
 
 	void OnMouseDown(){
 		loadlevel ();
+	}
+	void AutoLoadLevel(){
+	
+		Application.LoadLevel ("MainMenu");
+	
 	}
 }

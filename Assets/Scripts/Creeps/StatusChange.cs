@@ -17,7 +17,8 @@ public class StatusChange : MonoBehaviour {
 	public void Freeze(float SlowAmount){
 
 		Debug.Log ("slowAmount: "+ SlowAmount);
-		this.gameObject.GetComponent<NavMeshAgent> ().speed = this.gameObject.GetComponent<NavMeshAgent> ().speed * SlowAmount ;
+		this.gameObject.GetComponent<NavMeshAgent> ().speed = NormalSpeed* SlowAmount ;
+		Debug.Log ("normal speed:"+NormalSpeed+ "  CurrentSpeed="+this.gameObject.GetComponent<NavMeshAgent> ().speed);
 
 
 	}

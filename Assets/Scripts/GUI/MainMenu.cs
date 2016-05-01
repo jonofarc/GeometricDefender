@@ -20,7 +20,7 @@ public class MainMenu : MonoBehaviour {
 	
 
 		// show continue button only if current level is more than the second one
-		if (PlayerPrefs.GetInt ("CurrentLevel") > 1) {
+		if (PlayerPrefs.GetInt ("CurrentLevel") > 0) {
 			ContinueButton.SetActive (true);
 		} else {
 			ContinueButton.SetActive (false);

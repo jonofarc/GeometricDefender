@@ -29,13 +29,24 @@ public class GameGUI : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
+		if (Input.GetKeyDown (KeyCode.Alpha1)) {
+			NormalSpeed ();
+		}
+		if (Input.GetKeyDown (KeyCode.Alpha2)) {
+			FastFoward ();
+		}
+		if (Input.GetKeyDown (KeyCode.Alpha3)) {
+			SuperFastFoward ();
+		}
+			
 
 		GoldText.text = LocalizationText.GetText("Gold")+": "+ GlobalVariables.Money.ToString(); 
 		CurrentWave.text = LocalizationText.GetText("Wave")+": "+ GlobalVariables.CurrentWave.ToString(); 
+
 		if(GlobalVariables.LevelCleared==true){
 			LevelClearedUI.SetActive(true);
 		}
-	}
+	} 
 	void OnGUI()
 	{
 
@@ -71,7 +82,18 @@ public class GameGUI : MonoBehaviour {
 	}
 	public void SuperFastFoward(){
 		
-		Time.timeScale = 10.0F;  
+
+		#if UNITY_ANDROID
+			Time.timeScale = 3.0F; 
+		#else
+			Time.timeScale = 3.0F;
+		#endif
+
+		#if UNITY_EDITOR 
+		Time.timeScale = 10.0F;
+		#endif
+
+		 
 		
 	}
 	public void NormalSpeed(){
@@ -118,27 +140,43 @@ public class GameGUI : MonoBehaviour {
 		Application.LoadLevel (LevelToLoad); 
 	}
 	public void LoadNextLevel(){
-		if (PlayerPrefs.GetInt ("NextLevel") == 1) {
+		
+		if (PlayerPrefs.GetInt ("NextLevel") == GlobalVariables.LastLevel+1) {
 			Application.LoadLevel ("MainMenu"); 
 		} else {
 			Application.LoadLevel ("GeometricDefenseLvl"+PlayerPrefs.GetInt("NextLevel".ToString())); 
 		}
 
 	}
-	public void getNextWave(string NextWaveCreepName ,Color CreepColor){
-		NextWaveType.GetComponent<Image>().color= CreepColor; 
-		NextWaveType.GetComponentInChildren<Text>().text=LocalizationText.GetText("NextWave")+":  \n"+ NextWaveCreepName; 
+	public void getNextWave(string NextWaveCreepName ,Color CreepColor){ 
+		
+		if(NextWaveCreepName==" " || NextWaveCreepName==null){
+			
+			NextWaveType.GetComponent<Image>().color= Color.black; 
+			NextWaveType.GetComponentInChildren<Text>().text=LocalizationText.GetText("LastWave"); 
+		}else{
+			NextWaveType.GetComponent<Image>().color= CreepColor; 
+			Debug.Log (NextWaveCreepName);
+			NextWaveType.GetComponentInChildren<Text>().text=LocalizationText.GetText("NextWave")+": "+ NextWaveCreepName; 
+		}
+
 	}
 	public void CombinedWaves(){ 
 		NextWaveType.GetComponent<Image>().color= Color.black; 
-		NextWaveType.GetComponentInChildren<Text>().text=LocalizationText.GetText("CombinedWaves"); 
+		NextWaveType.GetComponentInChildren<Text>().text=LocalizationText.GetText("CombinedWaves");  
 	}
 	public void UpgradeCurrentTurret(){ 
 		if(CurrentTurret.myCurrentTurret != null){
-			CurrentTurret.myCurrentTurret.SendMessage ("UpgradeTurret");
+			SelectTurret myTurret = CurrentTurret.myCurrentTurret.GetComponent<SelectTurret> ();
+			myTurret.UpgradeTurret ();
+			myTurret.UpdateMaterial (false);
+			//CurrentTurret.myCurrentTurret.SendMessage ("UpgradeTurret");
 //			Debug.Log("el nuevo nivel de la torre es!!!!! : "+CurrentTurret.myCurrentTurret.GetComponent<SelectTurret>().TurretLevel);
 		}
 
+	}
+	public void DestroyElement(GameObject myObject){
+		Destroy (myObject);
 	}
 	
 }

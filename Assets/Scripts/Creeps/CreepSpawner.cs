@@ -228,6 +228,7 @@ public class CreepSpawner : MonoBehaviour {
 
 			
 			GameGUIScript.getNextWave(BaseCreeps[CreepTypeColor].gameObject.name,myCreepColor); 
+			Debug.Log (BaseCreeps[CreepTypeColor].gameObject.name);
 		}
 
 	}
@@ -256,14 +257,18 @@ public class CreepSpawner : MonoBehaviour {
 
 	}
 	public void callLevelCleared(){
+		Debug.Log ("Level Cleared");
 		//check if final wave is destroyed
-		SpawnActive=false;
-	
-		if (this.transform.childCount <= (CurrentCreeps.Count())+1) {// +1 added to count the creepPathCheker
+		SpawnActive=false; 
+		GameObject[] AliveCreeps;
+		AliveCreeps = GameObject.FindGameObjectsWithTag ("CreepG");
+		Debug.Log (AliveCreeps.Length);
+		if (AliveCreeps.Length<=0) {// +1 added to count the creepPathCheker
 
 
 
 			GlobalVariables.LevelCleared = true;
+			Debug.Log ("level is clear?  "+GlobalVariables.LevelCleared);
 			saveHighScores();
 		} else {
 			Invoke("callLevelCleared",2);
