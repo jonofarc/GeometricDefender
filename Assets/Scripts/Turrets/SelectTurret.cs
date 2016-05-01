@@ -43,6 +43,7 @@ public class SelectTurret : MonoBehaviour {
 				Invoke ("DisableAura",SelectedTime);
 			}else{
 				DestroyTurret();
+				this.transform.parent.gameObject.GetComponent<BoxCollider> ().enabled = true;
 			}
 
 
