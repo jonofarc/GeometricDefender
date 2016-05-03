@@ -35,7 +35,7 @@ public class StatusEffect : MonoBehaviour {
 
 				statusProperties = BulletStatusEffect[i].Split(',').ToList();
 
-				Creep.SendMessage(statusProperties[0], float.Parse(statusProperties[1]));
+				Creep.SendMessage(statusProperties[0], float.Parse(statusProperties[1]),SendMessageOptions.DontRequireReceiver);
 			}
 			statusSent=true;
 

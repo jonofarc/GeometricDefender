@@ -16,6 +16,8 @@ TagManager:
   - LevelClearedUI
   - Canvas
   - Info
+  - HP_Text
+  - CreepSpawner
   layers:
   - Default
   - TransparentFX

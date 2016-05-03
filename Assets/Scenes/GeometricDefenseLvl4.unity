@@ -4274,7 +4274,7 @@ GameObject:
   - 114: {fileID: 654191479}
   m_Layer: 0
   m_Name: CreepSpawner
-  m_TagString: Untagged
+  m_TagString: CreepSpawner
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4371,7 +4371,7 @@ MonoBehaviour:
   CreepsSpawnedThisWave: 0
   CurrentWave: 1
   NextWaveTime: 10
-  waveHpPercentageIncrement: 1.1
+  waveHpPercentageIncrement: 1.09
   waveCreepsIncrement: 1
   CreepColors: {fileID: 4900000, guid: 71b524fc13a9943458c3ee0240d88390, type: 3}
 --- !u!1 &686528114
@@ -12085,12 +12085,6 @@ Prefab:
     - {fileID: 11460508, guid: 936f2fa6e2e0ddd4cbde6188f0b18d8b, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 936f2fa6e2e0ddd4cbde6188f0b18d8b, type: 2}
   m_IsPrefabParent: 0
---- !u!114 &1785066477 stripped
-MonoBehaviour:
-  m_PrefabParentObject: {fileID: 11415308, guid: 936f2fa6e2e0ddd4cbde6188f0b18d8b,
-    type: 2}
-  m_PrefabInternal: {fileID: 1785066476}
-  m_Script: {fileID: 708705254, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
 --- !u!1001 &1796213330
 Prefab:
   m_ObjectHideFlags: 0
@@ -13587,7 +13581,6 @@ MonoBehaviour:
   HP: 20
   DefaultDamage: 1
   StartMoney: 80
-  HPtext: {fileID: 1785066477}
 --- !u!65 &2008352470
 BoxCollider:
   m_ObjectHideFlags: 0

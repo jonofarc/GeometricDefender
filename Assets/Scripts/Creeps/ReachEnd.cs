@@ -7,10 +7,12 @@ public class ReachEnd : MonoBehaviour {
 	public int HP=20;
 	public int DefaultDamage=1;
 	public int StartMoney=20;
-	public Text HPtext;
+	private Text HPtext;
 	// Use this for initialization
 	void Start () {
+		HPtext= GameObject.FindGameObjectWithTag ("HP_Text").GetComponent<Text>();
 		GlobalVariables.HP = HP;
+
 		HPtext.text = LocalizationText.GetText("HP")+": " + HP.ToString ();
 		GlobalVariables.Money = StartMoney;
 	}

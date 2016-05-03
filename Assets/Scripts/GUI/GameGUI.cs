@@ -11,7 +11,8 @@ public class GameGUI : MonoBehaviour {
 	public GameObject CannonTurret;
 	public GameObject MachineGunTurret;
 	public GameObject AreaTurret;
-	public GameObject LevelClearedUI;
+    public GameObject FreezeTurret;
+    public GameObject LevelClearedUI;
 	public GameObject NextWaveType;
  
 
@@ -53,6 +54,13 @@ public class GameGUI : MonoBehaviour {
 	
 
 	}
+	public void CreepSpawner(){
+		GameObject myCreepSpawner = GameObject.FindGameObjectWithTag ("CreepSpawner");
+		myCreepSpawner.SendMessage ("startCreeps");
+
+
+
+	}
 	public void InfiniteGold (){
 		x++;
 		Debug.Log (x);
@@ -90,7 +98,7 @@ public class GameGUI : MonoBehaviour {
 		#endif
 
 		#if UNITY_EDITOR 
-		Time.timeScale = 10.0F;
+		Time.timeScale = 15.0F;
 		#endif
 
 		 
@@ -131,7 +139,15 @@ public class GameGUI : MonoBehaviour {
 		InfoText.text = LocalizationText.GetText("TurretCost")+": "+GlobalVariables.TurretCost.ToString ();
 		
 	}
-	public void DestroyTurretButton(){
+    public void FreezeTurretButton(){
+        GlobalVariables.DestroyTurret = false;
+        GlobalVariables.CurrentTurret = FreezeTurret;
+        SelectTurret cost = (SelectTurret)FreezeTurret.GetComponent(typeof(SelectTurret));
+        GlobalVariables.TurretCost = cost.getTurretCost();
+        InfoText.text = LocalizationText.GetText("TurretCost") + ": " + GlobalVariables.TurretCost.ToString();
+
+    }
+    public void DestroyTurretButton(){
 		GlobalVariables.DestroyTurret=true; 
 		InfoText.text = LocalizationText.GetText("DestroyTurret");
 		GlobalVariables.CurrentTurret = null;

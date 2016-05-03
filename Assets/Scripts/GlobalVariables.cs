@@ -11,7 +11,7 @@ public class GlobalVariables : MonoBehaviour {
 	public static int CurrentTurretLevel=1000; 
 	public static bool DestroyTurret=false;
 	public static int CurrentWave=0;
-	public static int LastLevel=5;
+	public static int LastLevel=7;
 	public static bool LevelCleared=false; 
 
 

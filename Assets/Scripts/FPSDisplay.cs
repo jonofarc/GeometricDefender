@@ -9,8 +9,11 @@ public class FPSDisplay : MonoBehaviour
 	{
 		deltaTime += (Time.deltaTime - deltaTime) * 0.1f;
 	}
-	
-	void OnGUI()
+    void Start(){
+       
+    }
+   
+    void OnGUI()
 	{
 		if(Time.timeScale > 0.1F){
 			int w = Screen.width, h = Screen.height;

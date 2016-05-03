@@ -4274,7 +4274,7 @@ GameObject:
   - 114: {fileID: 654191479}
   m_Layer: 0
   m_Name: CreepSpawner
-  m_TagString: Untagged
+  m_TagString: CreepSpawner
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12076,16 +12076,14 @@ Prefab:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: startCreeps
       objectReference: {fileID: 0}
+    - target: {fileID: 177508, guid: 936f2fa6e2e0ddd4cbde6188f0b18d8b, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 11460508, guid: 936f2fa6e2e0ddd4cbde6188f0b18d8b, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 936f2fa6e2e0ddd4cbde6188f0b18d8b, type: 2}
   m_IsPrefabParent: 0
---- !u!114 &1785066477 stripped
-MonoBehaviour:
-  m_PrefabParentObject: {fileID: 11415308, guid: 936f2fa6e2e0ddd4cbde6188f0b18d8b,
-    type: 2}
-  m_PrefabInternal: {fileID: 1785066476}
-  m_Script: {fileID: 708705254, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
 --- !u!1001 &1796213330
 Prefab:
   m_ObjectHideFlags: 0
@@ -13582,7 +13580,6 @@ MonoBehaviour:
   HP: 20
   DefaultDamage: 1
   StartMoney: 70
-  HPtext: {fileID: 1785066477}
 --- !u!65 &2008352470
 BoxCollider:
   m_ObjectHideFlags: 0

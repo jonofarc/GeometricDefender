@@ -13,9 +13,13 @@ public class SetCurrentLevel : MonoBehaviour {
 		Debug.Log (PlayerPrefs.GetInt("NextLevel").ToString());
 
 	}
-	
-	// Update is called once per frame
-	void Update () {
+    void Awake()
+    {
+        Application.targetFrameRate = 38;
+    }
+
+    // Update is called once per frame
+    void Update () {
 	
 	}
 }
