@@ -32,6 +32,7 @@ GameObject:
   - 114: {fileID: 11435252}
   - 114: {fileID: 11471872}
   - 54: {fileID: 5437050}
+  - 114: {fileID: 11443500}
   m_Layer: 0
   m_Name: FlyingCreep
   m_TagString: CreepF
@@ -63,9 +64,9 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 136762}
-  m_LocalRotation: {x: .698687315, y: 0, z: 0, w: .71542716}
-  m_LocalPosition: {x: -.610000014, y: 0, z: 0}
-  m_LocalScale: {x: .479619563, y: .863401055, z: .863401055}
+  m_LocalRotation: {x: 0.6986873, y: 0, z: 0, w: 0.71542716}
+  m_LocalPosition: {x: -0.61, y: 0, z: 0}
+  m_LocalScale: {x: 0.47961956, y: 0.86340106, z: 0.86340106}
   m_Children: []
   m_Father: {fileID: 465826}
   m_RootOrder: 1
@@ -75,9 +76,9 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 152940}
-  m_LocalRotation: {x: .698687315, y: 0, z: 0, w: .71542716}
-  m_LocalPosition: {x: .426999986, y: 0, z: 0}
-  m_LocalScale: {x: .479619563, y: .863401175, z: .863401175}
+  m_LocalRotation: {x: 0.6986873, y: 0, z: 0, w: 0.71542716}
+  m_LocalPosition: {x: 0.427, y: 0, z: 0}
+  m_LocalScale: {x: 0.47961956, y: 0.8634012, z: 0.8634012}
   m_Children: []
   m_Father: {fileID: 465826}
   m_RootOrder: 0
@@ -88,8 +89,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 139012}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -9.68999958, y: 1.30999994, z: -1.54999924}
-  m_LocalScale: {x: 1, y: .454352826, z: 1}
+  m_LocalPosition: {x: -9.69, y: 1.31, z: -1.5499992}
+  m_LocalScale: {x: 1, y: 0.45435283, z: 1}
   m_Children:
   - {fileID: 431260}
   - {fileID: 405774}
@@ -113,8 +114,10 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 1
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -137,8 +140,10 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 1
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -161,8 +166,10 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 1
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -197,7 +204,7 @@ Rigidbody:
   serializedVersion: 2
   m_Mass: 1
   m_Drag: 0
-  m_AngularDrag: .0500000007
+  m_AngularDrag: 0.05
   m_UseGravity: 0
   m_IsKinematic: 1
   m_Interpolate: 0
@@ -228,6 +235,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Target: {fileID: 0}
   FlyingSpeed: 3
+--- !u!114 &11443500
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 139012}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f8d861c11ed02e48b2af02d681ae70e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  StatusTime: 3
 --- !u!114 &11471872
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -240,7 +259,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CreepHP: 20
+  CreepShield: 0
   LootAmount: 2
+  EffectBeforeDiying: 0
+  LootOnEfect: 0
+  HPLeftTrigger: 0
+  maxHP: 0
   HPBar: {fileID: 0}
   HP66: {fileID: 2100000, guid: 264976ebd479b2a468c06548e1b91148, type: 2}
   HP33: {fileID: 2100000, guid: b1465df82f56c7c4ca8a5571043a42e2, type: 2}
@@ -254,7 +278,7 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: .5
+  m_Radius: 0.5
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
@@ -267,7 +291,7 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: .5
+  m_Radius: 0.5
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}

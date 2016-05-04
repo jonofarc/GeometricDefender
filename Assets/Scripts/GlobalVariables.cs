@@ -13,6 +13,8 @@ public class GlobalVariables : MonoBehaviour {
 	public static int CurrentWave=0;
 	public static int LastLevel=7;
 	public static bool LevelCleared=false; 
+	public static int TargetFPS=30;
+	public static bool GameStarted = false;
 
 
 	// Use this for initialization

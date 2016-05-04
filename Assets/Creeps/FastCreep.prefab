@@ -34,6 +34,7 @@ GameObject:
   - 114: {fileID: 11423466}
   - 114: {fileID: 11437694}
   - 114: {fileID: 11442244}
+  - 114: {fileID: 11490636}
   m_Layer: 0
   m_Name: FastCreep
   m_TagString: CreepG
@@ -47,9 +48,9 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 160650}
-  m_LocalRotation: {x: .707106709, y: -1.42108547e-14, z: -1.42108547e-14, w: .707106829}
-  m_LocalPosition: {x: 0, y: 1, z: -.589999974}
-  m_LocalScale: {x: 0, y: .200000003, z: 1}
+  m_LocalRotation: {x: 0.7071067, y: -1.4210855e-14, z: -1.4210855e-14, w: 0.7071068}
+  m_LocalPosition: {x: 0, y: 1, z: -0.59}
+  m_LocalScale: {x: 0, y: 0.2, z: 1}
   m_Children: []
   m_Father: {fileID: 492418}
   m_RootOrder: 0
@@ -60,8 +61,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 186588}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.90999985, y: -.330000043, z: -1.79000092}
-  m_LocalScale: {x: 1, y: 1.00745225, z: 1}
+  m_LocalPosition: {x: -5.91, y: -0.33000004, z: -1.7900009}
+  m_LocalScale: {x: 1, y: 1.0074522, z: 1}
   m_Children:
   - {fileID: 420428}
   m_Father: {fileID: 0}
@@ -84,8 +85,10 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 1
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -108,8 +111,10 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 1
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -172,7 +177,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CreepHP: 13
+  CreepShield: 0
   LootAmount: 1
+  EffectBeforeDiying: 0
+  LootOnEfect: 0
+  HPLeftTrigger: 0
+  maxHP: 0
   HPBar: {fileID: 160650}
   HP66: {fileID: 2100000, guid: 264976ebd479b2a468c06548e1b91148, type: 2}
   HP33: {fileID: 2100000, guid: b1465df82f56c7c4ca8a5571043a42e2, type: 2}
@@ -192,10 +202,10 @@ MonoBehaviour:
   m_StationaryTurnSpeed: 180
   m_JumpPower: 12
   m_GravityMultiplier: 2
-  m_RunCycleLegOffset: .200000003
+  m_RunCycleLegOffset: 0.2
   m_MoveSpeedMultiplier: 1
   m_AnimSpeedMultiplier: 1
-  m_GroundCheckDistance: .100000001
+  m_GroundCheckDistance: 0.1
 --- !u!114 &11442244
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -209,6 +219,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 0}
   PathCheckInterval: 1
+--- !u!114 &11490636
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 186588}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f8d861c11ed02e48b2af02d681ae70e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  StatusTime: 3
 --- !u!136 &13634896
 CapsuleCollider:
   m_ObjectHideFlags: 1
@@ -218,8 +240,8 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: .5
-  m_Height: .970000029
+  m_Radius: 0.5
+  m_Height: 0.97
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!195 &19586520
@@ -229,7 +251,7 @@ NavMeshAgent:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 186588}
   m_Enabled: 1
-  m_Radius: .639999986
+  m_Radius: 0.64
   m_Speed: 7
   m_Acceleration: 8
   avoidancePriority: 50
@@ -239,7 +261,7 @@ NavMeshAgent:
   m_AutoBraking: 1
   m_AutoRepath: 1
   m_Height: 2
-  m_BaseOffset: .330000013
+  m_BaseOffset: 0.33
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
 --- !u!1001 &100100000

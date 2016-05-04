@@ -15,7 +15,7 @@ public class SetCurrentLevel : MonoBehaviour {
 	}
     void Awake()
     {
-        Application.targetFrameRate = 38;
+       
     }
 
     // Update is called once per frame

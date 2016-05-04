@@ -42,8 +42,8 @@ public class SelectTurret : MonoBehaviour {
 				RangeAura.GetComponent<Renderer>().enabled=true;
 				Invoke ("DisableAura",SelectedTime);
 			}else{
-				DestroyTurret();
-				this.transform.parent.gameObject.GetComponent<BoxCollider> ().enabled = true;
+				DestroyTurret(0.5f);
+
 			}
 
 
@@ -64,9 +64,21 @@ public class SelectTurret : MonoBehaviour {
 	void getCost(){
 		GlobalVariables.TurretCost = TurretCost;
 	}
-	void DestroyTurret(){
-		GlobalVariables.Money = GlobalVariables.Money + ((int)TurretCost / 2);
-		Destroy (this.gameObject);
+	public void DestroyTurret(float MoneyBackPercentage ){
+		if (GlobalVariables.GameStarted == true) {
+			
+			GlobalVariables.Money = GlobalVariables.Money + ((int)(TurretCost * MoneyBackPercentage));
+			this.transform.parent.gameObject.GetComponent<BoxCollider> ().enabled = true;
+			Destroy (this.gameObject);
+
+		} else {
+
+			GlobalVariables.Money = GlobalVariables.Money + ((int)(TurretCost));
+			this.transform.parent.gameObject.GetComponent<BoxCollider> ().enabled = true;
+			Destroy (this.gameObject);		
+		
+		}
+
 	}
 	public int getTurretCost(){
 	

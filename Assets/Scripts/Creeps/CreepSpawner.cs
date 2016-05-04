@@ -39,6 +39,8 @@ public class CreepSpawner : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+
+		GlobalVariables.GameStarted = false;
 		//we set nextWaveType
 
 		Canvas = GameObject.FindGameObjectWithTag ("Canvas"); 
@@ -217,6 +219,7 @@ public class CreepSpawner : MonoBehaviour {
 	}
 	public void startCreeps(){
 		StartFirstWave = true;
+		GlobalVariables.GameStarted = true;
 	}
 	public void getNextWaveType(int CreepTypeColor){ 
 		GameGUI GameGUIScript = (GameGUI) Canvas.GetComponent(typeof(GameGUI));

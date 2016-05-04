@@ -21,7 +21,7 @@ public class GameGUI : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-
+		AdjustFPS (GlobalVariables.TargetFPS);
 		GlobalVariables.LevelCleared = false;
 		LevelClearedUI.SetActive (false);
 		Time.timeScale = 1.0F;
@@ -54,6 +54,9 @@ public class GameGUI : MonoBehaviour {
 	
 
 	}
+	public void AdjustFPS(int fps){
+		Application.targetFrameRate = fps;
+	}
 	public void CreepSpawner(){
 		GameObject myCreepSpawner = GameObject.FindGameObjectWithTag ("CreepSpawner");
 		myCreepSpawner.SendMessage ("startCreeps");
@@ -73,9 +76,11 @@ public class GameGUI : MonoBehaviour {
 	public void GameSpeed(){
 		if(Time.timeScale == 1.0F){
 			Time.timeScale = 2.0F;
+			AdjustFPS (GlobalVariables.TargetFPS*2);
 		}else{
 
 			Time.timeScale = 1.0F;
+			AdjustFPS (GlobalVariables.TargetFPS);
 		}
 	}
 	public void Pause(){
@@ -85,7 +90,8 @@ public class GameGUI : MonoBehaviour {
 	}
 	public void FastFoward(){
 
-			Time.timeScale = 2.0F;
+		Time.timeScale = 2.0F;
+		AdjustFPS (GlobalVariables.TargetFPS*2);
 		 
 	}
 	public void SuperFastFoward(){
@@ -93,12 +99,15 @@ public class GameGUI : MonoBehaviour {
 
 		#if UNITY_ANDROID
 			Time.timeScale = 3.0F; 
+		AdjustFPS (GlobalVariables.TargetFPS*3);
 		#else
 			Time.timeScale = 3.0F;
+		AdjustFPS (GlobalVariables.TargetFPS*3);
 		#endif
 
 		#if UNITY_EDITOR 
 		Time.timeScale = 15.0F;
+		AdjustFPS (GlobalVariables.TargetFPS*15);
 		#endif
 
 		 
@@ -107,6 +116,7 @@ public class GameGUI : MonoBehaviour {
 	public void NormalSpeed(){
 		
 		Time.timeScale = 1.0F;
+		AdjustFPS (GlobalVariables.TargetFPS);
 		
 	}
 	public void MainMenuButtton (){

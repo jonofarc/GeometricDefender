@@ -55,9 +55,17 @@ public class CheckPath : MonoBehaviour {
 			if (elapsed2 > PathCheckInterval) {
 				elapsed2 = 0;
 				Debug.Log(LatestTurret[0].transform.gameObject.name);
-				LatestTurret[0].transform.gameObject.GetComponent<Collider>().enabled=true;
-				Destroy(LatestTurret[0].transform.GetChild(0).gameObject);
-				DecreaseLatestTurret();
+				Debug.Log(LatestTurret[0].transform.GetChild(0).gameObject);
+
+
+				//LatestTurret[0].transform.gameObject.GetComponent<Collider>().enabled=true;
+				//Destroy(LatestTurret[0].transform.GetChild(0).gameObject);
+				//DecreaseLatestTurret();
+
+				GlobalVariables.DestroyTurret=true; 
+				SelectTurret mySelectTurret = LatestTurret[0].transform.GetChild(0).gameObject.GetComponent<SelectTurret>();
+				mySelectTurret.DestroyTurret (1.0f);
+				GlobalVariables.DestroyTurret=false; 
 
 				
 			}
@@ -65,18 +73,7 @@ public class CheckPath : MonoBehaviour {
 
 
 
-			/*
-			GameObject[] creeps;
-			creeps = GameObject.FindGameObjectsWithTag("CreepG");
-
-			foreach (GameObject creep in creeps) {
-				NavMeshAgent creepNav;
-				creepNav = GetComponent<NavMeshAgent>();
-				creepNav.SetDestination(target.position);
-				NavMesh.CalculatePath(creep.transform.position, target.position, NavMesh.AllAreas, path);
-				creepNav.SetPath(path);
-			}
-			*/
+	
 		}
 		
 			if (target != null)

@@ -57,6 +57,7 @@ GameObject:
   - 114: {fileID: 11442578}
   - 114: {fileID: 11485426}
   - 114: {fileID: 11455486}
+  - 114: {fileID: 11482662}
   m_Layer: 0
   m_Name: Multicreep
   m_TagString: CreepG
@@ -1667,6 +1668,18 @@ MonoBehaviour:
   m_MoveSpeedMultiplier: 1
   m_AnimSpeedMultiplier: 1
   m_GroundCheckDistance: 0.1
+--- !u!114 &11482662
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 110040}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f8d861c11ed02e48b2af02d681ae70e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  StatusTime: 3
 --- !u!114 &11482796
 MonoBehaviour:
   m_ObjectHideFlags: 1
