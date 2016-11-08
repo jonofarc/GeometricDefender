@@ -231,7 +231,7 @@ public class CreepSpawner : MonoBehaviour {
 
 			
 			GameGUIScript.getNextWave(BaseCreeps[CreepTypeColor].gameObject.name,myCreepColor); 
-			Debug.Log (BaseCreeps[CreepTypeColor].gameObject.name);
+			//Debug.Log (BaseCreeps[CreepTypeColor].gameObject.name);
 		}
 
 	}

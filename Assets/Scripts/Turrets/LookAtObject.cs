@@ -3,10 +3,11 @@ using System.Collections;
 
 public class LookAtObject : MonoBehaviour {
 
-    public GameObject myObject;
+    private GameObject myObject;
 	// Use this for initialization
 	void Start () {
 
+        myObject = GameObject.FindGameObjectWithTag("MainCamera");
         transform.LookAt(myObject.transform);
 
 

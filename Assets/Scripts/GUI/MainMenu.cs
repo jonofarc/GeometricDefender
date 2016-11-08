@@ -12,9 +12,11 @@ public class MainMenu : MonoBehaviour {
 	public Text InfiniteText;
 	public Text LanguageText;
 	public Text ExitText;
+    public GameObject FPS30;
+    public GameObject FPS60;
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start () {
 		//Debug.Log (_language); 
 		//language section //we make sure that the language is a valid one and that its on the latest language used
 	
@@ -25,9 +27,36 @@ public class MainMenu : MonoBehaviour {
 		} else {
 			ContinueButton.SetActive (false);
 		}
-		//change text of objects to current language
 
-		RefreshTexts ();
+        //check if preferences for fps exist
+        Debug.Log(PlayerPrefs.GetInt("TargetFPS"));
+        if (PlayerPrefs.GetInt("TargetFPS") != 30 && PlayerPrefs.GetInt("TargetFPS") != 60)
+        {
+            Debug.Log("no specified fps, setting default fps 30");
+            PlayerPrefs.SetInt("TargetFPS", 30);
+
+        } else if (PlayerPrefs.GetInt("TargetFPS") == 30) {
+
+            FPS30.GetComponent<Toggle>().isOn = true;
+            FPS60.GetComponent<Toggle>().isOn = false;
+
+        }
+        else if (PlayerPrefs.GetInt("TargetFPS") == 60)
+        {
+
+            FPS60.GetComponent<Toggle>().isOn = true;
+            FPS30.GetComponent<Toggle>().isOn = false;
+
+        }
+        // setting default fps
+        GlobalVariables.TargetFPS = PlayerPrefs.GetInt("TargetFPS");
+        Application.targetFrameRate = GlobalVariables.TargetFPS;
+
+        
+
+        //change text of objects to current language
+
+        RefreshTexts ();
 
 	
 	}
@@ -74,4 +103,11 @@ public class MainMenu : MonoBehaviour {
 		//}
 			
 	}// end of GUI
+
+    public void setFPS(int TargetFPS) {
+        PlayerPrefs.SetInt("TargetFPS", TargetFPS);
+        GlobalVariables.TargetFPS = PlayerPrefs.GetInt("TargetFPS");
+        Debug.Log("Current FPS set to: "+GlobalVariables.TargetFPS);
+        Application.targetFrameRate = GlobalVariables.TargetFPS;
+    }
 }

@@ -32,8 +32,14 @@ public class LoadLevel : MonoBehaviour {
 		loadlevel ();
 	}
 	void AutoLoadLevel(){
-	
-		Application.LoadLevel ("MainMenu");
+        if (LevelToLoad == "")
+        {
+            Application.LoadLevel("MainMenu");
+        }
+        else {
+            Application.LoadLevel(LevelToLoad);
+        }
+		
 	
 	}
 }
