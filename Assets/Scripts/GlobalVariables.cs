@@ -8,7 +8,9 @@ public class GlobalVariables : MonoBehaviour {
 	public static int TurretCost=1000;
 	public static int UpgradeCost=1000; 
 	public static GameObject CurrentTurret;
-	public static int CurrentTurretLevel=1000; 
+    public static GameObject PlaceHolderTurret;
+    public static GameObject CurrentTurretPlace;
+    public static int CurrentTurretLevel=1000; 
 	public static bool DestroyTurret=false;
 	public static int CurrentWave=0;
 	public static int LastLevel=7;
