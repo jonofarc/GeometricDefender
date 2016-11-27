@@ -12,6 +12,7 @@ public class MainMenu : MonoBehaviour {
 	public Text InfiniteText;
 	public Text LanguageText;
 	public Text ExitText;
+    public Text LoadingText;
     public GameObject FPS30;
     public GameObject FPS60;
 
@@ -67,11 +68,11 @@ public class MainMenu : MonoBehaviour {
 	}
 	public void Continue(){
 		
-		Application.LoadLevel ("GeometricDefenseLvl"+PlayerPrefs.GetInt("CurrentLevel".ToString()));
+		Application.LoadLevelAsync("GeometricDefenseLvl"+PlayerPrefs.GetInt("CurrentLevel".ToString()));
 	}
 	public void LoadLevel(string LevelToLoad){
 	
-		Application.LoadLevel (LevelToLoad);
+		Application.LoadLevelAsync (LevelToLoad);
 	}
 	public void Exit(){
 		
@@ -95,7 +96,8 @@ public class MainMenu : MonoBehaviour {
 		InfiniteText.text=LocalizationText.GetText("Infinite");
 		LanguageText.text=LocalizationText.GetText("Language");
 		ExitText.text=LocalizationText.GetText("Exit");
-	}
+        LoadingText.text = LocalizationText.GetText("Loading");
+    }
 
 	void OnGUI(){
 		//if (GUI.Button (new Rect (10, 70, 50, 30), "Click")) {

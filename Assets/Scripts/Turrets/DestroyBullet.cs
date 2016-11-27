@@ -14,10 +14,11 @@ public class DestroyBullet : MonoBehaviour {
 	void Start () {
 		Invoke ("AutoDestroy",TimeToDisapear);
 	}
-	
-	// Update is called once per frame
-	void Update () {
-		if(DamageDone==false && CreepTarget != null ){
+
+    // Update is called once per frame
+    //void Update () {
+    void FixedUpdate(){
+        if (DamageDone==false && CreepTarget != null ){
 			Vector3 CreepTargetCenter=CreepTarget.transform.position;
 			CreepTargetCenter.y=CreepTarget.transform.position.y+(CreepTarget.transform.localScale.y/2);
 			transform.position = Vector3.MoveTowards(transform.position, CreepTargetCenter, BulletSpeed*Time.deltaTime);

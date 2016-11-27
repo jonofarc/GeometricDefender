@@ -27,11 +27,12 @@ public class TargetCreep : MonoBehaviour {
 	
 		InvokeRepeating("FindClosestPlayer", 0.5f,0.5f);
 	}
-	
-	// Update is called once per frame
 
-	void Update() {
-		if(target != null){
+    // Update is called once per frame
+
+    //	void Update() {
+    void FixedUpdate(){
+        if (target != null){
 			Vector3 targetDir = target.position - transform.position;
 			//aim at the center of the target
 			targetDir.y=target.position.y+(target.localScale.y/2);
@@ -63,9 +64,9 @@ public class TargetCreep : MonoBehaviour {
 		bullet = Instantiate(projectile, projectile.transform.position, projectile.transform.rotation) as GameObject;
 		bullet.gameObject.SetActive(true);
 		
-		bullet.transform.parent=this.transform;
-		bullet.transform.localScale=projectile.transform.localScale; 
-		bullet.transform.parent = null;
+		//bullet.transform.parent=this.transform;
+		//bullet.transform.localScale=projectile.transform.localScale; 
+		//bullet.transform.parent = null;
 
 //		Rigidbody bulletRigidBody;
 		//bulletRigidBody = bullet.GetComponent<Rigidbody>();

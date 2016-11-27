@@ -88,7 +88,7 @@ public class SelectTurret : MonoBehaviour {
 		Auras= GameObject.FindGameObjectsWithTag ("RangeAura");
 		foreach (GameObject Aura in Auras) {
 			Aura.GetComponent<Renderer>().enabled=false;
-			Aura.SendMessageUpwards("resetMaterial");
+			Aura.SendMessageUpwards("resetMaterial", SendMessageOptions.DontRequireReceiver);
 		}
 	
 	}

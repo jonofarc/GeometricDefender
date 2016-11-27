@@ -30,31 +30,42 @@ public class CreepLife : MonoBehaviour {
 	void takeDamage(float Damage){
 		if(Damage>CreepShield){
 			CreepHP -= Damage;
-		}
 
 
-		if(CreepHP>(maxHP*0.66)){
-			HPBar.GetComponent<Renderer>().material=HP66;
+            if (CreepHP > (maxHP * 0.66))
+            {
+                HPBar.GetComponent<Renderer>().material = HP66;
 
-		}else if(CreepHP>(maxHP*0.33)){
-			HPBar.GetComponent<Renderer>().material=HP33;
-			
-		}else if(CreepHP>(maxHP*0.01)){
-			HPBar.GetComponent<Renderer>().material=HP0;
-			
-		}
-		if((CreepHP / maxHP)>=0 && (CreepHP / maxHP)<=1){
+            }
+            else if (CreepHP > (maxHP * 0.33))
+            {
+                HPBar.GetComponent<Renderer>().material = HP33;
+
+            }
+            else if (CreepHP > (maxHP * 0.01))
+            {
+                HPBar.GetComponent<Renderer>().material = HP0;
+
+            }
+            if ((CreepHP / maxHP) >= 0 && (CreepHP / maxHP) <= 1)
+            {
 
 
-			HPBar.transform.localScale = new Vector3( CreepHP / maxHP,
-			                                         HPBar.transform.localScale.y, 
-			                                         HPBar.transform.localScale.z);
-			
-			HPBar.transform.localPosition = new Vector3 (0.5f-(HPBar.transform.localScale.x/2),
-			                                             HPBar.transform.localPosition.y, 
-			                                             HPBar.transform.localPosition.z);
+                HPBar.transform.localScale = new Vector3(CreepHP / maxHP,
+                                                         HPBar.transform.localScale.y,
+                                                         HPBar.transform.localScale.z);
 
-		}
+                HPBar.transform.localPosition = new Vector3(0.5f - (HPBar.transform.localScale.x / 2),
+                                                             HPBar.transform.localPosition.y,
+                                                             HPBar.transform.localPosition.z);
+
+            }
+
+
+        }
+
+
+		
 
 
 
