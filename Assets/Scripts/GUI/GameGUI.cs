@@ -9,9 +9,10 @@ public class GameGUI : MonoBehaviour {
 	public Text GoldText;
 	public Text CurrentWave;
 	public GameObject CannonTurret;
-	public GameObject MachineGunTurret;
+	public GameObject MachineGunTurret; 
 	public GameObject AreaTurret;
     public GameObject FreezeTurret;
+    public GameObject SniperTurret;
     public GameObject LevelClearedUI;
 	public GameObject NextWaveType;
  
@@ -155,6 +156,16 @@ public class GameGUI : MonoBehaviour {
         SelectTurret cost = (SelectTurret)FreezeTurret.GetComponent(typeof(SelectTurret));
         GlobalVariables.TurretCost = cost.getTurretCost();
         InfoText.text = LocalizationText.GetText("TurretCost") + ": " + GlobalVariables.TurretCost.ToString();
+
+    }
+    public void SniperTurretButton()
+    {
+
+		GlobalVariables.DestroyTurret = false;
+		GlobalVariables.CurrentTurret = SniperTurret;
+		SelectTurret cost = (SelectTurret)SniperTurret.GetComponent(typeof(SelectTurret));
+		GlobalVariables.TurretCost = cost.getTurretCost();
+		InfoText.text = LocalizationText.GetText("TurretCost") + ": " + GlobalVariables.TurretCost.ToString();
 
     }
     public void DestroyTurretButton(){
