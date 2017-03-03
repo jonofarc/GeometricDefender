@@ -13,6 +13,7 @@ public class TargetCreep : MonoBehaviour {
 	private float speed =100f;
 	
 	//public float BulletSpeed = 20f;
+	public bool RequireTarget=true;
 	public float ShootingSpeed = 1f;
 	public GameObject projectile;
 	private GameObject bullet;
@@ -24,15 +25,17 @@ public class TargetCreep : MonoBehaviour {
 	void Start () {
 	
 		turretRangeAreaMarker.gameObject.transform.localScale = new Vector3 (turretRange,0.01f,turretRange);
-	
-		InvokeRepeating("FindClosestPlayer", 0.5f,0.5f);
+		if(RequireTarget){
+			InvokeRepeating("FindClosestPlayer", 0.5f,0.5f);	
+		}
+
 	}
 
     // Update is called once per frame
 
     //	void Update() {
     void FixedUpdate(){
-        if (target != null){
+		if (target != null ){
 			Vector3 targetDir = target.position - transform.position;
 			//aim at the center of the target
 			targetDir.y=target.position.y+(target.localScale.y/2);
@@ -46,18 +49,24 @@ public class TargetCreep : MonoBehaviour {
 			}
 
 
-			if(myTimeTillNextShoot<Time.time){
-				myTimeTillNextShoot=Time.time+ShootingSpeed;
-				Invoke("FireBullet",0.1f);
-				//FireBullet();
-			}
+			TimeTillNextShoot ();
 
 
 
+		}else if (RequireTarget==false){
+
+			TimeTillNextShoot ();
 		}
 
 	}
 
+	void TimeTillNextShoot(){
+		if(myTimeTillNextShoot<Time.time){
+			myTimeTillNextShoot=Time.time+ShootingSpeed;
+			Invoke("FireBullet",0.1f);
+			//FireBullet();
+		}
+	}
 	void FireBullet(){
 
 		// Instantiate the projectile at the position and rotation of this transform
@@ -75,6 +84,7 @@ public class TargetCreep : MonoBehaviour {
 			//bulletRigidBody.velocity = (target.transform.position - transform.position).normalized * (BulletSpeed); //add foward force to bullet
 			bullet.SendMessage("FireAtCreep",ClosestCreep);
 		}
+
 
 	
 	}

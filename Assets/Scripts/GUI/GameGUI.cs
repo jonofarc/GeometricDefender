@@ -8,13 +8,18 @@ public class GameGUI : MonoBehaviour {
 	public Text InfoText;
 	public Text GoldText;
 	public Text CurrentWave;
+	[Header("Turrets")]
 	public GameObject CannonTurret;
 	public GameObject MachineGunTurret; 
 	public GameObject AreaTurret;
     public GameObject FreezeTurret;
     public GameObject SniperTurret;
+	[Header("Floor Panels")]
+	public GameObject FirePanel;
+	[Header(" ")]
     public GameObject LevelClearedUI;
 	public GameObject NextWaveType;
+
  
 
 	private int x=0;
@@ -168,6 +173,16 @@ public class GameGUI : MonoBehaviour {
 		InfoText.text = LocalizationText.GetText("TurretCost") + ": " + GlobalVariables.TurretCost.ToString();
 
     }
+	public void FirePanelButton()
+	{
+
+		GlobalVariables.DestroyTurret = false;
+		GlobalVariables.CurrentTurret = FirePanel;
+		SelectTurret cost = (SelectTurret)FirePanel.GetComponent(typeof(SelectTurret));
+		GlobalVariables.TurretCost = cost.getTurretCost();
+		InfoText.text = LocalizationText.GetText("TurretCost") + ": " + GlobalVariables.TurretCost.ToString();
+
+	}
     public void DestroyTurretButton(){
 		GlobalVariables.DestroyTurret=true; 
 		InfoText.text = LocalizationText.GetText("DestroyTurret");
