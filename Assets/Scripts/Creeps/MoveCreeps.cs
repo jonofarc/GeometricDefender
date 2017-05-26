@@ -2,58 +2,91 @@
 using System.Collections;
 using System;
 
-[RequireComponent(typeof (NavMeshAgent))]
+
+[RequireComponent(typeof (UnityEngine.AI.NavMeshAgent))]
 public class MoveCreeps : MonoBehaviour {
 	public Transform target;
 	public float PathCheckInterval=1f; 
-	private NavMeshPath path;
+	private UnityEngine.AI.NavMeshPath path;
 	private float elapsed = 0.0f;  
-	public NavMeshAgent agent { get; private set; } // the navmesh agent required for the path finding
+	public UnityEngine.AI.NavMeshAgent agent { get; private set; } // the navmesh agent required for the path finding
 
+	private float CreepSpeed=0;
+	private float AngularSpeed=0;
+	private float AccelerationSpeed=0;
+	private bool doSetPath = true;
+	 
 	// Use this for initialization
 	void Start () {
+		
 
-		path = new NavMeshPath();
-		elapsed = 0.0f;
+		path = new UnityEngine.AI.NavMeshPath();
+		elapsed = PathCheckInterval;
 		
 		// get the components on the object we need ( should not be null due to require component so no need to check )
-		agent = GetComponent<NavMeshAgent>();
-		
+		agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
+
+		//get original NavMeshAgent Values
+		CreepSpeed=agent.speed;
+		AngularSpeed = agent.angularSpeed;
+		AccelerationSpeed = agent.acceleration;
+		SetGameSpeed ();
 		
 		agent.updateRotation = true;
 		agent.updatePosition = true;
+		//InvokeRepeating ("PathCheck",PathCheckInterval,PathCheckInterval);
+		PathCheck();
+		//Invoke ("PathCheck",1);
 	}
 	
 	// Update is called once per frame
-	void Update () {
-
-		// Update the way to the goal every second.
-		elapsed += Time.deltaTime;
-		if (elapsed > PathCheckInterval) {
-			elapsed -= PathCheckInterval;
-			//Debug.Log(NavMesh.CalculatePath(transform.position, target.position, NavMesh.AllAreas, path));
-			//ReCheckPath();
-			NavMesh.CalculatePath(transform.position, target.position, NavMesh.AllAreas, path);
-			
-		}
+	void FixedUpdate () {
 		for (int i = 0; i < path.corners.Length-1; i++) {
-			
+
 			Debug.DrawLine(path.corners[i], path.corners[i+1], Color.red);	
 		}
 
+	}//end update
+	void PathCheck(){
 		
-		if (target != null)
+		UnityEngine.AI.NavMesh.CalculatePath(transform.position, target.position, UnityEngine.AI.NavMesh.AllAreas, path);
+
+		
+		for (int i = 0; i < path.corners.Length-1; i++) {
+
+			Debug.DrawLine(path.corners[i], path.corners[i+1], Color.red);	
+		}
+
+	
+		if (target != null && doSetPath)
 		{
 			agent.SetDestination(target.position);
-			
+		
 			agent.SetPath(path);
-			
-			
-		}
-		else
-		{
-			// We still need to call the character's move function, but we send zeroed input as the move param.
-			//	character.Move(Vector3.zero, false, false);
-		}
-	}//end update
+		
+		
+		} 
+
+		
+
+
+
+	}
+
+	void SetGameSpeed(){
+	
+		agent.acceleration = AccelerationSpeed * GlobalVariables.GameSpeed;
+		agent.angularSpeed = AngularSpeed * GlobalVariables.GameSpeed;
+		agent.speed = CreepSpeed * GlobalVariables.GameSpeed;
+
+	}
+	public void CancelPathCheck(){
+		CancelInvoke ("PathCheck");
+	}
+	void OnDisable()
+	{
+		doSetPath = false;
+	}
+
 }
+ 

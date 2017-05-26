@@ -8,7 +8,7 @@ public class SelectedTurretLevel : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		thisText=this.GetComponent<Text> ();
-		InvokeRepeating ("GetTurretLevel",1f,0.5f);
+		InvokeRepeating ("GetTurretLevel",1.0f,1.0f);
 	}
 	
 	// Update is called once per frame

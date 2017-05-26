@@ -9,9 +9,9 @@ public class StatusChange : MonoBehaviour {
     private Material OriginalMaterial;
     // Use this for initialization
     void Start () {
-		NormalSpeed = this.gameObject.GetComponent<NavMeshAgent> ().speed;
+		NormalSpeed = this.gameObject.GetComponent<UnityEngine.AI.NavMeshAgent> ().speed;
         FreezeMaterial = (Material)Resources.Load("Materials/FreezeMaterial");
-        OriginalMaterial = this.GetComponent<Renderer>().material;
+		OriginalMaterial = this.GetComponent<Renderer>().sharedMaterial;
     }
 	
 	// Update is called once per frame
@@ -22,8 +22,8 @@ public class StatusChange : MonoBehaviour {
 	public void Freeze(float SlowAmount){
 
 		Debug.Log ("slowAmount: "+ SlowAmount);
-		this.gameObject.GetComponent<NavMeshAgent> ().speed = NormalSpeed* SlowAmount ;
-		Debug.Log ("normal speed:"+NormalSpeed+ "  CurrentSpeed="+this.gameObject.GetComponent<NavMeshAgent> ().speed);
+		this.gameObject.GetComponent<UnityEngine.AI.NavMeshAgent> ().speed = NormalSpeed* SlowAmount ;
+		Debug.Log ("normal speed:"+NormalSpeed+ "  CurrentSpeed="+this.gameObject.GetComponent<UnityEngine.AI.NavMeshAgent> ().speed);
         this.GetComponent<Renderer>().material = FreezeMaterial;
         CancelInvoke("UnFreeze");
         Invoke("UnFreeze",StatusTime);
@@ -31,7 +31,7 @@ public class StatusChange : MonoBehaviour {
 	}
     public void UnFreeze() { 
 
-        this.gameObject.GetComponent<NavMeshAgent>().speed = NormalSpeed;
+        this.gameObject.GetComponent<UnityEngine.AI.NavMeshAgent>().speed = NormalSpeed;
         this.GetComponent<Renderer>().material = OriginalMaterial;
     }
 	public void Poison(float PoisonDPS){

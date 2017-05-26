@@ -2,93 +2,113 @@
 using System.Collections;
 using System;
 
-[RequireComponent(typeof (NavMeshAgent))]
+[RequireComponent(typeof (UnityEngine.AI.NavMeshAgent))]
 
 public class CheckPath : MonoBehaviour {
 	
 	public Transform target;
 	public float PathCheckInterval=1f; 
-	private NavMeshPath path;
+	private UnityEngine.AI.NavMeshPath path;
 	private float elapsed = 0.0f;  
 	private float elapsed2 = 0.0f;
 	public GameObject[] LatestTurret; 
 	private int LatestTurretNumber=0;
+	private bool doSetPath = true;
 	 
-	public NavMeshAgent agent { get; private set; } // the navmesh agent required for the path finding
+	public UnityEngine.AI.NavMeshAgent agent { get; private set; } // the navmesh agent required for the path finding
 		
 
 	
 	void Start () { 
 		LatestTurret = new GameObject[10];
-		path = new NavMeshPath();
+		path = new UnityEngine.AI.NavMeshPath();
 		elapsed = 0.0f;
 
 			// get the components on the object we need ( should not be null due to require component so no need to check )
-			agent = GetComponent<NavMeshAgent>();
+			agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
 			
 			
 			agent.updateRotation = true;
 			agent.updatePosition = true;
+		InvokeRepeating ("PathCheck",PathCheckInterval,PathCheckInterval);
+		//Invoke ("PathCheck",PathCheckInterval);
 		
 	}
-	void Update () {
-		//Debug.Log (LatestTurretNumber);
-
-		// Update the way to the goal every second.
-		elapsed += Time.deltaTime;
-		if (elapsed > PathCheckInterval) {
-			elapsed -= PathCheckInterval;
-			//Debug.Log(NavMesh.CalculatePath(transform.position, target.position, NavMesh.AllAreas, path));
-			//ReCheckPath();
-			NavMesh.CalculatePath(transform.position, target.position, NavMesh.AllAreas, path);
-			
-		}
+	void FixedUpdate () {
 		for (int i = 0; i < path.corners.Length-1; i++) {
-			
+
 			Debug.DrawLine(path.corners[i], path.corners[i+1], Color.red);	
 		}
-	
+	}
+	void PathCheck(){
+
+
+		UnityEngine.AI.NavMesh.CalculatePath(transform.position, target.position, UnityEngine.AI.NavMesh.AllAreas, path);
+		for (int i = 0; i < path.corners.Length-1; i++) {
+
+			Debug.DrawLine(path.corners[i], path.corners[i+1], Color.red);	
+		}
+
 		if(path.status.ToString()!="PathComplete"&&LatestTurret[0]!=null){
 			Debug.Log ("am quitando");
 
-			elapsed2 += Time.deltaTime;
-			if (elapsed2 > PathCheckInterval) {
-				elapsed2 = 0;
-				Debug.Log(LatestTurret[0].transform.gameObject.name);
-				Debug.Log(LatestTurret[0].transform.GetChild(0).gameObject);
+			Debug.Log(LatestTurret[0].transform.gameObject.name);
+			Debug.Log(LatestTurret[0].transform.GetChild(0).gameObject);
 
 
-				//LatestTurret[0].transform.gameObject.GetComponent<Collider>().enabled=true;
-				//Destroy(LatestTurret[0].transform.GetChild(0).gameObject);
-				//DecreaseLatestTurret();
+			//LatestTurret[0].transform.gameObject.GetComponent<Collider>().enabled=true;
+			//Destroy(LatestTurret[0].transform.GetChild(0).gameObject);
+			//DecreaseLatestTurret();
 
-				GlobalVariables.DestroyTurret=true; 
-				SelectTurret mySelectTurret = LatestTurret[0].transform.GetChild(0).gameObject.GetComponent<SelectTurret>();
+			//GlobalVariables.DestroyTurret=true; 
+			SelectTurret mySelectTurret = LatestTurret[0].transform.GetChild(0).gameObject.GetComponent<SelectTurret>();
+			if (GlobalVariables.GameStarted) {
+				mySelectTurret.DestroyTurret (0.5f);
+			} else {
 				mySelectTurret.DestroyTurret (1.0f);
-				GlobalVariables.DestroyTurret=false; 
-
-				
 			}
 
+			//GlobalVariables.DestroyTurret=false; 
+		//	Invoke("ReSetCreepsPath",Time.deltaTime);
 
+
+
+
+		}
+		/*
+		if (target != null && doSetPath)
+		{
+			agent.SetDestination(target.position);
+
+			agent.SetPath(path);
+
+
+		}
+		*/
+		else
+		{
+			// We still need to call the character's move function, but we send zeroed input as the move param.
+			//	character.Move(Vector3.zero, false, false);
+		}
 
 
 	
-		}
-		
-			if (target != null)
-			{
-				agent.SetDestination(target.position);
-				
-				agent.SetPath(path);
- 
 
-			}
-			else
-			{
-				// We still need to call the character's move function, but we send zeroed input as the move param.
-			//	character.Move(Vector3.zero, false, false);
-			}
+
+
+	}
+	void ReSetCreepsPathRequest (){
+
+		Invoke("ReSetCreepsPathExecution",0.1f);
+
+	}
+	void ReSetCreepsPathExecution (){
+
+		GameObject[] CurrentCreeps= GameObject.FindGameObjectsWithTag("CreepG");
+		foreach (GameObject creep in CurrentCreeps) {
+			Debug.Log ("REquesting patchcheck from Checkpath");
+			creep.SendMessage ("PathCheck");
+		}
 
 	}
 	
@@ -132,7 +152,10 @@ public class CheckPath : MonoBehaviour {
 
 	}
 
-	
+	void OnDisable()
+	{
+		doSetPath = false;
+	}
 	
 	
 	

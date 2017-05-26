@@ -10,7 +10,7 @@ public class LimitedInvincibility : MonoBehaviour {
 	public bool ShieldUsed=false;
 	// Use this for initialization
 	void Start () {
-		OriginalMaterial = this.gameObject.GetComponent<Renderer>().material;
+		OriginalMaterial = this.gameObject.GetComponent<Renderer>().sharedMaterial;
 		OriginalShield = this.gameObject.GetComponent<CreepLife> ().CreepShield;
 	}
 	

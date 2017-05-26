@@ -18,6 +18,10 @@ TagManager:
   - Info
   - HP_Text
   - CreepSpawner
+  - PlaceHolderTurret
+  - GameGrid
+  - GUI
+  - GameOverUI
   layers:
   - Default
   - TransparentFX

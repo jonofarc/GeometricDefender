@@ -15,6 +15,7 @@ public class TargetCreep : MonoBehaviour {
 	//public float BulletSpeed = 20f;
 	public bool RequireTarget=true;
 	public float ShootingSpeed = 1f;
+	private float ShootingSpeedOriginal = 1f;
 	public GameObject projectile;
 	private GameObject bullet;
 
@@ -23,11 +24,10 @@ public class TargetCreep : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-	
+		ShootingSpeedOriginal = ShootingSpeed;
+		SetGameSpeed ();
 		turretRangeAreaMarker.gameObject.transform.localScale = new Vector3 (turretRange,0.01f,turretRange);
-		if(RequireTarget){
-			InvokeRepeating("FindClosestPlayer", 0.5f,0.5f);	
-		}
+
 
 	}
 
@@ -61,12 +61,13 @@ public class TargetCreep : MonoBehaviour {
 	}
 
 	void TimeTillNextShoot(){
-		if(myTimeTillNextShoot<Time.time){
-			myTimeTillNextShoot=Time.time+ShootingSpeed;
-			Invoke("FireBullet",0.1f);
-			//FireBullet();
-		}
-	}
+		myTimeTillNextShoot += Time.deltaTime;
+		if(myTimeTillNextShoot>ShootingSpeed){
+			myTimeTillNextShoot -= ShootingSpeed;
+			//Invoke("FireBullet",0.1f);
+			FireBullet();
+		} 
+	} 
 	void FireBullet(){
 
 		// Instantiate the projectile at the position and rotation of this transform
@@ -132,7 +133,7 @@ public class TargetCreep : MonoBehaviour {
 			if (curDistance > distance) { 
 
 				target = null;
-				FindClosestPlayer();
+
 				
 			}
 		}
@@ -141,4 +142,13 @@ public class TargetCreep : MonoBehaviour {
 
 	}//end FindClosestPlayer
 
+	public void SetGameSpeed(){
+		
+		ShootingSpeed = ShootingSpeedOriginal / GlobalVariables.GameSpeed;
+		CancelInvoke ("FindClosestPlayer");
+		if(RequireTarget){
+			FindClosestPlayer ();
+			InvokeRepeating("FindClosestPlayer", 0.5f,(0.5f/GlobalVariables.GameSpeed));	
+		}
+	}
 }

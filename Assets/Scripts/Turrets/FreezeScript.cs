@@ -37,9 +37,9 @@ public class FreezeScript : MonoBehaviour {
 		if (Creep.gameObject.tag == "CreepG") {
 
 
-			Debug.Log(Creep.GetComponent<NavMeshAgent> ().speed);
-			Creep.GetComponent<NavMeshAgent> ().speed = (Creep.GetComponent<NavMeshAgent> ().speed * (FreezePercentage / 100));
-			Debug.Log(Creep.GetComponent<NavMeshAgent> ().speed);
+			Debug.Log(Creep.GetComponent<UnityEngine.AI.NavMeshAgent> ().speed);
+			Creep.GetComponent<UnityEngine.AI.NavMeshAgent> ().speed = (Creep.GetComponent<UnityEngine.AI.NavMeshAgent> ().speed * (FreezePercentage / 100));
+			Debug.Log(Creep.GetComponent<UnityEngine.AI.NavMeshAgent> ().speed);
 		}
 	}
 

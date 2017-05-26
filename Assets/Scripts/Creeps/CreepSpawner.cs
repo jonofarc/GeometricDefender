@@ -15,6 +15,7 @@ public class CreepSpawner : MonoBehaviour {
 	private GameObject CreepClone;
 	//public float StartSpawnTime=3;
 	public float spawnInterval=1;
+	private float spawnIntervalOriginal=1;
 	public bool SpawnActive=true; 
 	public bool StartFirstWave=false; 
 	public int CreepsSpawned=0;
@@ -22,7 +23,8 @@ public class CreepSpawner : MonoBehaviour {
 	public int WaveCreeps=10;
 	public int CreepsSpawnedThisWave=0;
 	public int CurrentWave=1;
-	public int NextWaveTime=10;
+	public float NextWaveTime=10;
+	private float NextWaveTimeOriginal=10;
 	public float waveHpPercentageIncrement=1f;
 	public int waveCreepsIncrement=1;
 
@@ -32,6 +34,7 @@ public class CreepSpawner : MonoBehaviour {
 	private List<string> fileLines;
 	private int CreepType = 0;
 	private float elapsed = 0.0f; 
+	private float elapsedNextWaveTime = 0.0f; 
 	private int creepSeparator=0;
 	private GameObject Canvas;
 	private Color myCreepColor;
@@ -39,7 +42,9 @@ public class CreepSpawner : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-
+		spawnIntervalOriginal = spawnInterval;
+		NextWaveTimeOriginal = NextWaveTime;
+		SetGameSpeed ();
 		GlobalVariables.GameStarted = false;
 		//we set nextWaveType
 
@@ -69,7 +74,7 @@ public class CreepSpawner : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void FixedUpdate () {
 
 		elapsed += Time.deltaTime;
 		if (elapsed > spawnInterval) {
@@ -78,8 +83,20 @@ public class CreepSpawner : MonoBehaviour {
 				CreateCreep();
 			}
 
-			
+
 		}
+
+		//Check when it is time to spawn next wave
+
+		if(CreepsSpawnedThisWave==WaveCreeps && (CurrentWave<=BaseCreeps.Length|| WaveLoop)){
+			
+			//Debug.Log ((elapsedNextWaveTime/GlobalVariables.GameSpeed)+"  :   "+NextWaveTime);
+			elapsedNextWaveTime += Time.deltaTime;
+			if((elapsedNextWaveTime/GlobalVariables.GameSpeed)>NextWaveTime){
+				elapsedNextWaveTime = 0;
+				NextWave ();
+			}
+		} 
 
 	}
 	public void CreateCreep(){
@@ -96,7 +113,7 @@ public class CreepSpawner : MonoBehaviour {
 
 		CreepClone = Instantiate(BaseCreeps[CreepType], BaseCreeps[CreepType].transform.position, BaseCreeps[CreepType].transform.rotation) as GameObject;
 		//we separate spawn site to minimise physics calculation on runtime
-		if(creepSeparator>20){
+		if(creepSeparator>16){
 			creepSeparator=0;
 		}
 		CreepClone.transform.position = new Vector3 (CreepClone.transform.position.x+creepSeparator,CreepClone.transform.position.y,CreepClone.transform.position.z);
@@ -133,9 +150,10 @@ public class CreepSpawner : MonoBehaviour {
 
 		//}
 
+
 		if(CreepsSpawnedThisWave==WaveCreeps && (CurrentWave<=BaseCreeps.Length|| WaveLoop)){
 			SpawnActive=false;
-			Invoke("NextWave",NextWaveTime);
+			//Invoke("NextWave",NextWaveTime);
 
 		//	Debug.Log("Time for next wave"+(spawnInterval*WaveCreeps));
 
@@ -306,6 +324,10 @@ public class CreepSpawner : MonoBehaviour {
 
 
 
+	}
+	public void SetGameSpeed(){
+		spawnInterval = spawnIntervalOriginal / GlobalVariables.GameSpeed;
+		NextWaveTime = NextWaveTimeOriginal/GlobalVariables.GameSpeed;
 	}
 	
 	

@@ -7,27 +7,37 @@ EditorBuildSettings:
   m_Scenes:
   - enabled: 1
     path: Assets/Scenes/Dedication.unity
+    guid: e18b93b27214e644584492fb7c270f46
   - enabled: 1
     path: Assets/Scenes/Splash.unity
+    guid: a299d4243b582e342a7d80f929ef2307
   - enabled: 1
     path: Assets/Scenes/MainMenu.unity
+    guid: bf4d9a4d43272bf4cadaa3754dee6d34
   - enabled: 1
     path: Assets/Scenes/GeometricDefenseLvl0.unity
+    guid: c500fea1e1c0c0f4cb9617b0f4756fc2
   - enabled: 1
     path: Assets/Scenes/GeometricDefenseLvl1.unity
+    guid: 224ee84014b94db4f906ef54fcef2f00
   - enabled: 1
     path: Assets/Scenes/GeometricDefenseLvl2.unity
+    guid: b40630c9b11a9cc40b4c6e8fc82f0edf
   - enabled: 1
     path: Assets/Scenes/GeometricDefenseLvl3.unity
+    guid: b3f9a0cab6dc67d4180d97ea717cc823
   - enabled: 1
     path: Assets/Scenes/GeometricDefenseLvl4.unity
+    guid: 40704bc82068fa04e904e32b58e4af9f
   - enabled: 1
     path: Assets/Scenes/GeometricDefenseLvl5.unity
+    guid: b7f04bb1079872a44a65261027e65196
   - enabled: 1
     path: Assets/Scenes/GeometricDefenseLvl6.unity
+    guid: 43224f8781626d7499e7e4baf61d95af
   - enabled: 1
     path: Assets/Scenes/GeometricDefenseLvl7.unity
+    guid: 671c9e629670cf94093c2b6139131f6e
   - enabled: 1
     path: Assets/Scenes/InfiniteLevel.unity
-  - enabled: 1
-    path: Assets/Scenes/GameOver.unity
+    guid: 0edf0c19294841b4fbbde26bc6685a00

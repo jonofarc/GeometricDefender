@@ -9,19 +9,25 @@ public class DestroyBullet : MonoBehaviour {
 	public float BulletSpeed = 20f;
 	public float TimeToDisapear = 2f;
 	private GameObject CreepTarget;
-	public int TargetsHit=0;
 	// Use this for initialization
 	void Start () {
-		Invoke ("AutoDestroy",TimeToDisapear);
+		
+		Debug.Log (GlobalVariables.CurrentBullets);
+		if (GlobalVariables.CurrentBullets < GlobalVariables.MaximunBullets || ContinousDamage == true) {
+			Invoke ("AutoDestroy", TimeToDisapear);
+			if(ContinousDamage == false){
+				GlobalVariables.CurrentBullets++;
+			}
+		} 
 	}
 
-    // Update is called once per frame
-    //void Update () {
-    void FixedUpdate(){
-        if (DamageDone==false && CreepTarget != null ){
+	// Update is called once per frame
+	//void Update () {
+	void FixedUpdate(){
+		if (DamageDone==false && CreepTarget != null ){
 			Vector3 CreepTargetCenter=CreepTarget.transform.position;
 			CreepTargetCenter.y=CreepTarget.transform.position.y+(CreepTarget.transform.localScale.y/2);
-			transform.position = Vector3.MoveTowards(transform.position, CreepTargetCenter, BulletSpeed*Time.deltaTime);
+			transform.position = Vector3.MoveTowards(transform.position, CreepTargetCenter, (BulletSpeed*Time.deltaTime)*GlobalVariables.GameSpeed);
 		}
 
 	}
@@ -30,16 +36,14 @@ public class DestroyBullet : MonoBehaviour {
 		CreepTarget = CreepTargetRecived;
 	}
 
+
 	void OnTriggerEnter(Collider other) {
 
-		/*if(other.GetComponent<Renderer>()!=null){
-			if(other.GetComponent<Renderer>().enabled){
-			
-				Destroy(this.gameObject);
-			}
-		}*/
+	
+
 		RecivedCollision (other.gameObject); 
 	}
+
 	void OnCollisionEnter(Collision collision) {
 
 
@@ -50,31 +54,39 @@ public class DestroyBullet : MonoBehaviour {
 	void RecivedCollision (GameObject collision) {
 
 
-		
+
 		if(collision.gameObject.tag=="CreepG" && DamageDone==false){
-			TargetsHit++;
 			collision.gameObject.SendMessage("takeDamage",BulletDamage);
 			if(ContinousDamage){
 				DamageDone = false;
 			}else{
 				DamageDone = true;
 				Destroy(this.gameObject.GetComponent<Collider>());
+				if (GlobalVariables.CurrentBullets < 40) {
+					Destroy (this.gameObject.GetComponent<Collider> ());
+				} else {
+					
+					AutoDestroy ();
+				}
 			}
 
 
-			
+
 		}
-		 
+
 
 		//AutoDestroy();
 
 
 
-		
+
 	}//end RecivedCollision
 
 	void AutoDestroy(){
-//		Debug.Log ("destroying bullet");
+		//		Debug.Log ("destroying bullet");
+		if(ContinousDamage == false){
+			GlobalVariables.CurrentBullets--;
+		}
 		Destroy(this.gameObject);
 	}
 	void CancelAutoDestroy(){

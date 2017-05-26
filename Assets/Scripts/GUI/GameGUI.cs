@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GameGUI : MonoBehaviour {
 
@@ -12,14 +13,17 @@ public class GameGUI : MonoBehaviour {
 	public GameObject CannonTurret;
 	public GameObject MachineGunTurret; 
 	public GameObject AreaTurret;
-    public GameObject FreezeTurret;
+    public GameObject FreezeTurret; 
     public GameObject SniperTurret;
 	[Header("Floor Panels")]
 	public GameObject FirePanel;
 	[Header(" ")]
     public GameObject LevelClearedUI;
+	public GameObject GameOverUI;
 	public GameObject NextWaveType;
-
+	[Header("NextLevel")]
+	public bool Automatic=true;
+	public string LevelName;
  
 
 	private int x=0;
@@ -29,8 +33,12 @@ public class GameGUI : MonoBehaviour {
 	void Start () {
 		AdjustFPS (GlobalVariables.TargetFPS);
 		GlobalVariables.LevelCleared = false;
+		GlobalVariables.LevelFailed = false;
 		LevelClearedUI.SetActive (false);
+		GameOverUI.SetActive (false);
 		Time.timeScale = 1.0F;
+
+		NormalSpeed ();
 	}
 	
 	// Update is called once per frame
@@ -43,7 +51,7 @@ public class GameGUI : MonoBehaviour {
 			FastFoward ();
 		}
 		if (Input.GetKeyDown (KeyCode.Alpha3)) {
-			SuperFastFoward ();
+			SuperFastFoward();
 		}
 			
 
@@ -52,6 +60,9 @@ public class GameGUI : MonoBehaviour {
 
 		if(GlobalVariables.LevelCleared==true){
 			LevelClearedUI.SetActive(true);
+		}
+		if(GlobalVariables.LevelFailed==true){
+			GameOverUI.SetActive(true);
 		}
 	} 
 	void OnGUI()
@@ -79,16 +90,7 @@ public class GameGUI : MonoBehaviour {
 		}
 
 	}
-	public void GameSpeed(){
-		if(Time.timeScale == 1.0F){
-			Time.timeScale = 2.0F;
-			AdjustFPS (GlobalVariables.TargetFPS*2);
-		}else{
 
-			Time.timeScale = 1.0F;
-			AdjustFPS (GlobalVariables.TargetFPS);
-		}
-	}
 	public void Pause(){
 		
 		Time.timeScale = 0.0F;
@@ -96,9 +98,11 @@ public class GameGUI : MonoBehaviour {
 	}
 	public void FastFoward(){
 
-		Time.timeScale = 2.0F;
-		AdjustFPS (GlobalVariables.TargetFPS*2);
-		 
+		Time.timeScale = 1.0F;
+		//AdjustFPS (GlobalVariables.TargetFPS*2);
+		GlobalVariables.GameSpeed=2.0f;
+		SetGameSpeed ();
+	
 	}
 	public void SuperFastFoward(){
 		
@@ -112,8 +116,8 @@ public class GameGUI : MonoBehaviour {
 		#endif
 
 		#if UNITY_EDITOR 
-		Time.timeScale = 15.0F;
-		AdjustFPS (GlobalVariables.TargetFPS*15);
+		Time.timeScale = 16.0F;
+		AdjustFPS (GlobalVariables.TargetFPS*16);
 		#endif
 
 		 
@@ -122,8 +126,26 @@ public class GameGUI : MonoBehaviour {
 	public void NormalSpeed(){
 		
 		Time.timeScale = 1.0F;
-		AdjustFPS (GlobalVariables.TargetFPS);
+		//AdjustFPS (GlobalVariables.TargetFPS*2);
+		GlobalVariables.GameSpeed=1.0f;
+		SetGameSpeed ();
 		
+	}
+	public void SetGameSpeed(){
+		GameObject[] Creeps= GameObject.FindGameObjectsWithTag ("CreepG");
+		foreach (GameObject Creep in Creeps) {
+			Creep.SendMessage ("SetGameSpeed");
+		}
+		GameObject[] CreepSpawners= GameObject.FindGameObjectsWithTag ("CreepSpawner");
+		foreach (GameObject CreepSpawner in CreepSpawners) {
+			CreepSpawner.BroadcastMessage ("SetGameSpeed");
+		}
+
+		GameObject[] Turrets= GameObject.FindGameObjectsWithTag ("Turret");
+		foreach (GameObject Turret in Turrets) {
+			Turret.BroadcastMessage ("SetGameSpeed",SendMessageOptions.DontRequireReceiver);
+		}
+
 	}
 	public void MainMenuButtton (){
 		Application.LoadLevel("MainMenu");
@@ -193,11 +215,16 @@ public class GameGUI : MonoBehaviour {
 	}
 	public void LoadNextLevel(){
 		
-		if (PlayerPrefs.GetInt ("NextLevel") == GlobalVariables.LastLevel+1) {
-			Application.LoadLevel ("MainMenu"); 
+		if (Automatic) {
+			SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
 		} else {
-			Application.LoadLevel ("GeometricDefenseLvl"+PlayerPrefs.GetInt("NextLevel".ToString())); 
+			SceneManager.LoadScene(LevelName); 
 		}
+
+	}
+	public void RetryLevel(){
+
+		SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
 
 	}
 	public void getNextWave(string NextWaveCreepName ,Color CreepColor){ 
@@ -208,7 +235,7 @@ public class GameGUI : MonoBehaviour {
 			NextWaveType.GetComponentInChildren<Text>().text=LocalizationText.GetText("LastWave"); 
 		}else{
 			NextWaveType.GetComponent<Image>().color= CreepColor; 
-			Debug.Log (NextWaveCreepName);
+//			Debug.Log (NextWaveCreepName);
 			NextWaveType.GetComponentInChildren<Text>().text=LocalizationText.GetText("NextWave")+": "+ NextWaveCreepName; 
 		}
 

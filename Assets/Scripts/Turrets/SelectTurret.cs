@@ -19,7 +19,7 @@ public class SelectTurret : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		SelectMaterial=(Material)Resources.Load("Materials/SelectedTurret");
-		OriginalMaterial = Base.GetComponent<Renderer> ().material;
+		OriginalMaterial = Base.GetComponent<Renderer> ().sharedMaterial;
 	} 
 	
 	// Update is called once per frame
@@ -65,19 +65,21 @@ public class SelectTurret : MonoBehaviour {
 		GlobalVariables.TurretCost = TurretCost;
 	}
 	public void DestroyTurret(float MoneyBackPercentage ){
-		if (GlobalVariables.GameStarted == true) {
+
 			
 			GlobalVariables.Money = GlobalVariables.Money + ((int)(TurretCost * MoneyBackPercentage));
 			this.transform.parent.gameObject.GetComponent<BoxCollider> ().enabled = true;
-			Destroy (this.gameObject);
+			foreach (Transform child in this.transform) {
+				GameObject.Destroy(child.gameObject);
+			}
+			GameObject PathChecker= GameObject.FindGameObjectWithTag("PathCheker");
+			if(PathChecker!= null){
+				PathChecker.SendMessage ("ReSetCreepsPath");
+				Destroy (this.gameObject);
+			}
+			
 
-		} else {
-
-			GlobalVariables.Money = GlobalVariables.Money + ((int)(TurretCost));
-			this.transform.parent.gameObject.GetComponent<BoxCollider> ().enabled = true;
-			Destroy (this.gameObject);		
 		
-		}
 
 	}
 	public int getTurretCost(){

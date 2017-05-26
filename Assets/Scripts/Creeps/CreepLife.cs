@@ -75,6 +75,8 @@ public class CreepLife : MonoBehaviour {
 				GlobalVariables.Money=GlobalVariables.Money+LootAmount;
 				LootGiven = true;
 			}
+			MoveCreeps myMoveCreeps = GetComponent<MoveCreeps>();
+			myMoveCreeps.CancelPathCheck ();
 
 			Destroy(this.gameObject); 
 
@@ -96,6 +98,7 @@ public class CreepLife : MonoBehaviour {
 		CreepHP *= increment;
 		maxHP = CreepHP;
 	}
+	/*
 	void OnTriggerEnter(Collider other) {
 
 		if(other.gameObject.tag=="Bullet"){
@@ -104,4 +107,5 @@ public class CreepLife : MonoBehaviour {
 		}
 
 	}
+	*/
 }

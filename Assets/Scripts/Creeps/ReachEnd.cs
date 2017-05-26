@@ -42,6 +42,7 @@ public class ReachEnd : MonoBehaviour {
 		}
 	}
 	public void GameOver (){
-		Application.LoadLevel("GameOver");
+		GlobalVariables.LevelFailed = true;
+		Time.timeScale = 0.0F;
 	}
 }
