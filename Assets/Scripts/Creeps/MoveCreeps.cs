@@ -8,7 +8,7 @@ public class MoveCreeps : MonoBehaviour {
 	public Transform target;
 	public float PathCheckInterval=1f; 
 	private UnityEngine.AI.NavMeshPath path;
-	private float elapsed = 0.0f;  
+
 	public UnityEngine.AI.NavMeshAgent agent { get; private set; } // the navmesh agent required for the path finding
 
 	private float CreepSpeed=0;
@@ -21,7 +21,6 @@ public class MoveCreeps : MonoBehaviour {
 		
 
 		path = new UnityEngine.AI.NavMeshPath();
-		elapsed = PathCheckInterval;
 		
 		// get the components on the object we need ( should not be null due to require component so no need to check )
 		agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
@@ -30,13 +29,12 @@ public class MoveCreeps : MonoBehaviour {
 		CreepSpeed=agent.speed;
 		AngularSpeed = agent.angularSpeed;
 		AccelerationSpeed = agent.acceleration;
-		SetGameSpeed ();
+		//SetGameSpeed ();
 		
 		agent.updateRotation = true;
 		agent.updatePosition = true;
-		//InvokeRepeating ("PathCheck",PathCheckInterval,PathCheckInterval);
 		PathCheck();
-		//Invoke ("PathCheck",1);
+
 	}
 	
 	// Update is called once per frame
@@ -73,6 +71,7 @@ public class MoveCreeps : MonoBehaviour {
 
 	}
 
+	// Deprecated function to augment creeps speed
 	void SetGameSpeed(){
 	
 		agent.acceleration = AccelerationSpeed * GlobalVariables.GameSpeed;

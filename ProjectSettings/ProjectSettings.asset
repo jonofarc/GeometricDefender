@@ -645,11 +645,12 @@ PlayerSettings:
     daydream:
       daydreamIconForeground: {fileID: 0}
       daydreamIconBackground: {fileID: 0}
-  cloudServicesEnabled: {}
+  cloudServicesEnabled:
+    UNet: 1
   facebookSdkVersion: 7.9.1
   apiCompatibilityLevel: 2
-  cloudProjectId: 
-  projectName: 
-  organizationId: 
+  cloudProjectId: 2d7c8059-3a06-4b92-9742-13d3a167df8d
+  projectName: GeometricDefender
+  organizationId: jonathan-1441811
   cloudEnabled: 0
   enableNewInputSystem: 0

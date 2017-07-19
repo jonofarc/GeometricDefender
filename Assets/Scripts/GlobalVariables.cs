@@ -20,7 +20,7 @@ public class GlobalVariables : MonoBehaviour {
 	public static bool GameStarted = false;
 	public static float GameSpeed=1;
 	public static int CurrentBullets = 0;
-	public static int MaximunBullets=28;
+	public static int MaximunBullets=20;
 
 
 	// Use this for initialization
