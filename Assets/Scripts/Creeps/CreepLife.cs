@@ -27,8 +27,8 @@ public class CreepLife : MonoBehaviour {
 	void Update () {
 	
 	}
-	void takeDamage(float Damage){
-		if(Damage>CreepShield){
+	public void takeDamage(float Damage){
+		if(Damage>CreepShield){ 
 			CreepHP -= Damage;
 
 

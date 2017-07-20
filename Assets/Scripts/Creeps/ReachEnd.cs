@@ -13,7 +13,7 @@ public class ReachEnd : MonoBehaviour {
 	public GameObject[] ReviveDependent;
 	// Use this for initialization
 	void Awake(){
-		ReviveDependent = GameObject.FindGameObjectsWithTag ("ReviveDependent") ; 
+		
 	}
 	void Start () {
 		
@@ -112,6 +112,7 @@ public class ReachEnd : MonoBehaviour {
 
 	// not the best solution but being 7/20/2017 at 12:35 AM I cant think of other option is this or move the button so the add close button and this would not overlap
 	public void ReviveDependentReactivation (){
+		ReviveDependent = GameObject.FindGameObjectsWithTag ("ReviveDependent") ; 
 		foreach (GameObject Dependent in ReviveDependent) {
 			Dependent.GetComponent<Button> ().enabled = true;
 		}
