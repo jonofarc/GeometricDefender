@@ -21,6 +21,9 @@ public class GlobalVariables : MonoBehaviour {
 	public static float GameSpeed=1;
 	public static int CurrentBullets = 0;
 	public static int MaximunBullets=20;
+	public static int MaxRevives=2;
+	public static int Revives=2;
+	public static int HPReward=3;
 
 
 	// Use this for initialization

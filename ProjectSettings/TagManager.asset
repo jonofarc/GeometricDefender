@@ -22,6 +22,7 @@ TagManager:
   - GameGrid
   - GUI
   - GameOverUI
+  - ReviveDependent
   layers:
   - Default
   - TransparentFX

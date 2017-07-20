@@ -53,7 +53,8 @@ public class GameGUI : MonoBehaviour {
 		if (Input.GetKeyDown (KeyCode.Alpha3)) {
 			SuperFastFoward();
 		}
-			
+
+		// this should not be on the update but instead only called once every time is needed thats when gold is earned or wasted as well as when damage is taken
 
 		GoldText.text = LocalizationText.GetText("Gold")+": "+ GlobalVariables.Money.ToString(); 
 		CurrentWave.text = LocalizationText.GetText("Wave")+": "+ GlobalVariables.CurrentWave.ToString(); 
@@ -61,8 +62,11 @@ public class GameGUI : MonoBehaviour {
 		if(GlobalVariables.LevelCleared==true){
 			LevelClearedUI.SetActive(true);
 		}
-		if(GlobalVariables.LevelFailed==true){
-			GameOverUI.SetActive(true);
+		if (GlobalVariables.LevelFailed == true) {
+			GameOverUI.SetActive (true);
+
+		} else {
+			GameOverUI.SetActive (false);
 		}
 	} 
 	void OnGUI()

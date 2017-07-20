@@ -2,6 +2,7 @@
 using System.Collections;
 using UnityEngine.UI;
 using UnityEngine.Advertisements;
+using UnityEngine.UI;
 
 public class ReachEnd : MonoBehaviour {
 
@@ -9,9 +10,14 @@ public class ReachEnd : MonoBehaviour {
 	public int DefaultDamage=1;
 	public int StartMoney=20;
 	private Text HPtext;
-	public bool ReviveUsed = false;
+	public GameObject[] ReviveDependent;
 	// Use this for initialization
+	void Awake(){
+		ReviveDependent = GameObject.FindGameObjectsWithTag ("ReviveDependent") ; 
+	}
 	void Start () {
+		
+		GlobalVariables.Revives = GlobalVariables.MaxRevives;
 		HPtext= GameObject.FindGameObjectWithTag ("HP_Text").GetComponent<Text>();
 		GlobalVariables.HP = HP;
 
@@ -29,6 +35,7 @@ public class ReachEnd : MonoBehaviour {
 			Destroy(other.gameObject);
 			//	Debug.Log ("-1 hp");
 			ReciveDamage(DefaultDamage);
+			//ShowRewardedAd ();
 		
 		}
 
@@ -45,13 +52,14 @@ public class ReachEnd : MonoBehaviour {
 		}
 	}
 	public void GameOver (){
-		if (ReviveUsed) {
-			GlobalVariables.LevelFailed = true;
-			Time.timeScale = 0.0F;
-		} else {
-			Time.timeScale = 0.0F;
-			ShowRewardedAd ();
-		}
+
+		GlobalVariables.LevelFailed = true;
+	
+		Time.timeScale = 0.0F;
+
+	
+
+	
 
 
 	}
@@ -60,11 +68,16 @@ public class ReachEnd : MonoBehaviour {
 	// this is the code used for adds
 	public void ShowRewardedAd()
 	{
+		//ApplyRewards ();
+		//GlobalVariables.LevelFailed = false;
 		if (Advertisement.IsReady("rewardedVideo"))
 		{
 			var options = new ShowOptions { resultCallback = HandleShowResult };
 			Advertisement.Show("rewardedVideo", options);
+			//Advertisement.Show();//add that can be skiped
 		}
+
+
 	}
 
 	private void HandleShowResult(ShowResult result)
@@ -76,18 +89,33 @@ public class ReachEnd : MonoBehaviour {
 			//
 			// YOUR CODE TO REWARD THE GAMER
 			// Give coins etc.
-			GlobalVariables.HP = 5;
-			HPtext.text = LocalizationText.GetText("HP")+": " + GlobalVariables.HP.ToString ();
-			ReviveUsed = true;
-			Time.timeScale = 1.0f;
+			ApplyRewards ();
+			ReviveDependentReactivation ();
 			break;
 		case ShowResult.Skipped:
 			Debug.Log("The ad was skipped before reaching the end.");
 			break;
 		case ShowResult.Failed:
 			Debug.LogError("The ad failed to be shown.");
+			GlobalVariables.LevelFailed = true;
 			break;
 		}
+	}
+	public void ApplyRewards(){
+		GlobalVariables.HP = GlobalVariables.HPReward;
+		HPtext.text = LocalizationText.GetText("HP")+": " + GlobalVariables.HP.ToString ();
+		Time.timeScale = 0.0f;
+		GlobalVariables.Revives--;
+		GlobalVariables.LevelFailed = false;
+
+	}
+
+	// not the best solution but being 7/20/2017 at 12:35 AM I cant think of other option is this or move the button so the add close button and this would not overlap
+	public void ReviveDependentReactivation (){
+		foreach (GameObject Dependent in ReviveDependent) {
+			Dependent.GetComponent<Button> ().enabled = true;
+		}
+
 	}
 
 }

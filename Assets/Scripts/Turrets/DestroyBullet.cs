@@ -12,7 +12,7 @@ public class DestroyBullet : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		
-		Debug.Log (GlobalVariables.CurrentBullets);
+		//Debug.Log (GlobalVariables.CurrentBullets);
 		if (GlobalVariables.CurrentBullets < GlobalVariables.MaximunBullets || ContinousDamage == true) {
 			Invoke ("AutoDestroy", TimeToDisapear);
 			if(ContinousDamage == false){
