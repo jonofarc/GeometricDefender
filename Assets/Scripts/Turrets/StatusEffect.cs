@@ -27,7 +27,7 @@ public class StatusEffect : MonoBehaviour {
 		
 	} 
 
-	void AddStatus(GameObject Creep){
+	public void AddStatus(GameObject Creep){
 		
 		if (Creep.gameObject.tag == "CreepG" && statusSent==false) {
 

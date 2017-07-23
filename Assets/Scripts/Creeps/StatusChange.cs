@@ -8,6 +8,7 @@ public class StatusChange : MonoBehaviour {
 	public float DoTStatusTime = 3.0f;
 	private float CurrentDoTDamage = 3.0f;
     private Material FreezeMaterial;
+	private Material ToxicMaterial;
     private Material OriginalMaterial;
 	private int DoTTicks = 0;
 	private float DoTTicksTime = 1.0f;
@@ -15,6 +16,7 @@ public class StatusChange : MonoBehaviour {
     void Start () {
 		NormalSpeed = this.gameObject.GetComponent<UnityEngine.AI.NavMeshAgent> ().speed;
         FreezeMaterial = (Material)Resources.Load("Materials/FreezeMaterial");
+		ToxicMaterial = (Material)Resources.Load("Materials/ToxicMaterial");
 		OriginalMaterial = this.GetComponent<Renderer>().sharedMaterial;
     }
 	
@@ -40,7 +42,12 @@ public class StatusChange : MonoBehaviour {
     }
 	public void Poison(float DoTDamage){
 		Debug.Log ("Entering Poison");
+
+		//This is to prevent Poison stacking
+		CancelInvoke ("ApplyDamage");
+
 		CurrentDoTDamage = DoTDamage;
+		this.GetComponent<Renderer>().material = ToxicMaterial;
 		InvokeRepeating ("ApplyDamage",DoTTicksTime,DoTTicksTime);
 
 		
@@ -53,6 +60,7 @@ public class StatusChange : MonoBehaviour {
 			DoTTicks++;
 
 		} else {
+			this.GetComponent<Renderer>().material = OriginalMaterial;
 			CancelInvoke ("ApplyDamage");
 		}
 	}

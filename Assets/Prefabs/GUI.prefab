@@ -6412,7 +6412,7 @@ MonoBehaviour:
   turretRangeAreaMarker: {fileID: 160450}
   target: {fileID: 0}
   RequireTarget: 1
-  ShootingSpeed: 2.2
+  ShootingSpeed: 2.5
   projectile: {fileID: 198800}
 --- !u!114 &11445788
 MonoBehaviour:
@@ -6425,7 +6425,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 359ac01df4e29c943af223bd23ab7401, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BulletDamage: 4
+  BulletDamage: 10
   BulletDamageIncrease: 2
   ContinousDamage: 0
   DamageDone: 0
@@ -7045,7 +7045,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 359ac01df4e29c943af223bd23ab7401, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BulletDamage: 22
+  BulletDamage: 35
   BulletDamageIncrease: 5
   ContinousDamage: 0
   DamageDone: 0
@@ -7342,7 +7342,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 1e52ee9a859974a439d782c3f7acff4f, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 19aae7305b8c6524bbd41c461f7dc706, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -7522,7 +7522,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 6f9f4d31eb0b4004bab71dbb8b475caa, type: 3}
+  m_Sprite: {fileID: 21300000, guid: b50e6c63ea1869b47a7c14adaa8c2ba0, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -7825,7 +7825,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9ea7d5956d7d4f4786e0ec08bd955eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TurretCost: 30
+  TurretCost: 35
   MaxLevel: 3
   TurretLevel: 0
   RangeAura: {fileID: 134262}
@@ -9196,7 +9196,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.6822532, y: 0.09200001}
   m_AnchorMax: {x: 0.80921286, y: 0.22373226}
-  m_AnchoredPosition: {x: 1.500061, y: 1.8000183}
+  m_AnchoredPosition: {x: 1.5, y: 1.8000183}
   m_SizeDelta: {x: 7.300003, y: -0.19999695}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &22431788
@@ -9253,8 +9253,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.6822532, y: 0.3065953}
   m_AnchorMax: {x: 0.7266698, y: 0.40862468}
-  m_AnchoredPosition: {x: 252, y: -162}
-  m_SizeDelta: {x: 41, y: 45}
+  m_AnchoredPosition: {x: 251, y: -162}
+  m_SizeDelta: {x: 50.6, y: 45}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &22435088
 RectTransform:
@@ -9679,7 +9679,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.88600004}
   m_AnchorMax: {x: 0.13033332, y: 1}
-  m_AnchoredPosition: {x: 1.499939, y: -1.5025635}
+  m_AnchoredPosition: {x: 1.5, y: -1.5025635}
   m_SizeDelta: {x: 6.29998, y: 6.7993164}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &22473548
@@ -11159,7 +11159,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BulletStatusEffect:
-  - Poison,1
+  - Poison,5
   statusSent: 0
   statusProperties: []
 --- !u!114 &114626171498269146
@@ -11604,7 +11604,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.6822532, y: 0.09200001}
   m_AnchorMax: {x: 0.80921286, y: 0.22373226}
-  m_AnchoredPosition: {x: 256.04, y: 164}
+  m_AnchoredPosition: {x: 256.04, y: 164.00002}
   m_SizeDelta: {x: 319, y: 273.03}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224556751985169830

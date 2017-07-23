@@ -121,7 +121,7 @@ public class SelectTurret : MonoBehaviour {
 
 	}
 	public void UpdateMaterial(bool TurretSelected){
-		Debug.Log (TurretLevel);
+
 		if(TurretLevel>=MaxLevel){
 			OriginalMaterial=MaxLevelMaterial;
 			Base.GetComponent<Renderer> ().material = OriginalMaterial;

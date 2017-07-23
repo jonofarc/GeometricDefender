@@ -1,5 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
 
 public class DestroyBullet : MonoBehaviour {
 	public float BulletDamage=10;
@@ -94,5 +96,22 @@ public class DestroyBullet : MonoBehaviour {
 	}
 	void ChangeDamage(){
 		BulletDamage = BulletDamage* BulletDamageIncrease;
+
+		StatusEffect myStatusEffect = this.gameObject.GetComponent<StatusEffect> ();
+		 List<string> statusProperties;
+		for(int i=0; i<=myStatusEffect.BulletStatusEffect.Length-1; i++){
+
+			statusProperties = myStatusEffect.BulletStatusEffect[i].Split(',').ToList();
+
+			// ugly hack to increase posion damage should remake everything regarding status efect
+			if(statusProperties[0]=="Poison"){
+				statusProperties [1] = (int.Parse (statusProperties [1]) * BulletDamageIncrease).ToString ();
+
+				myStatusEffect.BulletStatusEffect [i] = statusProperties [0] + "," + statusProperties [1];
+				Debug.Log (myStatusEffect.BulletStatusEffect [i]);
+			}
+
+
+		}
 	}
 }
