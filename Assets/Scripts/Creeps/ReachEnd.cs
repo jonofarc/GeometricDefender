@@ -104,7 +104,13 @@ public class ReachEnd : MonoBehaviour {
 	public void ApplyRewards(){
 		GlobalVariables.HP = GlobalVariables.HPReward;
 		HPtext.text = LocalizationText.GetText("HP")+": " + GlobalVariables.HP.ToString ();
-		Time.timeScale = 0.0f;
+
+		//Activate Pause button here
+		GameObject Canvas = GameObject.FindGameObjectWithTag ("Canvas");
+		GameObject PauseButton = Canvas.transform.Find("SpeedButtons/Pause").gameObject;
+		Toggle PauseButtonScript = PauseButton.GetComponent<Toggle> ();
+		PauseButtonScript.isOn = true;
+
 		GlobalVariables.Revives--;
 		GlobalVariables.LevelFailed = false;
 
