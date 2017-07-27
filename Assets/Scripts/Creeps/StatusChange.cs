@@ -9,14 +9,19 @@ public class StatusChange : MonoBehaviour {
 	private float CurrentDoTDamage = 3.0f;
     private Material FreezeMaterial;
 	private Material ToxicMaterial;
+	private Material ToxicFreezeMaterial;
     private Material OriginalMaterial;
 	private int DoTTicks = 0;
 	private float DoTTicksTime = 1.0f;
+
+	private bool CreepPoison=false;
+	private bool CreepFreeze=false;
     // Use this for initialization
     void Start () {
 		NormalSpeed = this.gameObject.GetComponent<UnityEngine.AI.NavMeshAgent> ().speed;
         FreezeMaterial = (Material)Resources.Load("Materials/FreezeMaterial");
 		ToxicMaterial = (Material)Resources.Load("Materials/ToxicMaterial");
+		ToxicFreezeMaterial = (Material)Resources.Load("Materials/ToxicFreezeMaterial");
 		OriginalMaterial = this.GetComponent<Renderer>().sharedMaterial;
     }
 	
@@ -30,7 +35,8 @@ public class StatusChange : MonoBehaviour {
 		Debug.Log ("slowAmount: "+ SlowAmount);
 		this.gameObject.GetComponent<UnityEngine.AI.NavMeshAgent> ().speed = NormalSpeed* SlowAmount ;
 		Debug.Log ("normal speed:"+NormalSpeed+ "  CurrentSpeed="+this.gameObject.GetComponent<UnityEngine.AI.NavMeshAgent> ().speed);
-        this.GetComponent<Renderer>().material = FreezeMaterial;
+		CreepFreeze = true;
+		MaterialAdjust ();
         CancelInvoke("UnFreeze");
 		Invoke("UnFreeze",FreezeStatusTime);
 
@@ -38,7 +44,9 @@ public class StatusChange : MonoBehaviour {
     public void UnFreeze() { 
 
         this.gameObject.GetComponent<UnityEngine.AI.NavMeshAgent>().speed = NormalSpeed;
-        this.GetComponent<Renderer>().material = OriginalMaterial;
+      
+		CreepFreeze = false;
+		MaterialAdjust ();
     }
 	public void Poison(float DoTDamage){
 		Debug.Log ("Entering Poison");
@@ -47,7 +55,9 @@ public class StatusChange : MonoBehaviour {
 		CancelInvoke ("ApplyDamage");
 
 		CurrentDoTDamage = DoTDamage;
-		this.GetComponent<Renderer>().material = ToxicMaterial;
+
+		CreepPoison = true;
+		MaterialAdjust ();
 		InvokeRepeating ("ApplyDamage",DoTTicksTime,DoTTicksTime);
 
 		
@@ -60,8 +70,23 @@ public class StatusChange : MonoBehaviour {
 			DoTTicks++;
 
 		} else {
-			this.GetComponent<Renderer>().material = OriginalMaterial;
+			
+			CreepPoison = false;
+			MaterialAdjust ();
 			CancelInvoke ("ApplyDamage");
+		}
+	}
+
+	public void MaterialAdjust(){
+
+		if (CreepPoison == false && CreepFreeze == false) {
+			this.GetComponent<Renderer> ().material = OriginalMaterial;
+		} else if (CreepPoison && CreepFreeze) {
+			this.GetComponent<Renderer> ().material = ToxicFreezeMaterial;
+		} else if (CreepPoison) {
+			this.GetComponent<Renderer> ().material = ToxicMaterial;
+		} else if (CreepFreeze) {
+			this.GetComponent<Renderer> ().material = FreezeMaterial;
 		}
 	}
 
