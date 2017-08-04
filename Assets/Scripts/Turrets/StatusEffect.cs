@@ -29,7 +29,7 @@ public class StatusEffect : MonoBehaviour {
 
 	public void AddStatus(GameObject Creep){
 		
-		if (Creep.gameObject.tag == "CreepG" && statusSent==false) {
+		if (Creep.gameObject.tag == GlobalVariables.CreepTag && statusSent==false) {
 
 			for(int i=0; i<=BulletStatusEffect.Length-1; i++){
 

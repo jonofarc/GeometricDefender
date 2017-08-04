@@ -104,7 +104,7 @@ public class CheckPath : MonoBehaviour {
 	}
 	void ReSetCreepsPathExecution (){
 
-		GameObject[] CurrentCreeps= GameObject.FindGameObjectsWithTag("CreepG");
+		GameObject[] CurrentCreeps= GameObject.FindGameObjectsWithTag(GlobalVariables.CreepTag);
 		foreach (GameObject creep in CurrentCreeps) {
 			Debug.Log ("REquesting patchcheck from Checkpath");
 			creep.SendMessage ("PathCheck");

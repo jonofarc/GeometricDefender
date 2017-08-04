@@ -46,7 +46,7 @@ public class AreaDamage : MonoBehaviour {
 		
 		
 		
-		if(collision.gameObject.tag=="CreepG"){
+		if(collision.gameObject.tag==GlobalVariables.CreepTag){
 			
 			collision.gameObject.SendMessage("takeDamage",BulletDamage);
 

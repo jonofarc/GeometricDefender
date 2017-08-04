@@ -31,7 +31,7 @@ public class ReachEnd : MonoBehaviour {
 	}
 	void OnTriggerEnter(Collider other) {
 	
-		if(other.gameObject.tag=="CreepG" || other.gameObject.tag=="CreepF"){
+		if(other.gameObject.tag==GlobalVariables.CreepTag || other.gameObject.tag=="CreepF"){
 			Destroy(other.gameObject);
 			//	Debug.Log ("-1 hp");
 			ReciveDamage(DefaultDamage);

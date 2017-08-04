@@ -57,7 +57,7 @@ public class DestroyBullet : MonoBehaviour {
 
 
 
-		if(collision.gameObject.tag=="CreepG" && DamageDone==false){
+		if(collision.gameObject.tag==GlobalVariables.CreepTag && DamageDone==false){
 			collision.gameObject.SendMessage("takeDamage",BulletDamage);
 			if(ContinousDamage){
 				DamageDone = false;

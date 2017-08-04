@@ -34,7 +34,7 @@ public class FreezeScript : MonoBehaviour {
 	} 
 	void FreezeCreep(GameObject Creep){
 
-		if (Creep.gameObject.tag == "CreepG") {
+		if (Creep.gameObject.tag == GlobalVariables.CreepTag) {
 
 
 			Debug.Log(Creep.GetComponent<UnityEngine.AI.NavMeshAgent> ().speed);

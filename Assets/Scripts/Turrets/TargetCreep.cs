@@ -5,7 +5,7 @@ public class TargetCreep : MonoBehaviour {
 	public GameObject[] Creeps; 
 	public bool AimAtCreep=true;
 	public GameObject ClosestCreep; 
-	public string targetTag="CreepG";
+	public string targetTag=GlobalVariables.CreepTag;
 	public float turretRange=3;
 	public GameObject turretRangeAreaMarker;
 
@@ -15,7 +15,6 @@ public class TargetCreep : MonoBehaviour {
 	//public float BulletSpeed = 20f;
 	public bool RequireTarget=true;
 	public float ShootingSpeed = 1f;
-	private float ShootingSpeedOriginal = 1f;
 	public GameObject projectile;
 	private GameObject bullet;
 
@@ -24,8 +23,12 @@ public class TargetCreep : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		ShootingSpeedOriginal = ShootingSpeed;
-		SetGameSpeed ();
+		
+		if(RequireTarget){
+			FindClosestPlayer ();
+			InvokeRepeating("FindClosestPlayer", 0.5f,0.5f);	
+		}
+
 		turretRangeAreaMarker.gameObject.transform.localScale = new Vector3 (turretRange,0.01f,turretRange);
 
 
@@ -142,13 +145,5 @@ public class TargetCreep : MonoBehaviour {
 
 	}//end FindClosestPlayer
 
-	public void SetGameSpeed(){
-		
-		ShootingSpeed = ShootingSpeedOriginal / GlobalVariables.GameSpeed;
-		CancelInvoke ("FindClosestPlayer");
-		if(RequireTarget){
-			FindClosestPlayer ();
-			InvokeRepeating("FindClosestPlayer", 0.5f,(0.5f/GlobalVariables.GameSpeed));	
-		}
-	}
+
 }

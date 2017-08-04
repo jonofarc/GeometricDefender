@@ -45,7 +45,7 @@ GameObject:
   - component: {fileID: 114120878266200578}
   m_Layer: 0
   m_Name: Cube(Clone) (18)
-  m_TagString: Untagged
+  m_TagString: TurretBuildingArea
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -84,7 +84,7 @@ GameObject:
   - component: {fileID: 114881256897420470}
   m_Layer: 0
   m_Name: Cube(Clone) (54)
-  m_TagString: Untagged
+  m_TagString: TurretBuildingArea
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -104,7 +104,7 @@ GameObject:
   - component: {fileID: 114212384723926214}
   m_Layer: 0
   m_Name: Cube(Clone) (61)
-  m_TagString: Untagged
+  m_TagString: TurretBuildingArea
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -124,7 +124,7 @@ GameObject:
   - component: {fileID: 114021057027067944}
   m_Layer: 0
   m_Name: Cube(Clone) (62)
-  m_TagString: Untagged
+  m_TagString: TurretBuildingArea
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -144,7 +144,7 @@ GameObject:
   - component: {fileID: 114382202093166122}
   m_Layer: 0
   m_Name: Cube(Clone) (64)
-  m_TagString: Untagged
+  m_TagString: TurretBuildingArea
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -259,7 +259,7 @@ GameObject:
   - component: {fileID: 114975765364282990}
   m_Layer: 0
   m_Name: Cube(Clone) (46)
-  m_TagString: Untagged
+  m_TagString: TurretBuildingArea
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -279,7 +279,7 @@ GameObject:
   - component: {fileID: 114960055882475744}
   m_Layer: 0
   m_Name: Cube(Clone) (33)
-  m_TagString: Untagged
+  m_TagString: TurretBuildingArea
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -337,7 +337,7 @@ GameObject:
   - component: {fileID: 114347273036168912}
   m_Layer: 0
   m_Name: Cube(Clone) (85)
-  m_TagString: Untagged
+  m_TagString: TurretBuildingArea
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -376,7 +376,7 @@ GameObject:
   - component: {fileID: 114577460465612212}
   m_Layer: 0
   m_Name: Cube(Clone) (41)
-  m_TagString: Untagged
+  m_TagString: TurretBuildingArea
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -434,7 +434,7 @@ GameObject:
   - component: {fileID: 114069228253447552}
   m_Layer: 0
   m_Name: Cube(Clone) (25)
-  m_TagString: Untagged
+  m_TagString: TurretBuildingArea
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -454,7 +454,7 @@ GameObject:
   - component: {fileID: 114205491215749280}
   m_Layer: 0
   m_Name: Cube(Clone) (53)
-  m_TagString: Untagged
+  m_TagString: TurretBuildingArea
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -474,7 +474,7 @@ GameObject:
   - component: {fileID: 114440181594530372}
   m_Layer: 0
   m_Name: Cube(Clone) (81)
-  m_TagString: Untagged
+  m_TagString: TurretBuildingArea
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -494,7 +494,7 @@ GameObject:
   - component: {fileID: 114597891968118164}
   m_Layer: 0
   m_Name: Cube(Clone) (51)
-  m_TagString: Untagged
+  m_TagString: TurretBuildingArea
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -514,7 +514,7 @@ GameObject:
   - component: {fileID: 114910131697825592}
   m_Layer: 0
   m_Name: Cube(Clone) (84)
-  m_TagString: Untagged
+  m_TagString: TurretBuildingArea
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -534,7 +534,7 @@ GameObject:
   - component: {fileID: 114641245333584988}
   m_Layer: 0
   m_Name: Cube(Clone) (63)
-  m_TagString: Untagged
+  m_TagString: TurretBuildingArea
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -554,7 +554,7 @@ GameObject:
   - component: {fileID: 114977896848981504}
   m_Layer: 0
   m_Name: Cube(Clone) (28)
-  m_TagString: Untagged
+  m_TagString: TurretBuildingArea
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -574,7 +574,7 @@ GameObject:
   - component: {fileID: 114925412710779886}
   m_Layer: 0
   m_Name: Cube(Clone) (58)
-  m_TagString: Untagged
+  m_TagString: TurretBuildingArea
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -594,7 +594,7 @@ GameObject:
   - component: {fileID: 114607206735345294}
   m_Layer: 0
   m_Name: Cube(Clone) (55)
-  m_TagString: Untagged
+  m_TagString: TurretBuildingArea
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -614,7 +614,7 @@ GameObject:
   - component: {fileID: 114848194960431744}
   m_Layer: 0
   m_Name: Cube(Clone) (73)
-  m_TagString: Untagged
+  m_TagString: TurretBuildingArea
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -634,7 +634,7 @@ GameObject:
   - component: {fileID: 114962894313630034}
   m_Layer: 0
   m_Name: Cube(Clone) (32)
-  m_TagString: Untagged
+  m_TagString: TurretBuildingArea
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -654,7 +654,7 @@ GameObject:
   - component: {fileID: 114901024833783404}
   m_Layer: 0
   m_Name: Cube(Clone) (75)
-  m_TagString: Untagged
+  m_TagString: TurretBuildingArea
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -693,7 +693,7 @@ GameObject:
   - component: {fileID: 114614614225788886}
   m_Layer: 0
   m_Name: Cube(Clone) (11)
-  m_TagString: Untagged
+  m_TagString: TurretBuildingArea
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -713,7 +713,7 @@ GameObject:
   - component: {fileID: 114269006566136076}
   m_Layer: 0
   m_Name: Cube(Clone) (67)
-  m_TagString: Untagged
+  m_TagString: TurretBuildingArea
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -752,7 +752,7 @@ GameObject:
   - component: {fileID: 114759029869043966}
   m_Layer: 0
   m_Name: Cube(Clone) (76)
-  m_TagString: Untagged
+  m_TagString: TurretBuildingArea
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -772,7 +772,7 @@ GameObject:
   - component: {fileID: 114333577090684648}
   m_Layer: 0
   m_Name: Cube(Clone) (83)
-  m_TagString: Untagged
+  m_TagString: TurretBuildingArea
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -792,7 +792,7 @@ GameObject:
   - component: {fileID: 114506418205892002}
   m_Layer: 0
   m_Name: Cube(Clone) (42)
-  m_TagString: Untagged
+  m_TagString: TurretBuildingArea
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -831,7 +831,7 @@ GameObject:
   - component: {fileID: 114447492790020844}
   m_Layer: 0
   m_Name: Cube(Clone) (15)
-  m_TagString: Untagged
+  m_TagString: TurretBuildingArea
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -851,7 +851,7 @@ GameObject:
   - component: {fileID: 114301795894197416}
   m_Layer: 0
   m_Name: Cube(Clone) (23)
-  m_TagString: Untagged
+  m_TagString: TurretBuildingArea
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -945,7 +945,7 @@ GameObject:
   - component: {fileID: 208938933745441406}
   m_Layer: 0
   m_Name: Cube(Clone) (69)
-  m_TagString: Untagged
+  m_TagString: TurretBuildingArea
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -984,7 +984,7 @@ GameObject:
   - component: {fileID: 114366700971226862}
   m_Layer: 0
   m_Name: Cube(Clone) (31)
-  m_TagString: Untagged
+  m_TagString: TurretBuildingArea
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1041,7 +1041,7 @@ GameObject:
   - component: {fileID: 208394859917172980}
   m_Layer: 0
   m_Name: Cube(Clone) (79)
-  m_TagString: Untagged
+  m_TagString: TurretBuildingArea
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1061,7 +1061,7 @@ GameObject:
   - component: {fileID: 114079064441109930}
   m_Layer: 0
   m_Name: Cube(Clone) (12)
-  m_TagString: Untagged
+  m_TagString: TurretBuildingArea
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1100,7 +1100,7 @@ GameObject:
   - component: {fileID: 114213612430008358}
   m_Layer: 0
   m_Name: Cube(Clone) (13)
-  m_TagString: Untagged
+  m_TagString: TurretBuildingArea
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1119,7 +1119,7 @@ GameObject:
   - component: {fileID: 208941492634592666}
   m_Layer: 0
   m_Name: Cube(Clone) (30)
-  m_TagString: Untagged
+  m_TagString: TurretBuildingArea
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1174,7 +1174,7 @@ GameObject:
   - component: {fileID: 114910926606865508}
   m_Layer: 0
   m_Name: Cube(Clone) (66)
-  m_TagString: Untagged
+  m_TagString: TurretBuildingArea
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1214,7 +1214,7 @@ GameObject:
   - component: {fileID: 114448045732063236}
   m_Layer: 0
   m_Name: Cube(Clone) (72)
-  m_TagString: Untagged
+  m_TagString: TurretBuildingArea
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1253,7 +1253,7 @@ GameObject:
   - component: {fileID: 114560687411496912}
   m_Layer: 0
   m_Name: Cube(Clone) (16)
-  m_TagString: Untagged
+  m_TagString: TurretBuildingArea
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1273,7 +1273,7 @@ GameObject:
   - component: {fileID: 114645092201930114}
   m_Layer: 0
   m_Name: Cube(Clone) (65)
-  m_TagString: Untagged
+  m_TagString: TurretBuildingArea
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1293,7 +1293,7 @@ GameObject:
   - component: {fileID: 114676260027602502}
   m_Layer: 0
   m_Name: Cube(Clone) (52)
-  m_TagString: Untagged
+  m_TagString: TurretBuildingArea
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1313,7 +1313,7 @@ GameObject:
   - component: {fileID: 114777758459680370}
   m_Layer: 0
   m_Name: Cube(Clone) (26)
-  m_TagString: Untagged
+  m_TagString: TurretBuildingArea
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1333,7 +1333,7 @@ GameObject:
   - component: {fileID: 114265509771112448}
   m_Layer: 0
   m_Name: Cube(Clone) (71)
-  m_TagString: Untagged
+  m_TagString: TurretBuildingArea
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1353,7 +1353,7 @@ GameObject:
   - component: {fileID: 114594664834176968}
   m_Layer: 0
   m_Name: Cube(Clone) (82)
-  m_TagString: Untagged
+  m_TagString: TurretBuildingArea
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1392,7 +1392,7 @@ GameObject:
   - component: {fileID: 114087517581386470}
   m_Layer: 0
   m_Name: Cube(Clone) (24)
-  m_TagString: Untagged
+  m_TagString: TurretBuildingArea
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1412,7 +1412,7 @@ GameObject:
   - component: {fileID: 114477914871490532}
   m_Layer: 0
   m_Name: Cube(Clone) (44)
-  m_TagString: Untagged
+  m_TagString: TurretBuildingArea
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1432,7 +1432,7 @@ GameObject:
   - component: {fileID: 114698773227731206}
   m_Layer: 0
   m_Name: Cube(Clone) (14)
-  m_TagString: Untagged
+  m_TagString: TurretBuildingArea
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1452,7 +1452,7 @@ GameObject:
   - component: {fileID: 114552272291579810}
   m_Layer: 0
   m_Name: Cube(Clone) (74)
-  m_TagString: Untagged
+  m_TagString: TurretBuildingArea
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1472,7 +1472,7 @@ GameObject:
   - component: {fileID: 114019736019179906}
   m_Layer: 0
   m_Name: Cube(Clone) (56)
-  m_TagString: Untagged
+  m_TagString: TurretBuildingArea
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1511,7 +1511,7 @@ GameObject:
   - component: {fileID: 114172569874815006}
   m_Layer: 0
   m_Name: Cube(Clone) (57)
-  m_TagString: Untagged
+  m_TagString: TurretBuildingArea
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1550,7 +1550,7 @@ GameObject:
   - component: {fileID: 114562657969628112}
   m_Layer: 0
   m_Name: Cube(Clone) (77)
-  m_TagString: Untagged
+  m_TagString: TurretBuildingArea
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1589,7 +1589,7 @@ GameObject:
   - component: {fileID: 114942767749895504}
   m_Layer: 0
   m_Name: Cube(Clone) (38)
-  m_TagString: Untagged
+  m_TagString: TurretBuildingArea
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1628,7 +1628,7 @@ GameObject:
   - component: {fileID: 114544758991048758}
   m_Layer: 0
   m_Name: Cube(Clone) (34)
-  m_TagString: Untagged
+  m_TagString: TurretBuildingArea
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1648,7 +1648,7 @@ GameObject:
   - component: {fileID: 114840232999758258}
   m_Layer: 0
   m_Name: Cube(Clone) (43)
-  m_TagString: Untagged
+  m_TagString: TurretBuildingArea
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1744,7 +1744,7 @@ GameObject:
   - component: {fileID: 114687057204492506}
   m_Layer: 0
   m_Name: Cube(Clone) (45)
-  m_TagString: Untagged
+  m_TagString: TurretBuildingArea
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1764,7 +1764,7 @@ GameObject:
   - component: {fileID: 114258196064592316}
   m_Layer: 0
   m_Name: Cube(Clone) (86)
-  m_TagString: Untagged
+  m_TagString: TurretBuildingArea
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1784,7 +1784,7 @@ GameObject:
   - component: {fileID: 114941108081109786}
   m_Layer: 0
   m_Name: Cube(Clone) (87)
-  m_TagString: Untagged
+  m_TagString: TurretBuildingArea
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1843,7 +1843,7 @@ GameObject:
   - component: {fileID: 114238527677015992}
   m_Layer: 0
   m_Name: Cube(Clone) (48)
-  m_TagString: Untagged
+  m_TagString: TurretBuildingArea
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1863,7 +1863,7 @@ GameObject:
   - component: {fileID: 114640014547233038}
   m_Layer: 0
   m_Name: Cube(Clone) (17)
-  m_TagString: Untagged
+  m_TagString: TurretBuildingArea
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1883,7 +1883,7 @@ GameObject:
   - component: {fileID: 114426035623645484}
   m_Layer: 0
   m_Name: Cube(Clone) (35)
-  m_TagString: Untagged
+  m_TagString: TurretBuildingArea
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1920,7 +1920,7 @@ GameObject:
   - component: {fileID: 114681459187468416}
   m_Layer: 0
   m_Name: Cube(Clone) (78)
-  m_TagString: Untagged
+  m_TagString: TurretBuildingArea
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1940,7 +1940,7 @@ GameObject:
   - component: {fileID: 114194129367750034}
   m_Layer: 0
   m_Name: Cube(Clone) (27)
-  m_TagString: Untagged
+  m_TagString: TurretBuildingArea
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1998,7 +1998,7 @@ GameObject:
   - component: {fileID: 114543058245673522}
   m_Layer: 0
   m_Name: Cube(Clone) (22)
-  m_TagString: Untagged
+  m_TagString: TurretBuildingArea
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2018,7 +2018,7 @@ GameObject:
   - component: {fileID: 114546216218717868}
   m_Layer: 0
   m_Name: Cube(Clone) (47)
-  m_TagString: Untagged
+  m_TagString: TurretBuildingArea
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2095,7 +2095,7 @@ GameObject:
   - component: {fileID: 114198765660120462}
   m_Layer: 0
   m_Name: Cube(Clone) (37)
-  m_TagString: Untagged
+  m_TagString: TurretBuildingArea
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2115,7 +2115,7 @@ GameObject:
   - component: {fileID: 114470464232453772}
   m_Layer: 0
   m_Name: Cube(Clone) (21)
-  m_TagString: Untagged
+  m_TagString: TurretBuildingArea
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2174,7 +2174,7 @@ GameObject:
   - component: {fileID: 114011865346158462}
   m_Layer: 0
   m_Name: Cube(Clone) (68)
-  m_TagString: Untagged
+  m_TagString: TurretBuildingArea
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2194,7 +2194,7 @@ GameObject:
   - component: {fileID: 114481048936123184}
   m_Layer: 0
   m_Name: Cube(Clone) (36)
-  m_TagString: Untagged
+  m_TagString: TurretBuildingArea
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2309,8 +2309,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1106104847675214}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -11, y: 0, z: -9}
-  m_LocalScale: {x: 3, y: 1, z: 1}
+  m_LocalPosition: {x: -12.27, y: 0, z: -9}
+  m_LocalScale: {x: 6, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4146290969725070}
   m_RootOrder: 107
@@ -2547,8 +2547,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1972452851196506}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -4.5, y: 0, z: -19}
-  m_LocalScale: {x: 15, y: 1, z: 1}
+  m_LocalPosition: {x: -7.43, y: 0, z: -19}
+  m_LocalScale: {x: 16, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4146290969725070}
   m_RootOrder: 104
@@ -3249,7 +3249,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1701351467388440}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -11.46, y: 0, z: -14}
+  m_LocalPosition: {x: -15.26, y: 0, z: -14}
   m_LocalScale: {x: 1, y: 1, z: 10}
   m_Children: []
   m_Father: {fileID: 4146290969725070}
@@ -10318,6 +10318,7 @@ MonoBehaviour:
   HP: 30
   DefaultDamage: 1
   StartMoney: 120
+  ReviveDependent: []
 --- !u!114 &114975765364282990
 MonoBehaviour:
   m_ObjectHideFlags: 1

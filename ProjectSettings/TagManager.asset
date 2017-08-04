@@ -23,6 +23,7 @@ TagManager:
   - GUI
   - GameOverUI
   - ReviveDependent
+  - TurretBuildingArea
   layers:
   - Default
   - TransparentFX

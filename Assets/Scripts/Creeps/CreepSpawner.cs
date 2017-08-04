@@ -92,7 +92,8 @@ public class CreepSpawner : MonoBehaviour {
 			
 			//Debug.Log ((elapsedNextWaveTime/GlobalVariables.GameSpeed)+"  :   "+NextWaveTime);
 			elapsedNextWaveTime += Time.deltaTime;
-			if((elapsedNextWaveTime/GlobalVariables.GameSpeed)>NextWaveTime){
+			Debug.Log (elapsedNextWaveTime);
+			if((elapsedNextWaveTime)>NextWaveTime){
 				elapsedNextWaveTime = 0;
 				NextWave ();
 			}
@@ -282,7 +283,7 @@ public class CreepSpawner : MonoBehaviour {
 		//check if final wave is destroyed
 		SpawnActive=false; 
 		GameObject[] AliveCreeps;
-		AliveCreeps = GameObject.FindGameObjectsWithTag ("CreepG");
+		AliveCreeps = GameObject.FindGameObjectsWithTag (GlobalVariables.CreepTag);
 		Debug.Log (AliveCreeps.Length);
 		if (AliveCreeps.Length<=0) {// +1 added to count the creepPathCheker
 
@@ -328,6 +329,12 @@ public class CreepSpawner : MonoBehaviour {
 	public void SetGameSpeed(){
 		spawnInterval = spawnIntervalOriginal / GlobalVariables.GameSpeed;
 		NextWaveTime = NextWaveTimeOriginal/GlobalVariables.GameSpeed;
+		foreach( GameObject creep in BaseCreeps){
+			creep.SetActive (true);
+
+			creep.SendMessage ("SetGameSpeed");
+			creep.SetActive (false);
+		}
 	}
 	
 	

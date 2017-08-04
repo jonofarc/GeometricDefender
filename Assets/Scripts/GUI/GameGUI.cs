@@ -25,7 +25,8 @@ public class GameGUI : MonoBehaviour {
 	[Header("NextLevel")]
 	public bool Automatic=true;
 	public string LevelName;
- 
+
+
 
 	private int x=0;
 
@@ -76,8 +77,8 @@ public class GameGUI : MonoBehaviour {
 	
 
 	}
-	public void AdjustFPS(int fps){
-		Application.targetFrameRate = fps;
+	public void AdjustFPS(float fps){
+		Application.targetFrameRate = (int) fps ;
 	}
 	public void CreepSpawner(){
 		GameObject myCreepSpawner = GameObject.FindGameObjectWithTag ("CreepSpawner");
@@ -103,55 +104,30 @@ public class GameGUI : MonoBehaviour {
 	}
 	public void FastFoward(){
 
-		Time.timeScale = 1.0F;
-		//AdjustFPS (GlobalVariables.TargetFPS*2);
+
 		GlobalVariables.GameSpeed=2.0f;
-		SetGameSpeed ();
+		Time.timeScale = GlobalVariables.GameSpeed;
+		AdjustFPS (GlobalVariables.TargetFPS*GlobalVariables.GameSpeed);
 	
 	}
 	public void SuperFastFoward(){
 		
 
-		#if UNITY_ANDROID
-			Time.timeScale = 3.0F; 
-		AdjustFPS (GlobalVariables.TargetFPS*3);
-		#else
-			Time.timeScale = 3.0F;
-		AdjustFPS (GlobalVariables.TargetFPS*3);
-		#endif
-
-		#if UNITY_EDITOR 
-		Time.timeScale = 16.0F;
-		AdjustFPS (GlobalVariables.TargetFPS*16);
-		#endif
-
-		 
+		GlobalVariables.GameSpeed=16.0f;
+		Time.timeScale = GlobalVariables.GameSpeed;
+		AdjustFPS (GlobalVariables.TargetFPS*GlobalVariables.GameSpeed);
+	 
 		
 	}
 	public void NormalSpeed(){
 		
-		Time.timeScale = 1.0F;
-		//AdjustFPS (GlobalVariables.TargetFPS*2);
+
 		GlobalVariables.GameSpeed=1.0f;
-		SetGameSpeed ();
+		Time.timeScale = GlobalVariables.GameSpeed;
+		AdjustFPS (GlobalVariables.TargetFPS*GlobalVariables.GameSpeed);
 		
 	}
-	public void SetGameSpeed(){
-		GameObject[] Creeps= GameObject.FindGameObjectsWithTag ("CreepG");
-		foreach (GameObject Creep in Creeps) {
-			Creep.SendMessage ("SetGameSpeed");
-		}
-		GameObject[] CreepSpawners= GameObject.FindGameObjectsWithTag ("CreepSpawner");
-		foreach (GameObject CreepSpawner in CreepSpawners) {
-			CreepSpawner.BroadcastMessage ("SetGameSpeed");
-		}
 
-		GameObject[] Turrets= GameObject.FindGameObjectsWithTag ("Turret");
-		foreach (GameObject Turret in Turrets) {
-			Turret.BroadcastMessage ("SetGameSpeed",SendMessageOptions.DontRequireReceiver);
-		}
-
-	}
 	public void MainMenuButtton (){
 		Application.LoadLevel("MainMenu");
 
@@ -271,5 +247,21 @@ public class GameGUI : MonoBehaviour {
 	public void DestroyElement(GameObject myObject){
 		Destroy (myObject);
 	}
+	public void ConfirmTurret(bool confirm){
+		
+		if (confirm)
+		{
+
+			GlobalVariables.CurrentTurretPlace.SendMessage("PlaceTurret");
+
+		}
+		else {
+			GlobalVariables.CurrentTurretPlace.SendMessage("destroyPlaceHolder");
+
+		}
+
+
+	}
+
 	
 }

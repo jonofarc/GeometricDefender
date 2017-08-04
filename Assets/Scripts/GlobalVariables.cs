@@ -24,11 +24,14 @@ public class GlobalVariables : MonoBehaviour {
 	public static int MaxRevives=1;// 0 also counts
 	public static int Revives=2;
 	public static int HPReward=3;
+	public static string TurretTag="Turret";
+	public static string CreepTag="CreepG";
+	public static string TurretBuildingTag="TurretBuildingArea";
 
 
 	// Use this for initialization
 	void Start () {
-      
+		
 	}
 	
 	// Update is called once per frame
