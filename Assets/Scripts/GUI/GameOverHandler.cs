@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
+
 public class GameOverHandler : MonoBehaviour {
 	private GameObject Finish; 
 	GameObject[] ReviveDependent;

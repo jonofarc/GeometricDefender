@@ -44,7 +44,7 @@ public class CreepSpawner : MonoBehaviour {
 	void Start () {
 		spawnIntervalOriginal = spawnInterval;
 		NextWaveTimeOriginal = NextWaveTime;
-		SetGameSpeed ();
+
 		GlobalVariables.GameStarted = false;
 		//we set nextWaveType
 
@@ -92,7 +92,7 @@ public class CreepSpawner : MonoBehaviour {
 			
 			//Debug.Log ((elapsedNextWaveTime/GlobalVariables.GameSpeed)+"  :   "+NextWaveTime);
 			elapsedNextWaveTime += Time.deltaTime;
-			Debug.Log (elapsedNextWaveTime);
+
 			if((elapsedNextWaveTime)>NextWaveTime){
 				elapsedNextWaveTime = 0;
 				NextWave ();
@@ -326,16 +326,7 @@ public class CreepSpawner : MonoBehaviour {
 
 
 	}
-	public void SetGameSpeed(){
-		spawnInterval = spawnIntervalOriginal / GlobalVariables.GameSpeed;
-		NextWaveTime = NextWaveTimeOriginal/GlobalVariables.GameSpeed;
-		foreach( GameObject creep in BaseCreeps){
-			creep.SetActive (true);
 
-			creep.SendMessage ("SetGameSpeed");
-			creep.SetActive (false);
-		}
-	}
 	
 	
 	

@@ -2,7 +2,7 @@
 using System.Collections;
 using UnityEngine.UI;
 using UnityEngine.Advertisements;
-using UnityEngine.UI;
+
 
 public class ReachEnd : MonoBehaviour {
 
@@ -68,13 +68,17 @@ public class ReachEnd : MonoBehaviour {
 	// this is the code used for adds
 	public void ShowRewardedAd()
 	{
+		Debug.Log ("Showing add");
 		//ApplyRewards ();
 		//GlobalVariables.LevelFailed = false;
 		if (Advertisement.IsReady("rewardedVideo"))
 		{
+			Debug.Log ("add ready");
 			var options = new ShowOptions { resultCallback = HandleShowResult };
 			Advertisement.Show("rewardedVideo", options);
 			//Advertisement.Show();//add that can be skiped
+		}else{
+			Debug.Log ("add not ready");
 		}
 
 
@@ -82,6 +86,7 @@ public class ReachEnd : MonoBehaviour {
 
 	private void HandleShowResult(ShowResult result)
 	{
+		Debug.Log ("handling Showing add result");
 		switch (result)
 		{
 		case ShowResult.Finished:

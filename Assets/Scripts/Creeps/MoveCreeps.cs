@@ -35,7 +35,7 @@ public class MoveCreeps : MonoBehaviour {
 		CreepSpeed=agent.speed;
 		AngularSpeed = agent.angularSpeed;
 		AccelerationSpeed = agent.acceleration;
-		//SetGameSpeed ();
+
 
 		agent.updateRotation = true;
 		agent.updatePosition = true;
@@ -78,18 +78,7 @@ public class MoveCreeps : MonoBehaviour {
 
 	}
 
-	// Deprecated function to augment creeps speed
-	void SetGameSpeed(){
-		Debug.Log (InitialisationComplete);
-		if(InitialisationComplete==false){
-			
-			Initialisation ();
-		}
-		agent.acceleration = AccelerationSpeed * GlobalVariables.GameSpeed;
-		agent.angularSpeed = AngularSpeed * GlobalVariables.GameSpeed;
-		agent.speed = CreepSpeed * GlobalVariables.GameSpeed;
 
-	}
 	public void CancelPathCheck(){
 		CancelInvoke ("PathCheck");
 	}
