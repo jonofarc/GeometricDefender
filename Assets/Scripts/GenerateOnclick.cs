@@ -2,7 +2,7 @@
 using System.Collections;
 
 public class GenerateOnclick : MonoBehaviour {
-	private GameObject PathCheker;
+	private GameObject PathChecker;
 	private GameObject clone;
 
 
@@ -14,7 +14,7 @@ public class GenerateOnclick : MonoBehaviour {
 	void Start () {
 
 
-		PathCheker=GameObject.FindGameObjectWithTag("PathCheker");
+		PathChecker=GameObject.FindGameObjectWithTag(GlobalVariables.CreepPathCheckerTag);
 
 	
 	}
@@ -75,9 +75,12 @@ public class GenerateOnclick : MonoBehaviour {
             clone.name = clone.name + (CurrentTurret.TurretNumber.ToString());
             CurrentTurret.TurretNumber++;
 
-            PathCheker.SendMessage("SetLatestTurret", this.gameObject);
+            PathChecker.SendMessage("SetLatestTurret", this.gameObject);
 
             this.gameObject.GetComponent<Collider>().enabled = false;
+
+			ReCheckPath ();
+
         }
         else
         {
@@ -90,8 +93,18 @@ public class GenerateOnclick : MonoBehaviour {
 		Debug.Log ("Destruyendo");
 		if(clone != null){
 			Destroy (clone);
+			ReCheckPath ();
+
 
 		}
 
+	}
+	public void ReCheckPath(){
+		GameObject CreepPathChecker = GameObject.FindGameObjectWithTag (GlobalVariables.CreepPathCheckerTag);
+		GameObject[] CurrentCreeps = GameObject.FindGameObjectsWithTag (GlobalVariables.CreepTag);
+		for (int i=0; i<CurrentCreeps.Length; i++){
+			CurrentCreeps [i].SendMessage ("PathCheck");
+		}
+		CreepPathChecker.SendMessage ("PathCheck");
 	}
 }

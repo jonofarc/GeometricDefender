@@ -16,13 +16,27 @@ public class StatusChange : MonoBehaviour {
 
 	private bool CreepPoison=false;
 	private bool CreepFreeze=false;
+	private GameObject CreepRenderGameObject;
     // Use this for initialization
     void Start () {
 		NormalSpeed = this.gameObject.GetComponent<UnityEngine.AI.NavMeshAgent> ().speed;
         FreezeMaterial = (Material)Resources.Load("Materials/FreezeMaterial");
 		ToxicMaterial = (Material)Resources.Load("Materials/ToxicMaterial");
 		ToxicFreezeMaterial = (Material)Resources.Load("Materials/ToxicFreezeMaterial");
-		OriginalMaterial = this.GetComponent<Renderer>().sharedMaterial;
+		try{
+			CreepRenderGameObject=this.transform.gameObject;
+			OriginalMaterial = CreepRenderGameObject.GetComponent<Renderer>().sharedMaterial;
+
+		}catch{
+			for (int i = 0; i < this.transform.childCount; i++) {
+				if(this.transform.GetChild(i).tag==GlobalVariables.CreepRenderTag){
+					CreepRenderGameObject=this.transform.GetChild(i).gameObject;
+					OriginalMaterial = CreepRenderGameObject.GetComponent<Renderer>().sharedMaterial;		
+				}
+			}
+			//OriginalMaterial = this.GetComponent<Renderer>().sharedMaterial;
+		}
+
     }
 	
 	// Update is called once per frame
@@ -80,13 +94,13 @@ public class StatusChange : MonoBehaviour {
 	public void MaterialAdjust(){
 
 		if (CreepPoison == false && CreepFreeze == false) {
-			this.GetComponent<Renderer> ().material = OriginalMaterial;
+			CreepRenderGameObject.GetComponent<Renderer> ().material = OriginalMaterial;
 		} else if (CreepPoison && CreepFreeze) {
-			this.GetComponent<Renderer> ().material = ToxicFreezeMaterial;
+			CreepRenderGameObject.GetComponent<Renderer> ().material = ToxicFreezeMaterial;
 		} else if (CreepPoison) {
-			this.GetComponent<Renderer> ().material = ToxicMaterial;
+			CreepRenderGameObject.GetComponent<Renderer> ().material = ToxicMaterial;
 		} else if (CreepFreeze) {
-			this.GetComponent<Renderer> ().material = FreezeMaterial;
+			CreepRenderGameObject.GetComponent<Renderer> ().material = FreezeMaterial;
 		}
 	}
 

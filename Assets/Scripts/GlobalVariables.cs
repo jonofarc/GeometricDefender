@@ -10,6 +10,7 @@ public class GlobalVariables : MonoBehaviour {
 	public static GameObject CurrentTurret;
     public static GameObject PlaceHolderTurret;
     public static GameObject CurrentTurretPlace;
+	public static Transform FinishTarget;
     public static int CurrentTurretLevel=1000; 
 	public static bool DestroyTurret=false;
 	public static int CurrentWave=0;
@@ -20,12 +21,15 @@ public class GlobalVariables : MonoBehaviour {
 	public static bool GameStarted = false;
 	public static float GameSpeed=1;
 	public static int CurrentBullets = 0;
-	public static int MaximunBullets=20;
+	public static int MaximunBullets=50;
 	public static int MaxRevives=1;// 0 also counts
 	public static int Revives=2;
 	public static int HPReward=3;
 	public static string TurretTag="Turret";
+	public static string FinishTargetTag="Finish";
 	public static string CreepTag="CreepG";
+	public static string CreepPathCheckerTag="PathChecker";
+	public static string CreepRenderTag="CreepRender";
 	public static string TurretBuildingTag="TurretBuildingArea";
 
 

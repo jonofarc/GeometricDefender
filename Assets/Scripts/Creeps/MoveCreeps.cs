@@ -26,6 +26,17 @@ public class MoveCreeps : MonoBehaviour {
 
 	}
 	public void Initialisation(){
+
+
+		Debug.Log (GlobalVariables.FinishTarget.name);
+		if (GlobalVariables.FinishTarget == null) {
+			Debug.Log ("Entre");
+			target = GameObject.FindGameObjectWithTag (GlobalVariables.FinishTargetTag).transform;
+			GlobalVariables.FinishTarget = target;	
+		} else {
+			target = GlobalVariables.FinishTarget;
+		}
+
 		path = new UnityEngine.AI.NavMeshPath();
 
 		// get the components on the object we need ( should not be null due to require component so no need to check )
@@ -41,11 +52,14 @@ public class MoveCreeps : MonoBehaviour {
 		agent.updatePosition = true;
 		PathCheck();
 		InitialisationComplete = true;
+
+
 		Debug.Log ("Initialisation Complete");
 	}
 	
 	// Update is called once per frame
 	void FixedUpdate () {
+		
 		for (int i = 0; i < path.corners.Length-1; i++) {
 
 			Debug.DrawLine(path.corners[i], path.corners[i+1], Color.red);	

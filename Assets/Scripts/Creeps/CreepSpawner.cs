@@ -20,6 +20,7 @@ public class CreepSpawner : MonoBehaviour {
 	public bool StartFirstWave=false; 
 	public int CreepsSpawned=0;
 
+	private int LevelClearedTimesCalled=0;
 	public int WaveCreeps=10;
 	public int CreepsSpawnedThisWave=0;
 	public int CurrentWave=1;
@@ -106,7 +107,10 @@ public class CreepSpawner : MonoBehaviour {
 			saveHighScores();
 		}
 
+		//we save BaseCreep number in case combinedwaves are on
 
+		//we asign a random number to create a random creep
+		int OriginalCreeptype=CreepType;
 		if(BaseCreeps.Length>1 && CombinedWaves){
 
 			CreepType=Random.Range(0, BaseCreeps.Length);
@@ -147,9 +151,12 @@ public class CreepSpawner : MonoBehaviour {
 
 
 		}// end if
-		//if(BaseCreeps[CreepType]==){
+		//we reasign CreepType to its originla value in case we have combinedwaves
+		if(BaseCreeps.Length>1 && CombinedWaves){
 
-		//}
+
+			CreepType = OriginalCreeptype;
+		}
 
 
 		if(CreepsSpawnedThisWave==WaveCreeps && (CurrentWave<=BaseCreeps.Length|| WaveLoop)){
@@ -187,7 +194,7 @@ public class CreepSpawner : MonoBehaviour {
 			CurrentCreeps[i].SetActive(false);
 		
 		}
-		if (CombinedWaves == false) {
+		if (true) {
 			CreepType++;
 
 			// we set he name of the extwave creeps
@@ -280,10 +287,17 @@ public class CreepSpawner : MonoBehaviour {
 	}
 	public void callLevelCleared(){
 		Debug.Log ("Level Cleared");
+
+		//ugly hack to avoid getting stuck after finishing a level becaue a creep is lost or stuck
+		LevelClearedTimesCalled++;
+		if(LevelClearedTimesCalled>20){
+			
+		}
 		//check if final wave is destroyed
 		SpawnActive=false; 
 		GameObject[] AliveCreeps;
 		AliveCreeps = GameObject.FindGameObjectsWithTag (GlobalVariables.CreepTag);
+
 		Debug.Log (AliveCreeps.Length);
 		if (AliveCreeps.Length<=0) {// +1 added to count the creepPathCheker
 
@@ -293,6 +307,11 @@ public class CreepSpawner : MonoBehaviour {
 			Debug.Log ("level is clear?  "+GlobalVariables.LevelCleared);
 			saveHighScores();
 		} else {
+			// make sure creeps are not waiting without a direction
+			foreach (GameObject creep in AliveCreeps) {
+				Debug.Log ("REquesting patchcheck from Checkpath");
+				creep.SendMessage ("PathCheck");
+			}
 			Invoke("callLevelCleared",2);
 		}
 

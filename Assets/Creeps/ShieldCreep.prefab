@@ -5,18 +5,18 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 424564}
-  - 33: {fileID: 3383720}
-  - 136: {fileID: 13671988}
-  - 23: {fileID: 2393784}
-  - 54: {fileID: 5436578}
-  - 195: {fileID: 19554898}
-  - 95: {fileID: 9559720}
-  - 114: {fileID: 11401946}
-  - 114: {fileID: 11460158}
-  - 114: {fileID: 11454998}
+  - component: {fileID: 424564}
+  - component: {fileID: 3383720}
+  - component: {fileID: 2393784}
+  - component: {fileID: 5436578}
+  - component: {fileID: 19554898}
+  - component: {fileID: 9559720}
+  - component: {fileID: 11401946}
+  - component: {fileID: 11460158}
+  - component: {fileID: 11454998}
+  - component: {fileID: 135784800630237280}
   m_Layer: 0
   m_Name: ShieldCreep
   m_TagString: CreepG
@@ -29,11 +29,11 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 415732}
-  - 33: {fileID: 3390842}
-  - 23: {fileID: 2347594}
+  - component: {fileID: 415732}
+  - component: {fileID: 3390842}
+  - component: {fileID: 2347594}
   m_Layer: 0
   m_Name: HP_Bar
   m_TagString: Untagged
@@ -53,6 +53,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 424564}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &424564
 Transform:
   m_ObjectHideFlags: 1
@@ -66,6 +67,7 @@ Transform:
   - {fileID: 415732}
   m_Father: {fileID: 0}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &2347594
 MeshRenderer:
   m_ObjectHideFlags: 1
@@ -75,22 +77,28 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
   m_Materials:
   - {fileID: 2100000, guid: 264976ebd479b2a468c06548e1b91148, type: 2}
-  m_SubsetIndices: 
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
   m_StaticBatchRoot: {fileID: 0}
-  m_UseLightProbes: 1
-  m_ReflectionProbeUsage: 1
   m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 1
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
+  m_SortingLayer: 0
   m_SortingOrder: 0
 --- !u!23 &2393784
 MeshRenderer:
@@ -101,22 +109,28 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
   m_Materials:
   - {fileID: 2100000, guid: 00df419c2fc26fd4c825a6ae6b337647, type: 2}
-  m_SubsetIndices: 
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
   m_StaticBatchRoot: {fileID: 0}
-  m_UseLightProbes: 1
-  m_ReflectionProbeUsage: 1
   m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 1
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
+  m_SortingLayer: 0
   m_SortingOrder: 0
 --- !u!33 &3383720
 MeshFilter:
@@ -197,7 +211,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f8d861c11ed02e48b2af02d681ae70e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  StatusTime: 3
+  FreezeStatusTime: 3
+  DoTStatusTime: 3
 --- !u!114 &11460158
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -210,20 +225,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
-  PathCheckInterval: 1
---- !u!136 &13671988
-CapsuleCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 122130}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!195 &19554898
 NavMeshAgent:
   m_ObjectHideFlags: 1
@@ -231,6 +232,7 @@ NavMeshAgent:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 122130}
   m_Enabled: 1
+  m_AgentTypeID: 0
   m_Radius: 0.45
   m_Speed: 3.5
   m_Acceleration: 8
@@ -241,7 +243,7 @@ NavMeshAgent:
   m_AutoBraking: 1
   m_AutoRepath: 1
   m_Height: 29.74
-  m_BaseOffset: 1
+  m_BaseOffset: 2.11
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
 --- !u!1001 &100100000
@@ -263,3 +265,15 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 122130}
   m_IsPrefabParent: 1
+--- !u!135 &135784800630237280
+SphereCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 122130}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.43
+  m_Center: {x: 0.000000059604645, y: 3.88, z: -0.00000008940697}

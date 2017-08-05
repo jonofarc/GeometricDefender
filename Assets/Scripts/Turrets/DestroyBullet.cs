@@ -15,20 +15,20 @@ public class DestroyBullet : MonoBehaviour {
 	void Start () {
 		
 		//Debug.Log (GlobalVariables.CurrentBullets);
-		if (GlobalVariables.CurrentBullets < GlobalVariables.MaximunBullets || ContinousDamage == true) {
+		//if (GlobalVariables.CurrentBullets < GlobalVariables.MaximunBullets || ContinousDamage == true) {
 			Invoke ("AutoDestroy", TimeToDisapear);
 			if(ContinousDamage == false){
 				GlobalVariables.CurrentBullets++;
 			}
-		} 
+		//} 
 	}
 
 	// Update is called once per frame
 	//void Update () {
-	void FixedUpdate(){
+	void Update(){
 		if (DamageDone==false && CreepTarget != null ){
 			Vector3 CreepTargetCenter=CreepTarget.transform.position;
-			CreepTargetCenter.y=CreepTarget.transform.position.y+(CreepTarget.transform.localScale.y/2);
+			//CreepTargetCenter.y=CreepTarget.transform.position.y+(CreepTarget.transform.localScale.y/2);
 			transform.position = Vector3.MoveTowards(transform.position, CreepTargetCenter, (BulletSpeed*Time.deltaTime)*GlobalVariables.GameSpeed);
 		}
 
@@ -63,9 +63,10 @@ public class DestroyBullet : MonoBehaviour {
 				DamageDone = false;
 			}else{
 				DamageDone = true;
-				Destroy(this.gameObject.GetComponent<Collider>());
-				if (GlobalVariables.CurrentBullets < 40) {
-					Destroy (this.gameObject.GetComponent<Collider> ());
+				Debug.Log (GlobalVariables.CurrentBullets);
+				//Destroy(this.gameObject.GetComponent<Collider>());
+				if (GlobalVariables.CurrentBullets < GlobalVariables.MaximunBullets) {
+					//Destroy (this.gameObject.GetComponent<Collider> ());
 				} else {
 					
 					AutoDestroy ();

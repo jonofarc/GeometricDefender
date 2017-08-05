@@ -20,6 +20,8 @@ public class CheckPath : MonoBehaviour {
 
 	
 	void Start () { 
+		target = GameObject.FindGameObjectWithTag (GlobalVariables.FinishTargetTag).transform;
+		GlobalVariables.FinishTarget = target;
 		LatestTurret = new GameObject[10];
 		path = new UnityEngine.AI.NavMeshPath();
 		elapsed = 0.0f;
@@ -37,7 +39,7 @@ public class CheckPath : MonoBehaviour {
 	void FixedUpdate () {
 		for (int i = 0; i < path.corners.Length-1; i++) {
 
-			Debug.DrawLine(path.corners[i], path.corners[i+1], Color.red);	
+			Debug.DrawLine(path.corners[i], path.corners[i+1], Color.blue);	
 		}
 	}
 	void PathCheck(){
@@ -46,7 +48,7 @@ public class CheckPath : MonoBehaviour {
 		UnityEngine.AI.NavMesh.CalculatePath(transform.position, target.position, UnityEngine.AI.NavMesh.AllAreas, path);
 		for (int i = 0; i < path.corners.Length-1; i++) {
 
-			Debug.DrawLine(path.corners[i], path.corners[i+1], Color.red);	
+			Debug.DrawLine(path.corners[i], path.corners[i+1], Color.blue);	
 		}
 
 		if(path.status.ToString()!="PathComplete"&&LatestTurret[0]!=null){

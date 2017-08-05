@@ -3,12 +3,13 @@ using System.Collections;
 
 public class MultiCreep : MonoBehaviour {
 
-	public GameObject miniCreeps;
-	int currentMiniCreep=0;
+
+	float MiniCreepInterval=1.0f;
+	public bool Execute=true;
 
 	// Use this for initialization
 	void Start () {
-	
+		CancelInvoke ("moveMiniCreeps");
 	}
 	
 	// Update is called once per frame
@@ -17,33 +18,44 @@ public class MultiCreep : MonoBehaviour {
 	}
 	public void CreepEfect(){
 
-		if(miniCreeps!=null){
-
-			//Debug.Log(miniCreeps.transform.childCount);
-
-			currentMiniCreep=miniCreeps.transform.childCount-1;
-			for(int i=miniCreeps.transform.childCount-1; i>=0; i--){
-				//miniCreeps.transform.GetChild(i).transform.parent=this.transform.parent;
-				Invoke("moveMiniCreeps",(i*0.1f)); 
-
-
-			}
-			//Destroy(this.gameObject);
+		if(Execute){
+			
+			InvokeRepeating("moveMiniCreeps",0.1f,MiniCreepInterval); 
+			Execute = false;
 		}
+		else{
+			CancelInvoke ("moveMiniCreeps");
+		}
+
+
+			
+
+
+			
+		
 
 	}
 	void moveMiniCreeps () {
-		//Debug.Log (currentMiniCreep);
-		if(currentMiniCreep>=0){
-			miniCreeps.transform.GetChild (currentMiniCreep).gameObject.SetActive (true);
-			miniCreeps.transform.GetChild (currentMiniCreep).gameObject.GetComponent<CreepLife>().CreepHP=(this.gameObject.GetComponent<CreepLife>().maxHP/10);
 
-			miniCreeps.transform.GetChild(currentMiniCreep).transform.parent=this.transform.parent;
-			currentMiniCreep--;
-			if(currentMiniCreep<=0){
-				Destroy(this.gameObject);
-			}
-		}
+
+
+
+			GameObject CreepClone = Instantiate (this.transform.gameObject, transform.position, transform.rotation);
+
+
+			CreepClone.transform.position = new Vector3 (CreepClone.transform.position.x, CreepClone.transform.position.y + this.transform.localScale.y, CreepClone.transform.position.z);
+
+
+			CreepClone.transform.parent = this.transform.parent;
+			CreepClone.transform.localScale = this.transform.localScale / 2; 
+
+
+			CreepClone.name = "Mini " + this.name;
+			CreepClone.GetComponent<MultiCreep> ().Execute = false;
+			CreepClone.GetComponent<MultiCreep> ().enabled = false;
+	
+
+
 
 	}
 
