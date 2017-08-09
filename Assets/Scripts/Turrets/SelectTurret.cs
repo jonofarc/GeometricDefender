@@ -28,34 +28,7 @@ public class SelectTurret : MonoBehaviour {
 	}
 	void OnMouseDown(){
 
-		if(CurrentTurret.myCurrentTurret != this.gameObject){
-
-			refreshText();
-
-
-
-			if(GlobalVariables.DestroyTurret==false){
-				GlobalVariables.CurrentTurretLevel=TurretLevel;
-				CurrentTurret.myCurrentTurret = this.gameObject;
-				DisableAura();
-				UpdateMaterial (true);
-				RangeAura.GetComponent<Renderer>().enabled=true;
-				Invoke ("DisableAura",SelectedTime);
-			}else{
-				DestroyTurret(0.5f);
-
-			}
-
-
-		}else{ 
-			CancelInvoke("DisableAura");
-			DisableAura();
-			CurrentTurret.myCurrentTurret =null;
-		}
-
-
-
-	
+		DragSelect ();
 		
 	}
 	void resetMaterial(){
@@ -130,6 +103,39 @@ public class SelectTurret : MonoBehaviour {
 		if(TurretSelected){
 			Base.GetComponent<Renderer> ().material = SelectMaterial;
 		}
+
+	}
+
+	public void DragSelect(){
+		Debug.Log ("DRAGSELECT ON SELECT TURRET");
+		if(CurrentTurret.myCurrentTurret != this.gameObject){
+
+			refreshText();
+
+
+
+			if(GlobalVariables.DestroyTurret==false){
+				GlobalVariables.CurrentTurretLevel=TurretLevel;
+				CurrentTurret.myCurrentTurret = this.gameObject;
+				DisableAura();
+				UpdateMaterial (true);
+				RangeAura.GetComponent<Renderer>().enabled=true;
+				//Invoke ("DisableAura",SelectedTime);
+			}else{
+				DestroyTurret(0.5f);
+
+			}
+
+
+		}
+
+		/*
+		else{ 
+			CancelInvoke("DisableAura");
+			DisableAura();
+			CurrentTurret.myCurrentTurret =null;
+		}*/
+
 
 	}
 }

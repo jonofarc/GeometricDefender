@@ -26,7 +26,7 @@ public class GenerateOnclick : MonoBehaviour {
 	}
 	void OnMouseDown(){
 
-        setPlaceHolder();
+      //  setPlaceHolder();
         //PlaceTurret();
 
     }
@@ -65,6 +65,7 @@ public class GenerateOnclick : MonoBehaviour {
         if (GlobalVariables.Money >= GlobalVariables.TurretCost && GlobalVariables.CurrentTurret != null)
         {
             destroyPlaceHolder();
+			GlobalVariables.CurrentTurret.SendMessage ("DisableAura");
             GlobalVariables.Money = GlobalVariables.Money - GlobalVariables.TurretCost;
             clone = Instantiate(GlobalVariables.CurrentTurret, GlobalVariables.CurrentTurret.transform.position, GlobalVariables.CurrentTurret.transform.rotation) as GameObject;
             clone.gameObject.SetActive(true);
@@ -106,5 +107,8 @@ public class GenerateOnclick : MonoBehaviour {
 			CurrentCreeps [i].SendMessage ("PathCheck");
 		}
 		CreepPathChecker.SendMessage ("PathCheck");
+	}
+	public void DragSelect(){
+		setPlaceHolder ();
 	}
 }

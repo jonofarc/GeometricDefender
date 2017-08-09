@@ -3,12 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class DragTurrets : MonoBehaviour {
-	public bool DragAssist = true;
+	public bool DragAssistEnabled = true;
+	[Header("Drag Assist on Screen %")]
+	public Vector2 DragAssist;
 	public Vector3 DragAssistCordinates;
 
 	// Use this for initialization
 	void Start () {
-		DragAssistCordinates = new Vector3 (0,(Screen.height/13f),0);
+		Vector2 s = new Vector2 (Screen.width,Screen.height);
+		DragAssistCordinates = new Vector3 ((s.x*DragAssist.x/100f),(s.y*DragAssist.y/100f),0); 
+	
 	}
 	
 	// Update is called once per frame
@@ -17,7 +21,7 @@ public class DragTurrets : MonoBehaviour {
 		if (Input.GetMouseButton (0)) { 
 			RaycastHit hit; 
 			Ray ray;
-			if (DragAssist) {
+			if (DragAssistEnabled) {
 				ray = Camera.main.ScreenPointToRay ((Input.mousePosition+DragAssistCordinates)); 
 			} else {
 				ray = Camera.main.ScreenPointToRay (Input.mousePosition); 
@@ -25,16 +29,21 @@ public class DragTurrets : MonoBehaviour {
 
 			if (Physics.Raycast (ray, out hit, 100.0f)) {
 				
-				Debug.Log ("You selected the " + hit.transform.name); // ensure you picked right object
-				if (hit.transform.gameObject.tag == GlobalVariables.TurretBuildingTag) {
-					hit.transform.gameObject.SendMessage ("setPlaceHolder", SendMessageOptions.DontRequireReceiver);
+				//Debug.Log ("You selected the " + hit.transform.name); // ensure you picked right object
+				if (hit.transform.gameObject.tag == GlobalVariables.TurretBuildingTag || hit.transform.gameObject.tag == GlobalVariables.TurretTag) {
+					hit.transform.gameObject.SendMessage ("DragSelect", SendMessageOptions.DontRequireReceiver);
+					if(hit.transform.gameObject.tag == GlobalVariables.TurretTag && GlobalVariables.PlaceHolderTurret != null) {
+						Destroy(GlobalVariables.PlaceHolderTurret);
+					}
 					//this.SendMessage ("CheckTurretOptions",true);
-				} else if (GlobalVariables.PlaceHolderTurret != null){
+				} else if (GlobalVariables.PlaceHolderTurret != null) {
 					
 
-					Destroy(GlobalVariables.PlaceHolderTurret);
+					Destroy (GlobalVariables.PlaceHolderTurret);
+					GlobalVariables.CurrentTurret.SendMessage ("DisableAura");
 					
-				}
+				} 
+
 
 			}
 		}else if(Input.GetMouseButtonUp(0) ){
@@ -44,6 +53,6 @@ public class DragTurrets : MonoBehaviour {
 		}
 	}
 	public void DragPossitionUPToogle(){
-		DragAssist = !DragAssist;
+		DragAssistEnabled = !DragAssistEnabled;
 	}
 }
