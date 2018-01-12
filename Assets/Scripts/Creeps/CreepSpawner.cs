@@ -27,6 +27,8 @@ public class CreepSpawner : MonoBehaviour {
 	public float NextWaveTime=10;
 	private float NextWaveTimeOriginal=10;
 	public float waveHpPercentageIncrement=1f;
+	[Header("growth curve values (higer values higher hp increases)")]
+	public float HPIncrementcurbe=150f;
 	public int waveCreepsIncrement=1;
 
 
@@ -43,6 +45,12 @@ public class CreepSpawner : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+
+		//Disable all Creeps
+		GameObject[] Creeps = GameObject.FindGameObjectsWithTag("CreepG");
+		foreach(GameObject creep in Creeps){
+			creep.SetActive (false);
+		}
 		spawnIntervalOriginal = spawnInterval;
 		NextWaveTimeOriginal = NextWaveTime;
 
@@ -187,10 +195,13 @@ public class CreepSpawner : MonoBehaviour {
 
 
 		//we increase creep hp once per type
-		
+
+		float increment = waveHpPercentageIncrement - Mathf.Sqrt(CurrentWave)/HPIncrementcurbe;
+		//float increment = waveHpPercentageIncrement;
+		Debug.Log (increment);
 		for ( int i = 0; i < CurrentCreeps.Count; i++){
 			CurrentCreeps[i].SetActive(true);
-			CurrentCreeps[i].SendMessage("IncreaseLife",waveHpPercentageIncrement);
+			CurrentCreeps[i].SendMessage("IncreaseLife",increment);
 			CurrentCreeps[i].SetActive(false);
 		
 		}

@@ -97,6 +97,7 @@ public class CreepLife : MonoBehaviour {
 	void IncreaseLife(float increment){
 		CreepHP *= increment;
 		maxHP = CreepHP;
+		Debug.Log (maxHP);
 	}
 	/*
 	void OnTriggerEnter(Collider other) {

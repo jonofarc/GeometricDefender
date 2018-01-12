@@ -64,7 +64,7 @@ public class GenerateOnclick : MonoBehaviour {
 
         if (GlobalVariables.Money >= GlobalVariables.TurretCost && GlobalVariables.CurrentTurret != null)
         {
-            destroyPlaceHolder();
+            
 			GlobalVariables.CurrentTurret.SendMessage ("DisableAura");
             GlobalVariables.Money = GlobalVariables.Money - GlobalVariables.TurretCost;
             clone = Instantiate(GlobalVariables.CurrentTurret, GlobalVariables.CurrentTurret.transform.position, GlobalVariables.CurrentTurret.transform.rotation) as GameObject;
@@ -87,7 +87,7 @@ public class GenerateOnclick : MonoBehaviour {
         {
             Debug.Log("no price set for turret or selected turret not valid");
         }
-
+		destroyPlaceHolder();
 
     }
 	void ReverseTurret(){
