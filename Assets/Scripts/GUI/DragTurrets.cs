@@ -32,6 +32,8 @@ public class DragTurrets : MonoBehaviour {
 				//Debug.Log ("You selected the " + hit.transform.name); // ensure you picked right object
 				if (hit.transform.gameObject.tag == GlobalVariables.TurretBuildingTag || hit.transform.gameObject.tag == GlobalVariables.TurretTag) {
 					hit.transform.gameObject.SendMessage ("DragSelect", SendMessageOptions.DontRequireReceiver);
+
+
 					if(hit.transform.gameObject.tag == GlobalVariables.TurretTag && GlobalVariables.PlaceHolderTurret != null) {
 						Destroy(GlobalVariables.PlaceHolderTurret);
 					}
@@ -40,7 +42,7 @@ public class DragTurrets : MonoBehaviour {
 					
 
 					Destroy (GlobalVariables.PlaceHolderTurret);
-					GlobalVariables.CurrentTurret.SendMessage ("DisableAura");
+					GlobalVariables.CurrentTurret.SendMessage ("DisableAura",SendMessageOptions.DontRequireReceiver);
 					
 				} 
 
@@ -49,10 +51,29 @@ public class DragTurrets : MonoBehaviour {
 		}else if(Input.GetMouseButtonUp(0) ){
 			if (GlobalVariables.PlaceHolderTurret != null){
 				this.SendMessage ("ConfirmTurret",true);
+
 			}
+
+			RaycastHit hit; 
+			Ray ray;
+			if (DragAssistEnabled) {
+				ray = Camera.main.ScreenPointToRay ((Input.mousePosition+DragAssistCordinates)); 
+			} else {
+				ray = Camera.main.ScreenPointToRay (Input.mousePosition); 
+			}
+
+			if (Physics.Raycast (ray, out hit, 100.0f)) {
+
+				if (GlobalVariables.DestroyTurret) {
+					hit.transform.gameObject.SendMessage ("DestroyTurret",0.5f, SendMessageOptions.DontRequireReceiver);
+				}
+			}
+
+
 		}
 	}
 	public void DragPossitionUPToogle(){
 		DragAssistEnabled = !DragAssistEnabled;
 	}
+
 }

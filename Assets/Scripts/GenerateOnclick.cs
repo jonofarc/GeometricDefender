@@ -38,25 +38,20 @@ public class GenerateOnclick : MonoBehaviour {
     }
     void setPlaceHolder() {
 
-        if (GlobalVariables.CurrentTurret != null)
-        {
-            GlobalVariables.CurrentTurretPlace = this.gameObject;
-            destroyPlaceHolder();
-            GameObject MyPlaceHolderTurret = GameObject.FindGameObjectWithTag("PlaceHolderTurret");
-            clone = Instantiate(MyPlaceHolderTurret, MyPlaceHolderTurret.transform.position, MyPlaceHolderTurret.transform.rotation) as GameObject;
-            clone.gameObject.SetActive(true);
+        
+		GlobalVariables.CurrentTurretPlace = this.gameObject;
+		destroyPlaceHolder();
+		GameObject MyPlaceHolderTurret = GameObject.FindGameObjectWithTag("PlaceHolderTurret");
+		clone = Instantiate(MyPlaceHolderTurret, MyPlaceHolderTurret.transform.position, MyPlaceHolderTurret.transform.rotation) as GameObject;
+		clone.gameObject.SetActive(true);
 
-            clone.transform.parent = this.transform;
-            clone.transform.localScale = MyPlaceHolderTurret.transform.localScale;
-            clone.transform.localPosition = new Vector3(0, -0.49f, 0);
-            clone.name = "PlaceHolderTurret";
+		clone.transform.parent = this.transform;
+		clone.transform.localScale = MyPlaceHolderTurret.transform.localScale;
+		clone.transform.localPosition = new Vector3(0, -0.49f, 0);
+		clone.name = "PlaceHolderTurret";
 
-            GlobalVariables.PlaceHolderTurret = clone;
+		GlobalVariables.PlaceHolderTurret = clone;
 
-        }
-        else {
-            Debug.Log("No turret selected");
-        }
 
     }
 

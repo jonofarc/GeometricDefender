@@ -24,13 +24,15 @@ public class SelectTurret : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-	
+
+
 	}
 	void OnMouseDown(){
 
 		DragSelect ();
 		
 	}
+
 	void resetMaterial(){
 		Base.GetComponent<Renderer> ().material = OriginalMaterial;
 	}
@@ -48,7 +50,7 @@ public class SelectTurret : MonoBehaviour {
 		GameObject PathChecker= GameObject.FindGameObjectWithTag(GlobalVariables.CreepPathCheckerTag);
 			if(PathChecker!= null){
 			PathChecker.SendMessage ("ReSetCreepsPath",SendMessageOptions.DontRequireReceiver);
-				Destroy (this.gameObject);
+			Destroy (CurrentTurret.myCurrentTurret);
 			}
 			
 
@@ -111,30 +113,24 @@ public class SelectTurret : MonoBehaviour {
 		if(CurrentTurret.myCurrentTurret != this.gameObject){
 
 			refreshText();
-
-
-
-			if(GlobalVariables.DestroyTurret==false){
-				GlobalVariables.CurrentTurretLevel=TurretLevel;
-				CurrentTurret.myCurrentTurret = this.gameObject;
-				DisableAura();
-				UpdateMaterial (true);
-				RangeAura.GetComponent<Renderer>().enabled=true;
-				//Invoke ("DisableAura",SelectedTime);
-			}else{
-				DestroyTurret(0.5f);
-
+			GlobalVariables.CurrentTurretLevel=TurretLevel;
+			//Check if this is a turret before asigning current turret
+			if(this.gameObject.tag==GlobalVariables.TurretTag){
+				
+				CurrentTurret.myCurrentTurret = this.gameObject;	
 			}
+			DisableAura();
+			UpdateMaterial (true);
+			RangeAura.GetComponent<Renderer>().enabled=true;
+			//Invoke ("DisableAura",SelectedTime);
+
+
+
 
 
 		}
 
-		/*
-		else{ 
-			CancelInvoke("DisableAura");
-			DisableAura();
-			CurrentTurret.myCurrentTurret =null;
-		}*/
+
 
 
 	}
