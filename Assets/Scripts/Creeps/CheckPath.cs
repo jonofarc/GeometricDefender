@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System;
+using System.Collections.Generic;
 
 [RequireComponent(typeof (UnityEngine.AI.NavMeshAgent))]
 
@@ -11,7 +12,7 @@ public class CheckPath : MonoBehaviour {
 	private UnityEngine.AI.NavMeshPath path;
 	private float elapsed = 0.0f;  
 	private float elapsed2 = 0.0f;
-	public GameObject[] LatestTurret; 
+	public List<GameObject> LatestTurret; 
 	private int LatestTurretNumber=0;
 	private bool doSetPath = true;
 	 
@@ -22,7 +23,7 @@ public class CheckPath : MonoBehaviour {
 	void Start () { 
 		target = GameObject.FindGameObjectWithTag (GlobalVariables.FinishTargetTag).transform;
 		GlobalVariables.FinishTarget = target;
-		LatestTurret = new GameObject[10];
+		LatestTurret = new List<GameObject>();
 		path = new UnityEngine.AI.NavMeshPath();
 		elapsed = 0.0f;
 
@@ -54,8 +55,8 @@ public class CheckPath : MonoBehaviour {
 		if(path.status.ToString()!="PathComplete"&&LatestTurret[0]!=null){
 			Debug.Log ("am quitando");
 
-			Debug.Log(LatestTurret[0].transform.gameObject.name);
-			Debug.Log(LatestTurret[0].transform.GetChild(0).gameObject);
+			Debug.Log(LatestTurret[LatestTurret.Count-1].transform.gameObject.name);
+			Debug.Log(LatestTurret[LatestTurret.Count-1].transform.GetChild(0).gameObject);
 
 
 			//LatestTurret[0].transform.gameObject.GetComponent<Collider>().enabled=true;
@@ -63,7 +64,7 @@ public class CheckPath : MonoBehaviour {
 			//DecreaseLatestTurret();
 
 			//GlobalVariables.DestroyTurret=true; 
-			SelectTurret mySelectTurret = LatestTurret[0].transform.GetChild(0).gameObject.GetComponent<SelectTurret>();
+			SelectTurret mySelectTurret = LatestTurret[LatestTurret.Count-1].transform.GetChild(0).gameObject.GetComponent<SelectTurret>();
 			if (GlobalVariables.GameStarted) {
 				mySelectTurret.DestroyTurret (0.5f);
 			} else {
@@ -115,42 +116,11 @@ public class CheckPath : MonoBehaviour {
 	}
 	
 	void SetLatestTurret (GameObject RecivedTurret){
-
-
-		ReArrangeLatestTurret();
-		LatestTurret[0] = RecivedTurret;
-		elapsed += PathCheckInterval;
-		if(LatestTurretNumber+1<LatestTurret.Length){
-			LatestTurretNumber++;
-		}
-		else{
-
-		}
-
-	
+		LatestTurret.Add(RecivedTurret);
 	}
-	void ReArrangeLatestTurret (){
 
-		for(int i=LatestTurretNumber; i>0; i--){
-
-			if(LatestTurret[i-1]!=null){
-				LatestTurret[i] = LatestTurret[i-1];
-			}
-
-		}
-
-
-	}
 	void DecreaseLatestTurret(){
-		LatestTurret[LatestTurretNumber] = null;
-		for(int i=0; i<LatestTurretNumber-1; i++){
-
-			if(LatestTurret[i+1]!=null){
-				LatestTurret[i] = LatestTurret[i+1];
-			}
-			
-		}
-		LatestTurretNumber--;
+		LatestTurret.RemoveAt(LatestTurret.Count-1);
 
 	}
 

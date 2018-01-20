@@ -50,7 +50,7 @@ public class SelectTurret : MonoBehaviour {
 		GameObject PathChecker= GameObject.FindGameObjectWithTag(GlobalVariables.CreepPathCheckerTag);
 			if(PathChecker!= null){
 			PathChecker.SendMessage ("ReSetCreepsPath",SendMessageOptions.DontRequireReceiver);
-			Destroy (CurrentTurret.myCurrentTurret);
+			Destroy (this.gameObject);
 			}
 			
 
