@@ -16,7 +16,7 @@ public class DragTurrets : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void FixedUpdate () {
+	void Update () {
 		
 		if (Input.GetMouseButton (0)) { 
 			RaycastHit hit; 
