@@ -26,6 +26,7 @@ TagManager:
   - CreepRender
   - PathChecker
   - PlaceHolderTurretDestroy
+  - Checkmark
   layers:
   - Default
   - TransparentFX

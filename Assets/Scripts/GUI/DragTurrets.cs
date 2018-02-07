@@ -1,20 +1,36 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI; // Required when Using UI elements.
 
 public class DragTurrets : MonoBehaviour {
 	public bool DragAssistEnabled = true;
 	[Header("Drag Assist on Screen %")]
 	public Vector2 DragAssist;
 	public Vector3 DragAssistCordinates;
-
+	public bool ActivateCoolDowns = false;
+	private GameObject[] ButtonsCheckmarks;
+	public float CoolDownTime = 3.0f;
 	// Use this for initialization
 	void Start () {
 		Vector2 s = new Vector2 (Screen.width,Screen.height);
 		DragAssistCordinates = new Vector3 ((s.x*DragAssist.x/100f),(s.y*DragAssist.y/100f),0); 
-	
+		ButtonsCheckmarks = GameObject.FindGameObjectsWithTag ("Checkmark");
+
 	}
-	
+
+	void FixedUpdate()
+	{
+		if(ActivateCoolDowns){
+			foreach (GameObject ButtonCheckmark in ButtonsCheckmarks ){
+				ButtonCheckmark.GetComponent<Image>().fillAmount += 1.0f / CoolDownTime * Time.deltaTime;
+			}
+			// if we Finished CD time
+			if(ButtonsCheckmarks[ButtonsCheckmarks.Length-1].GetComponent<Image>().fillAmount >= 1){
+				ActivateCoolDowns = false;
+			}
+		}
+	}
 	// Update is called once per frame
 	void Update () {
 		
@@ -49,9 +65,18 @@ public class DragTurrets : MonoBehaviour {
 
 			}
 		}else if(Input.GetMouseButtonUp(0) ){
-			if (GlobalVariables.PlaceHolderTurret != null){
-				this.SendMessage ("ConfirmTurret",true);
+			if (GlobalVariables.PlaceHolderTurret != null && ActivateCoolDowns == false) {
+				this.SendMessage ("ConfirmTurret", true);
+				if (GlobalVariables.GameStarted) {
+					ActivateCoolDowns = true;	
+					foreach (GameObject ButtonCheckmark in ButtonsCheckmarks) {
+						ButtonCheckmark.GetComponent<Image> ().fillAmount = 0;
+					}
+				}
 
+
+			} else {
+				this.SendMessage ("ConfirmTurret", false);
 			}
 
 			RaycastHit hit; 
@@ -75,5 +100,6 @@ public class DragTurrets : MonoBehaviour {
 	public void DragPossitionUPToogle(){
 		DragAssistEnabled = !DragAssistEnabled;
 	}
+
 
 }
