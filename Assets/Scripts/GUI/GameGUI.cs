@@ -248,20 +248,18 @@ public class GameGUI : MonoBehaviour {
 		Destroy (myObject);
 	}
 	public void ConfirmTurret(bool confirm){
+		
+		if (confirm)
+		{
 
-		if(GlobalVariables.CurrentTurretPlace != null){
-			if (confirm)
-			{
+			GlobalVariables.CurrentTurretPlace.SendMessage("PlaceTurret");
 
-				GlobalVariables.CurrentTurretPlace.SendMessage("PlaceTurret");
-
-			}
-			else {
-
-				GlobalVariables.CurrentTurretPlace.SendMessage("destroyPlaceHolder",SendMessageOptions.DontRequireReceiver);
-
-			}	
 		}
+		else {
+			GlobalVariables.CurrentTurretPlace.SendMessage("destroyPlaceHolder");
+
+		}
+
 
 	}
 

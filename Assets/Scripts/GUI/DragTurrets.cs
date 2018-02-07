@@ -8,7 +8,7 @@ public class DragTurrets : MonoBehaviour {
 	[Header("Drag Assist on Screen %")]
 	public Vector2 DragAssist;
 	public Vector3 DragAssistCordinates;
-	public bool ActivateCoolDowns = false;
+	public bool ActiveCoolDowns = false;
 	private GameObject[] ButtonsCheckmarks;
 	public float CoolDownTime = 3.0f;
 	// Use this for initialization
@@ -21,13 +21,13 @@ public class DragTurrets : MonoBehaviour {
 
 	void FixedUpdate()
 	{
-		if(ActivateCoolDowns){
+		if(ActiveCoolDowns){
 			foreach (GameObject ButtonCheckmark in ButtonsCheckmarks ){
 				ButtonCheckmark.GetComponent<Image>().fillAmount += 1.0f / CoolDownTime * Time.deltaTime;
 			}
 			// if we Finished CD time
 			if(ButtonsCheckmarks[ButtonsCheckmarks.Length-1].GetComponent<Image>().fillAmount >= 1){
-				ActivateCoolDowns = false;
+				ActiveCoolDowns = false;
 			}
 		}
 	}
@@ -47,7 +47,7 @@ public class DragTurrets : MonoBehaviour {
 				
 				//Debug.Log ("You selected the " + hit.transform.name); // ensure you picked right object
 				if (hit.transform.gameObject.tag == GlobalVariables.TurretBuildingTag || hit.transform.gameObject.tag == GlobalVariables.TurretTag) {
-					hit.transform.gameObject.SendMessage ("DragSelect", SendMessageOptions.DontRequireReceiver);
+					hit.transform.gameObject.SendMessage ("DragSelect",ActiveCoolDowns, SendMessageOptions.DontRequireReceiver);
 
 
 					if(hit.transform.gameObject.tag == GlobalVariables.TurretTag && GlobalVariables.PlaceHolderTurret != null) {
@@ -65,19 +65,20 @@ public class DragTurrets : MonoBehaviour {
 
 			}
 		}else if(Input.GetMouseButtonUp(0) ){
-			if (GlobalVariables.PlaceHolderTurret != null && ActivateCoolDowns == false) {
-				this.SendMessage ("ConfirmTurret", true);
-				if (GlobalVariables.GameStarted) {
-					ActivateCoolDowns = true;	
-					foreach (GameObject ButtonCheckmark in ButtonsCheckmarks) {
-						ButtonCheckmark.GetComponent<Image> ().fillAmount = 0;
+			if (GlobalVariables.PlaceHolderTurret != null) {
+				if(ActiveCoolDowns == false){
+					this.SendMessage ("ConfirmTurret", true);
+					if (GlobalVariables.GameStarted) {
+						ActiveCoolDowns = true;	
+						foreach (GameObject ButtonCheckmark in ButtonsCheckmarks) {
+							ButtonCheckmark.GetComponent<Image> ().fillAmount = 0;
+						}
 					}
+				}else {
+					this.SendMessage ("ConfirmTurret", false);
 				}
 
-
-			} else {
-				this.SendMessage ("ConfirmTurret", false);
-			}
+			} 
 
 			RaycastHit hit; 
 			Ray ray;

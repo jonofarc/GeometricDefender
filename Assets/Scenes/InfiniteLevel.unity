@@ -760,6 +760,15 @@ Prefab:
       propertyPath: m_FillAmount
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 23606910087443182, guid: 936f2fa6e2e0ddd4cbde6188f0b18d8b,
+        type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 7f5b57378dea6184ab7f1053c2767239, type: 2}
+    - target: {fileID: 2376370, guid: 936f2fa6e2e0ddd4cbde6188f0b18d8b, type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: a3ff90b32dd40a4438f6f937e8482abc, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 936f2fa6e2e0ddd4cbde6188f0b18d8b, type: 2}
   m_IsPrefabParent: 0

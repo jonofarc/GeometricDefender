@@ -36,14 +36,14 @@ public class GenerateOnclick : MonoBehaviour {
             Destroy(GlobalVariables.PlaceHolderTurret);
         }
     }
-    void setPlaceHolder() {
+	void setPlaceHolder(bool ActiveCoolDowns) {
 
         
 		GlobalVariables.CurrentTurretPlace = this.gameObject;
 
 		destroyPlaceHolder();
 		GameObject MyPlaceHolderTurret = GameObject.FindGameObjectWithTag("PlaceHolderTurret");	
-		if(GlobalVariables.DestroyTurret){
+		if(GlobalVariables.DestroyTurret || ActiveCoolDowns){
 			MyPlaceHolderTurret = GameObject.FindGameObjectWithTag("PlaceHolderTurretDestroy");	
 		}
 
@@ -108,7 +108,7 @@ public class GenerateOnclick : MonoBehaviour {
 		}
 		CreepPathChecker.SendMessage ("PathCheck");
 	}
-	public void DragSelect(){
-		setPlaceHolder ();
+	public void DragSelect(bool ActiveCoolDowns){
+		setPlaceHolder (ActiveCoolDowns);
 	}
 }
