@@ -25,6 +25,7 @@ TagManager:
   - TurretBuildingArea
   - CreepRender
   - PathChecker
+  - PlaceHolderTurretDestroy
   layers:
   - Default
   - TransparentFX

@@ -648,12 +648,12 @@ Prefab:
     - target: {fileID: 224346431088955676, guid: 936f2fa6e2e0ddd4cbde6188f0b18d8b,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: 164.00002
+      value: 164
       objectReference: {fileID: 0}
-    - target: {fileID: 114993500934717812, guid: 936f2fa6e2e0ddd4cbde6188f0b18d8b,
+    - target: {fileID: 23606910087443182, guid: 936f2fa6e2e0ddd4cbde6188f0b18d8b,
         type: 2}
-      propertyPath: DragAssist.y
-      value: 8.3
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 936f2fa6e2e0ddd4cbde6188f0b18d8b, type: 2}

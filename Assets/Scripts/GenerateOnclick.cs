@@ -40,8 +40,13 @@ public class GenerateOnclick : MonoBehaviour {
 
         
 		GlobalVariables.CurrentTurretPlace = this.gameObject;
+
 		destroyPlaceHolder();
-		GameObject MyPlaceHolderTurret = GameObject.FindGameObjectWithTag("PlaceHolderTurret");
+		GameObject MyPlaceHolderTurret = GameObject.FindGameObjectWithTag("PlaceHolderTurret");	
+		if(GlobalVariables.DestroyTurret){
+			MyPlaceHolderTurret = GameObject.FindGameObjectWithTag("PlaceHolderTurretDestroy");	
+		}
+
 		clone = Instantiate(MyPlaceHolderTurret, MyPlaceHolderTurret.transform.position, MyPlaceHolderTurret.transform.rotation) as GameObject;
 		clone.gameObject.SetActive(true);
 
