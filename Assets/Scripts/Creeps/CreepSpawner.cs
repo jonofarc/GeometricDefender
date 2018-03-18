@@ -8,6 +8,8 @@ using System.IO;
 public class CreepSpawner : MonoBehaviour {
 	public bool CombinedWaves = false;
 	public bool WaveLoop = false;
+
+	[Header("All creep waves")]
 	public GameObject[] BaseCreeps;
 	public List<GameObject> CurrentCreeps;
 	public GameObject[] BossCreeps;
@@ -33,14 +35,25 @@ public class CreepSpawner : MonoBehaviour {
 
 
 	public TextAsset CreepColors;
+	public TextAsset CreepSpawnList;
 
-	private List<string> fileLines;
+	private List<string> FileLines;
 	private int CreepType = 0;
 	private float elapsed = 0.0f; 
 	private float elapsedNextWaveTime = 0.0f; 
 	private int creepSeparator=0;
 	private GameObject Canvas;
 	private Color myCreepColor;
+
+	// as of 3/18/2018 no better idea of how to yandle this comes to min
+	[Header("All creep types")]
+	public GameObject NomalCreep;
+	public GameObject FastCreep;
+	public GameObject StraightCreep;
+	public GameObject ShieldCreep;
+	public GameObject ForceFieldCreep;
+	public GameObject MultiCreep;
+	public GameObject CreepBoss;
 
 
 	// Use this for initialization
@@ -51,6 +64,7 @@ public class CreepSpawner : MonoBehaviour {
 		foreach(GameObject creep in Creeps){
 			creep.SetActive (false);
 		}
+		readCreepList ();
 		spawnIntervalOriginal = spawnInterval;
 		NextWaveTimeOriginal = NextWaveTime;
 
@@ -77,6 +91,8 @@ public class CreepSpawner : MonoBehaviour {
 			}
 
 		}
+
+
 		
 	
 		//	Invoke ("startCreeps",StartSpawnTime);
@@ -278,22 +294,77 @@ public class CreepSpawner : MonoBehaviour {
 	public Color ReadFile(int CreepTypeColor)
 	{
 		Color myColor = new Color (0,0,0,0);
-		fileLines = CreepColors.text.Split('\n',',').ToList();
+		FileLines = CreepColors.text.Split('\n',',').ToList();
 
 		//if (fileLines.Contains(BaseCreeps[CreepType+1].name))
 		//{
 		//	myColor = new Color (1,1,1,1);
 		//} 
-		for(int i=0; i<fileLines.Count(); i++){
+		for(int i=0; i<FileLines.Count(); i++){
 
-			if(fileLines[i].ToString()==BaseCreeps[CreepTypeColor].gameObject.name){
+			if(FileLines[i].ToString()==BaseCreeps[CreepTypeColor].gameObject.name){
 
-				myColor = new Color (float.Parse(fileLines[i+1]),float.Parse(fileLines[i+2]),float.Parse(fileLines[i+3]),float.Parse(fileLines[i+4])); 
+				myColor = new Color (float.Parse(FileLines[i+1]),float.Parse(FileLines[i+2]),float.Parse(FileLines[i+3]),float.Parse(FileLines[i+4])); 
 			
 			}
 		}
 		
 		return myColor;
+
+	}
+
+	public void readCreepList(){
+		FileLines = CreepSpawnList.text.Split('\n').ToList();
+		//Check wich lines are valid
+		List<GameObject> CreepWaveList = new List<GameObject>();
+		for(int i=0; i<FileLines.Count(); i++){
+			
+			string Line = FileLines [i];
+
+			if (!Line.Equals(" ") && !Line.StartsWith("#") && !Line.StartsWith(" ")) {
+				
+				//check wich creep is the line stating
+				List<string> LineInformation = Line.Split(',').ToList();
+				if(LineInformation.Count==2){
+					//check wich type of creep 
+					string CreepType = LineInformation [0];
+					//check how many waves of that creep
+					int CreepWaves = int.Parse(LineInformation [1]);
+					// Add creep gameobject to list
+					for(int j=0 ; j< CreepWaves; j++){
+						switch(CreepType){
+						case CreepsIndex.NomalCreep:
+							CreepWaveList.Add (NomalCreep);
+							break;
+						case CreepsIndex.FastCreep:
+							CreepWaveList.Add (FastCreep);
+							break;
+						case CreepsIndex.StraightCreep:
+							CreepWaveList.Add (StraightCreep);
+							break;
+						case CreepsIndex.ShieldCreep:
+							CreepWaveList.Add (ShieldCreep);
+							break;
+						case CreepsIndex.ForceFieldCreep:
+							CreepWaveList.Add (ForceFieldCreep);
+							break;
+						case CreepsIndex.MultiCreep:
+							CreepWaveList.Add (MultiCreep);
+							break;
+						case CreepsIndex.CreepBoss:
+							CreepWaveList.Add (CreepBoss);
+							break;
+						}
+
+					}
+				}
+			}
+		}
+
+		BaseCreeps = new GameObject[CreepWaveList.Count];
+		for(int i=0; i<CreepWaveList.Count(); i++){
+			BaseCreeps [i] = CreepWaveList [i];
+		}
 
 	}
 	public void callLevelCleared(){
