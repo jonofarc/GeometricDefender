@@ -28,9 +28,9 @@ public class CreepLife : MonoBehaviour {
 	
 	}
 	public void takeDamage(float Damage){
-		if(Damage>CreepShield){ 
+		if(Damage>CreepShield || Damage<0){ 
 			CreepHP -= Damage;
-
+			Debug.Log ("CreepHP ============ " + CreepHP);
 
             if (CreepHP > (maxHP * 0.66))
             {

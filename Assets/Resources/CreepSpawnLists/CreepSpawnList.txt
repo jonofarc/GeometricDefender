@@ -1,3 +1,4 @@
+
 # We ignore any line that starts with "#" or that does not comply with the rules
 
 # Enemy Index
@@ -7,6 +8,7 @@
 # Shield Creep "SHC"
 # Force Field Creep "FFC"
 # Multi Creep "MC"
+# Elemental Abrosbent Creep "EAC"
 # Creep Boss "CB"
 
 # Rules
@@ -16,10 +18,12 @@
 # FC,3 // 3 Fast Creep wave
 # CB,1 // 1 Creep Boss wave
 
+
 NC,3
 FC,2
 SC,1
 SHC,1
+EAC,2
 FFC,1
-MC,1
+MC,2
 CB,1 

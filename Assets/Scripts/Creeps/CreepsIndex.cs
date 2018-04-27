@@ -10,6 +10,7 @@ public class CreepsIndex : MonoBehaviour {
 	public const string ShieldCreep="SHC";
 	public const string ForceFieldCreep="FFC";
 	public const string MultiCreep="MC";
+	public const string ElementalAbsorbentCreep="EAC";
 	public const string CreepBoss="CB";
 
 

@@ -10,12 +10,15 @@ public class StatusChange : MonoBehaviour {
     private Material FreezeMaterial;
 	private Material ToxicMaterial;
 	private Material ToxicFreezeMaterial;
+	private Material ElementalAbsorbMaterial;
     private Material OriginalMaterial;
 	private int DoTTicks = 0;
 	private float DoTTicksTime = 1.0f;
 
 	private bool CreepPoison=false;
 	private bool CreepFreeze=false;
+	public bool ElementalResistant = false;//resist poison and freeze
+	public bool ElementalAbsorvent = false;//gets buff with poion and freeze
 	private GameObject CreepRenderGameObject;
     // Use this for initialization
     void Start () {
@@ -23,6 +26,7 @@ public class StatusChange : MonoBehaviour {
         FreezeMaterial = (Material)Resources.Load("Materials/FreezeMaterial");
 		ToxicMaterial = (Material)Resources.Load("Materials/ToxicMaterial");
 		ToxicFreezeMaterial = (Material)Resources.Load("Materials/ToxicFreezeMaterial");
+		ElementalAbsorbMaterial = (Material)Resources.Load("Materials/AbsorbentMaterial");
 		try{
 			CreepRenderGameObject=this.transform.gameObject;
 			OriginalMaterial = CreepRenderGameObject.GetComponent<Renderer>().sharedMaterial;
@@ -45,7 +49,10 @@ public class StatusChange : MonoBehaviour {
 	}
 
 	public void Freeze(float SlowAmount){
-
+		//reverse the efect of freeze
+		if(ElementalAbsorvent){
+			SlowAmount++;
+		}
 		Debug.Log ("slowAmount: "+ SlowAmount);
 		this.gameObject.GetComponent<UnityEngine.AI.NavMeshAgent> ().speed = NormalSpeed* SlowAmount ;
 		Debug.Log ("normal speed:"+NormalSpeed+ "  CurrentSpeed="+this.gameObject.GetComponent<UnityEngine.AI.NavMeshAgent> ().speed);
@@ -65,6 +72,9 @@ public class StatusChange : MonoBehaviour {
 	public void Poison(float DoTDamage){
 		Debug.Log ("Entering Poison");
 
+		if(ElementalAbsorvent){
+			DoTDamage = -1*DoTDamage;
+		}
 		//This is to prevent Poison stacking
 		CancelInvoke ("ApplyDamage");
 
@@ -92,9 +102,11 @@ public class StatusChange : MonoBehaviour {
 	}
 
 	public void MaterialAdjust(){
-
+		
 		if (CreepPoison == false && CreepFreeze == false) {
 			CreepRenderGameObject.GetComponent<Renderer> ().material = OriginalMaterial;
+		} else if (ElementalAbsorvent) {
+			CreepRenderGameObject.GetComponent<Renderer> ().material = ElementalAbsorbMaterial;
 		} else if (CreepPoison && CreepFreeze) {
 			CreepRenderGameObject.GetComponent<Renderer> ().material = ToxicFreezeMaterial;
 		} else if (CreepPoison) {

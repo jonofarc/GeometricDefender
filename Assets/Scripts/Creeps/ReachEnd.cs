@@ -65,47 +65,63 @@ public class ReachEnd : MonoBehaviour {
 	}
 
 
-	// this is the code used for adds
+
+	public void ShowDefaultAd()
+	{
+		#if UNITY_ADS
+		if (!Advertisement.IsReady())
+		{
+		Debug.Log("Ads not ready for default placement");
+		return;
+		}
+
+		Advertisement.Show();
+		#endif
+	}
+
 	public void ShowRewardedAd()
 	{
-		Debug.Log ("Showing add");
-		//ApplyRewards ();
-		//GlobalVariables.LevelFailed = false;
-		if (Advertisement.IsReady("rewardedVideo"))
+		const string RewardedPlacementId = "rewardedVideo";
+
+		#if UNITY_ADS
+		if (!Advertisement.IsReady(RewardedPlacementId))
 		{
-			Debug.Log ("add ready");
-			var options = new ShowOptions { resultCallback = HandleShowResult };
-			Advertisement.Show("rewardedVideo", options);
-			//Advertisement.Show();//add that can be skiped
-		}else{
-			Debug.Log ("add not ready");
+		Debug.Log(string.Format("Ads not ready for placement '{0}'", RewardedPlacementId));
+		return;
 		}
+
+		var options = new ShowOptions { resultCallback = HandleShowResult };
+		Advertisement.Show(RewardedPlacementId, options);
+		#endif
+
 
 
 	}
 
+	#if UNITY_ADS
 	private void HandleShowResult(ShowResult result)
 	{
-		Debug.Log ("handling Showing add result");
-		switch (result)
-		{
-		case ShowResult.Finished:
-			Debug.Log ("The ad was successfully shown.");
-			//
-			// YOUR CODE TO REWARD THE GAMER
-			// Give coins etc.
-			ApplyRewards ();
-			ReviveDependentReactivation ();
-			break;
-		case ShowResult.Skipped:
-			Debug.Log("The ad was skipped before reaching the end.");
-			break;
-		case ShowResult.Failed:
-			Debug.LogError("The ad failed to be shown.");
-			GlobalVariables.LevelFailed = true;
-			break;
-		}
+	switch (result)
+	{
+	case ShowResult.Finished:
+	Debug.Log("The ad was successfully shown.");
+	//
+	// YOUR CODE TO REWARD THE GAMER
+	// Give coins etc.
+	ApplyRewards ();
+	ReviveDependentReactivation ();
+	break;
+	case ShowResult.Skipped:
+	Debug.Log("The ad was skipped before reaching the end.");
+	break;
+	case ShowResult.Failed:
+	Debug.LogError("The ad failed to be shown.");
+	break;
 	}
+	}
+
+	#endif
+
 	public void ApplyRewards(){
 		GlobalVariables.HP = GlobalVariables.HPReward;
 		HPtext.text = LocalizationText.GetText("HP")+": " + GlobalVariables.HP.ToString ();
@@ -120,14 +136,13 @@ public class ReachEnd : MonoBehaviour {
 		GlobalVariables.LevelFailed = false;
 
 	}
-
+	
 	// not the best solution but being 7/20/2017 at 12:35 AM I cant think of other option is this or move the button so the add close button and this would not overlap
 	public void ReviveDependentReactivation (){
-		ReviveDependent = GameObject.FindGameObjectsWithTag ("ReviveDependent") ; 
+		ReviveDependent = GameObject.FindGameObjectsWithTag ("ReviveDependent"); 
 		foreach (GameObject Dependent in ReviveDependent) {
 			Dependent.GetComponent<Button> ().enabled = true;
 		}
-
 	}
 
 }
