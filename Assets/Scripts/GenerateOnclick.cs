@@ -7,9 +7,6 @@ public class GenerateOnclick : MonoBehaviour {
 
 
 
-
-
-
 	// Use this for initialization
 	void Start () {
 
@@ -78,7 +75,10 @@ public class GenerateOnclick : MonoBehaviour {
 
             PathChecker.SendMessage("SetLatestTurret", this.gameObject);
 
-            this.gameObject.GetComponent<Collider>().enabled = false;
+			this.gameObject.GetComponent<Collider>().enabled = false;
+
+			GameObject mainCamera = GameObject.FindGameObjectWithTag (GlobalVariables.MainCameraTag);
+			mainCamera.SendMessage ("PlaySound","Sound/NewTurretSoundEffect");
 
 			ReCheckPath ();
 

@@ -25,6 +25,7 @@ public class GlobalVariables : MonoBehaviour {
 	public static int MaxRevives=1;// 0 also counts
 	public static int Revives=2;
 	public static int HPReward=3;
+	public static string MainCameraTag="MainCamera";
 	public static string TurretTag="Turret";
 	public static string FinishTargetTag="Finish";
 	public static string CreepTag="CreepG";
