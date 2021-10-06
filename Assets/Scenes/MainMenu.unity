@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &4
 LightmapSettings:
@@ -952,6 +952,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b4f3cc3c16df3e4aa5b799964c62416, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fpsDisplay: {fileID: 0}
 --- !u!114 &314829202
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1266,7 +1267,7 @@ RectTransform:
   m_GameObject: {fileID: 679829581}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.78999996, y: 0.78999996, z: 0.78999996}
+  m_LocalScale: {x: 0.67939997, y: 0.67939997, z: 0.67939997}
   m_Children:
   - {fileID: 202651027}
   - {fileID: 1004778470}
@@ -1279,7 +1280,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -0.000015258789}
+  m_AnchoredPosition: {x: 14.414, y: -0.55302}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &700920878
@@ -2565,7 +2566,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1565316759}
-        m_TargetAssemblyTypeName: 
+        m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
         m_MethodName: setFPS
         m_Mode: 3
         m_Arguments:
@@ -3017,7 +3018,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1565316759}
-        m_TargetAssemblyTypeName: 
+        m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
         m_MethodName: setFPS
         m_Mode: 3
         m_Arguments:

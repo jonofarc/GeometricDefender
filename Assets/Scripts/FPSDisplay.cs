@@ -5,6 +5,7 @@ public class FPSDisplay : MonoBehaviour
 {
     public Text fpsDisplay;
     float fpsTotal = 0f;
+    float deltaTime = 0.0f;
 
 
     void Start()
@@ -14,7 +15,10 @@ public class FPSDisplay : MonoBehaviour
 
     void Update()
     {
-        float fps = 1 / Time.unscaledDeltaTime;
+
+        deltaTime += (Time.deltaTime - deltaTime) * 0.1f;
+
+        float fps = 1.0f / deltaTime;
 
         float msec = Time.unscaledDeltaTime * 1000.0f;
         
