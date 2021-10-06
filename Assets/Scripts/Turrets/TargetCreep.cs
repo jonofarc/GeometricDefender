@@ -9,8 +9,6 @@ public class TargetCreep : MonoBehaviour {
 	public float turretRange=3;
 	public GameObject turretRangeAreaMarker;
 
-	private AudioSource SoundEffect;
-
 	public Transform target;
 	private float speed =100f;
 	
@@ -33,7 +31,7 @@ public class TargetCreep : MonoBehaviour {
 
 		turretRangeAreaMarker.gameObject.transform.localScale = new Vector3 (turretRange,0.01f,turretRange);
 
-		SoundEffect = this.gameObject.GetComponent<AudioSource> ();
+
 	}
 
     // Update is called once per frame
@@ -74,9 +72,7 @@ public class TargetCreep : MonoBehaviour {
 		} 
 	} 
 	void FireBullet(){
-		if(SoundEffect != null){
-			SoundEffect.Play ();
-		}
+
 		// Instantiate the projectile at the position and rotation of this transform
 		bullet = Instantiate(projectile, projectile.transform.position, projectile.transform.rotation) as GameObject;
 		bullet.gameObject.SetActive(true);

@@ -11,8 +11,6 @@ public class ReachEnd : MonoBehaviour {
 	public int StartMoney=20;
 	private Text HPtext;
 	public GameObject[] ReviveDependent;
-
-	private AudioSource FinishTargetAudioSource;
 	// Use this for initialization
 	void Awake(){
 		
@@ -25,8 +23,6 @@ public class ReachEnd : MonoBehaviour {
 
 		HPtext.text = LocalizationText.GetText("HP")+": " + HP.ToString ();
 		GlobalVariables.Money = StartMoney;
-
-		FinishTargetAudioSource = this.gameObject.GetComponent<AudioSource> ();
 	}
 	
 	// Update is called once per frame
@@ -35,7 +31,7 @@ public class ReachEnd : MonoBehaviour {
 	}
 	void OnTriggerEnter(Collider other) {
 	
-		if(other.gameObject.tag.Equals(GlobalVariables.CreepTag) || other.gameObject.tag.Equals("CreepF")){
+		if(other.gameObject.tag==GlobalVariables.CreepTag || other.gameObject.tag=="CreepF"){
 			Destroy(other.gameObject);
 			//	Debug.Log ("-1 hp");
 			ReciveDamage(DefaultDamage);
@@ -49,7 +45,6 @@ public class ReachEnd : MonoBehaviour {
 		//	Debug.Log ("-1 hp");
 		GlobalVariables.HP=GlobalVariables.HP-Damage;
 		HPtext.text = LocalizationText.GetText("HP")+": " + GlobalVariables.HP.ToString ();
-		FinishTargetAudioSource.Play ();
 		//	Debug.Log ("Remaining health "+HP);
 		if(GlobalVariables.HP<=0){
 			//Invoke("GameOver",1);

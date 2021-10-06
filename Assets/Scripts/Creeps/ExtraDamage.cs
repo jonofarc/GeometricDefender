@@ -14,7 +14,7 @@ public class ExtraDamage : MonoBehaviour {
 	}
 	void OnTriggerEnter(Collider other) {
 
-		if(other.gameObject.tag.Equals(GlobalVariables.FinishTargetTag)){
+		if(other.gameObject.tag=="Finish"){
 			other.SendMessage("ReciveDamage",DamageToInflict);
 		}
 		
