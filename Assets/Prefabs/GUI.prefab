@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 11473002}
   m_Layer: 5
   m_Name: Checkmark
-  m_TagString: Untagged
+  m_TagString: Checkmark
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -66,7 +66,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_Sprite: {fileID: 21300000, guid: 103065ba18cb9664ab7d50f965347b9b, type: 3}
-  m_Type: 0
+  m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -112,8 +112,6 @@ RectTransform:
   - {fileID: 407022}
   - {fileID: 22472860}
   - {fileID: 22456538}
-  - {fileID: 22431410}
-  - {fileID: 224014162125368926}
   - {fileID: 22411280}
   - {fileID: 22408726}
   - {fileID: 22496990}
@@ -265,7 +263,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.20543003, y: -0.324957}
+  m_AnchoredPosition: {x: 0.20542908, y: -0.3249588}
   m_SizeDelta: {x: 53.3, y: 32.964}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &22271098
@@ -361,6 +359,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -534,6 +533,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -839,7 +839,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 11469150}
-        m_TargetAssemblyTypeName: 
+        m_TargetAssemblyTypeName: GameGUI, Assembly-CSharp
         m_MethodName: SuperFastFoward
         m_Mode: 1
         m_Arguments:
@@ -1015,7 +1015,7 @@ GameObject:
   - component: {fileID: 11453474}
   m_Layer: 5
   m_Name: Checkmark
-  m_TagString: Untagged
+  m_TagString: Checkmark
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1068,7 +1068,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_Sprite: {fileID: 21300000, guid: f66594ddd9e4cf24a844e68260a66445, type: 3}
-  m_Type: 0
+  m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -1277,6 +1277,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -1342,7 +1343,7 @@ GameObject:
   - component: {fileID: 11490364}
   m_Layer: 5
   m_Name: Checkmark
-  m_TagString: Untagged
+  m_TagString: Checkmark
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1395,7 +1396,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_Sprite: {fileID: 21300000, guid: 9769b003b559d7d42b24d736a4232633, type: 3}
-  m_Type: 0
+  m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -1489,7 +1490,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 11469150}
-        m_TargetAssemblyTypeName: 
+        m_TargetAssemblyTypeName: GameGUI, Assembly-CSharp
         m_MethodName: MachineGunTurretButton
         m_Mode: 1
         m_Arguments:
@@ -1531,7 +1532,7 @@ RectTransform:
   - {fileID: 22497678}
   - {fileID: 22419342}
   m_Father: {fileID: 22467322}
-  m_RootOrder: 8
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1607,6 +1608,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -1720,6 +1722,7 @@ RectTransform:
   - {fileID: 22493838}
   - {fileID: 22491890}
   - {fileID: 22409370}
+  - {fileID: 1877009576}
   m_Father: {fileID: 22467322}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1797,6 +1800,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -2004,6 +2008,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -2596,6 +2601,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -2727,6 +2733,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -2874,7 +2881,7 @@ RectTransform:
   - {fileID: 22464378}
   - {fileID: 22465644}
   m_Father: {fileID: 22467322}
-  m_RootOrder: 7
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -2916,7 +2923,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -256, y: 217.3}
+  m_AnchoredPosition: {x: -265, y: 200}
   m_SizeDelta: {x: 190.8, y: 37.2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &22257204
@@ -3133,7 +3140,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 124356}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 58, y: 61, z: 25.6875}
+  m_LocalPosition: {x: 70, y: 50, z: 25.6875}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 22435088}
@@ -3210,6 +3217,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -3296,7 +3304,7 @@ RectTransform:
   m_GameObject: {fileID: 125252}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.73172, y: 0.73172, z: 0.73172}
   m_Children: []
   m_Father: {fileID: 22456538}
   m_RootOrder: 2
@@ -3347,7 +3355,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1.05
-  m_Text: 
+  m_Text: 'Turret Cost: 20'
 --- !u!1 &126224
 GameObject:
   m_ObjectHideFlags: 0
@@ -3437,7 +3445,7 @@ GameObject:
   - component: {fileID: 11421908}
   m_Layer: 5
   m_Name: Checkmark
-  m_TagString: Untagged
+  m_TagString: Checkmark
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3490,7 +3498,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_Sprite: {fileID: 21300000, guid: c845a912414eb06448fe8916e335638d, type: 3}
-  m_Type: 0
+  m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -3584,7 +3592,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 11469150}
-        m_TargetAssemblyTypeName: 
+        m_TargetAssemblyTypeName: GameGUI, Assembly-CSharp
         m_MethodName: MainMenuButtton
         m_Mode: 1
         m_Arguments:
@@ -3647,6 +3655,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -3732,6 +3741,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -3969,6 +3979,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -4143,6 +4154,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -4246,6 +4258,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -4327,6 +4340,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -4559,6 +4573,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -4640,6 +4655,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -4755,7 +4771,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 11469150}
-        m_TargetAssemblyTypeName: 
+        m_TargetAssemblyTypeName: GameGUI, Assembly-CSharp
         m_MethodName: FastFoward
         m_Mode: 1
         m_Arguments:
@@ -4945,7 +4961,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 11469150}
-        m_TargetAssemblyTypeName: 
+        m_TargetAssemblyTypeName: GameGUI, Assembly-CSharp
         m_MethodName: FirePanelButton
         m_Mode: 1
         m_Arguments:
@@ -5008,6 +5024,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -5072,7 +5089,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.65930223, y: 0.012}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -10, y: -3.306601}
+  m_AnchoredPosition: {x: -10, y: -3.3066406}
   m_SizeDelta: {x: 20, y: 6.1972}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &22267852
@@ -5425,6 +5442,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -5518,7 +5536,7 @@ GameObject:
   - component: {fileID: 11405230}
   m_Layer: 5
   m_Name: Checkmark
-  m_TagString: Untagged
+  m_TagString: Checkmark
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5571,7 +5589,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_Sprite: {fileID: 21300000, guid: 2728b149c3c51e24b922051e669041e0, type: 3}
-  m_Type: 0
+  m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -5633,6 +5651,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -5819,6 +5838,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -5902,6 +5922,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -6012,6 +6033,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -6069,15 +6091,15 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 154786}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -1}
+  m_LocalScale: {x: 1, y: 1.5999, z: 1}
   m_Children: []
   m_Father: {fileID: 22467322}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.88600004}
   m_AnchorMax: {x: 0.13033332, y: 1}
-  m_AnchoredPosition: {x: 1.5, y: -1.5025635}
+  m_AnchoredPosition: {x: 1.5, y: -23}
   m_SizeDelta: {x: 6.29998, y: 6.7993164}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &22234896
@@ -6297,7 +6319,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 11469150}
-        m_TargetAssemblyTypeName: 
+        m_TargetAssemblyTypeName: GameGUI, Assembly-CSharp
         m_MethodName: FreezeTurretButton
         m_Mode: 1
         m_Arguments:
@@ -6454,6 +6476,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -6889,6 +6912,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -7004,7 +7028,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 11469150}
-        m_TargetAssemblyTypeName: 
+        m_TargetAssemblyTypeName: GameGUI, Assembly-CSharp
         m_MethodName: Pause
         m_Mode: 1
         m_Arguments:
@@ -7067,6 +7091,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -7129,7 +7154,7 @@ RectTransform:
   - {fileID: 224346431088955676}
   - {fileID: 22405328}
   m_Father: {fileID: 22467322}
-  m_RootOrder: 9
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -7351,8 +7376,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.753, y: 0.6785869}
   m_AnchorMax: {x: 0.95300007, y: 0.74028265}
-  m_AnchoredPosition: {x: 242.10004, y: 83.8676}
-  m_SizeDelta: {x: 148, y: 22.64698}
+  m_AnchoredPosition: {x: 228.05002, y: 73.33826}
+  m_SizeDelta: {x: 176.10004, y: 23.32349}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &22224832
 CanvasRenderer:
@@ -7668,7 +7693,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.85188967, y: 0.3065953}
   m_AnchorMax: {x: 0.92166054, y: 0.40862468}
-  m_AnchoredPosition: {x: 288.2, y: -245.69998}
+  m_AnchoredPosition: {x: 320, y: -163}
   m_SizeDelta: {x: 54.216713, y: 52.19554}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &11470602
@@ -7719,7 +7744,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 11469150}
-        m_TargetAssemblyTypeName: 
+        m_TargetAssemblyTypeName: GameGUI, Assembly-CSharp
         m_MethodName: DestroyTurretButton
         m_Mode: 1
         m_Arguments:
@@ -8066,7 +8091,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 11469150}
-        m_TargetAssemblyTypeName: 
+        m_TargetAssemblyTypeName: GameGUI, Assembly-CSharp
         m_MethodName: NormalSpeed
         m_Mode: 1
         m_Arguments:
@@ -8223,6 +8248,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -8333,6 +8359,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -8614,6 +8641,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -8679,8 +8707,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -2.0000005, y: -0.3}
-  m_SizeDelta: {x: 31.284, y: 29.27}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 30, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &22234310
 CanvasRenderer:
@@ -8703,7 +8731,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -8761,18 +8789,18 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 179264}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -25.6875}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 22407564}
-  m_Father: {fileID: 22467322}
-  m_RootOrder: 5
+  m_Father: {fileID: 421846}
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.6822532, y: 0.09200001}
   m_AnchorMax: {x: 0.80921286, y: 0.22373226}
-  m_AnchoredPosition: {x: 1.5, y: 1.8000183}
-  m_SizeDelta: {x: 7.300003, y: -0.19999695}
+  m_AnchoredPosition: {x: 166, y: -239}
+  m_SizeDelta: {x: 133.41048, y: 63.45729}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &22294598
 CanvasRenderer:
@@ -8879,7 +8907,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 86c42474283881c40a774873eaef6c68, type: 3}
+  m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -9117,7 +9145,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 11469150}
-        m_TargetAssemblyTypeName: 
+        m_TargetAssemblyTypeName: GameGUI, Assembly-CSharp
         m_MethodName: SniperTurretButton
         m_Mode: 1
         m_Arguments:
@@ -9199,6 +9227,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -9420,7 +9449,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 30, y: 217.3}
+  m_AnchoredPosition: {x: 35, y: 200}
   m_SizeDelta: {x: 139.8, y: 37.2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &22251580
@@ -9495,8 +9524,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.734, y: 0.77772325}
   m_AnchorMax: {x: 0.95300007, y: 0.846}
-  m_AnchoredPosition: {x: 240.45001, y: 125.986374}
-  m_SizeDelta: {x: 152.30002, y: 26.076054}
+  m_AnchoredPosition: {x: 215.07501, y: 116.48099}
+  m_SizeDelta: {x: 150.15002, y: 27.038025}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &22205940
 CanvasRenderer:
@@ -9665,6 +9694,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -9809,7 +9839,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 11469150}
-        m_TargetAssemblyTypeName: 
+        m_TargetAssemblyTypeName: GameGUI, Assembly-CSharp
         m_MethodName: ToxicTurretButton
         m_Mode: 1
         m_Arguments:
@@ -9872,6 +9902,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -10029,6 +10060,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -10144,7 +10176,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 11469150}
-        m_TargetAssemblyTypeName: 
+        m_TargetAssemblyTypeName: GameGUI, Assembly-CSharp
         m_MethodName: AreaTurretButton
         m_Mode: 1
         m_Arguments:
@@ -10267,7 +10299,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 190396}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 56, y: 50.584503, z: 25.6875}
+  m_LocalPosition: {x: 70, y: 50.584503, z: 25.6875}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 224556751985169830}
@@ -10279,6 +10311,8 @@ Transform:
   - {fileID: 22497170}
   - {fileID: 22481438}
   - {fileID: 22433490}
+  - {fileID: 22431410}
+  - {fileID: 224014162125368926}
   m_Father: {fileID: 22467322}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -10515,6 +10549,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -10558,7 +10593,7 @@ GameObject:
   - component: {fileID: 11480878}
   m_Layer: 5
   m_Name: Checkmark
-  m_TagString: Untagged
+  m_TagString: Checkmark
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10611,7 +10646,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_Sprite: {fileID: 21300000, guid: b50e6c63ea1869b47a7c14adaa8c2ba0, type: 3}
-  m_Type: 0
+  m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -10746,6 +10781,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -10845,6 +10881,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -10961,6 +10998,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -10969,7 +11007,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 7f5b57378dea6184ab7f1053c2767239, type: 2}
+  - {fileID: 2100000, guid: a3ff90b32dd40a4438f6f937e8482abc, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -11003,6 +11041,175 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78d7826e3234b1b40930ebad170df2ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1698081700
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1698081701}
+  - component: {fileID: 1698081704}
+  - component: {fileID: 1698081703}
+  - component: {fileID: 1759120926612530859}
+  m_Layer: 5
+  m_Name: FPSText
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1698081701
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1698081700}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1.6725, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1877009576}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.734, y: 0.77772325}
+  m_AnchorMax: {x: 0.95300007, y: 0.846}
+  m_AnchoredPosition: {x: -65.148, y: -12}
+  m_SizeDelta: {x: 132.41481, y: 30.363832}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &1698081704
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1698081700}
+  m_CullTransparentMesh: 0
+--- !u!114 &1698081703
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1698081700}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_RaycastTarget: 0
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 11
+    m_FontStyle: 0
+    m_BestFit: 1
+    m_MinSize: 10
+    m_MaxSize: 100
+    m_Alignment: 4
+    m_AlignByGeometry: 0
+    m_RichText: 0
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1.05
+  m_Text: 60 FPS
+--- !u!114 &1759120926612530859
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1698081700}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b4f3cc3c16df3e4aa5b799964c62416, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fpsDisplay: {fileID: 1698081703}
+--- !u!1 &1877009575
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1877009576}
+  - component: {fileID: 1877009578}
+  - component: {fileID: 1877009577}
+  m_Layer: 5
+  m_Name: FPS
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1877009576
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1877009575}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.21858764, y: 0.83719087, z: 0.76108146}
+  m_Children:
+  - {fileID: 1698081701}
+  m_Father: {fileID: 22456538}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -421, y: 200}
+  m_SizeDelta: {x: 190.8, y: 37.2}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &1877009578
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1877009575}
+  m_CullTransparentMesh: 0
+--- !u!114 &1877009577
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1877009575}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 10911, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 1
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
 --- !u!1 &1012308747791010
 GameObject:
   m_ObjectHideFlags: 0
@@ -11149,6 +11356,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -11352,6 +11560,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -11503,7 +11712,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 1, y: 1.5999999}
+  m_AnchoredPosition: {x: 1, y: 1.5999985}
   m_SizeDelta: {x: 33.2, y: 10.9}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &222367063568931722
@@ -11685,6 +11894,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -11861,6 +12071,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -12018,6 +12229,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -12133,7 +12345,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 11469150}
-        m_TargetAssemblyTypeName: 
+        m_TargetAssemblyTypeName: GameGUI, Assembly-CSharp
         m_MethodName: CannonTurretButton
         m_Mode: 1
         m_Arguments:
@@ -12303,7 +12515,7 @@ GameObject:
   - component: {fileID: 114542435653460710}
   m_Layer: 5
   m_Name: Checkmark
-  m_TagString: Untagged
+  m_TagString: Checkmark
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12356,7 +12568,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_Sprite: {fileID: 21300000, guid: 6f9f4d31eb0b4004bab71dbb8b475caa, type: 3}
-  m_Type: 0
+  m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -12433,6 +12645,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -12516,11 +12729,11 @@ RectTransform:
   - {fileID: 224469168107104012}
   - {fileID: 224988344284868798}
   m_Father: {fileID: 22467322}
-  m_RootOrder: 10
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -43, y: -238}
+  m_AnchoredPosition: {x: -43, y: -210}
   m_SizeDelta: {x: 128.28, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &114044371679641698
@@ -12571,7 +12784,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 114993500934717812}
-        m_TargetAssemblyTypeName: 
+        m_TargetAssemblyTypeName: DragTurrets, Assembly-CSharp
         m_MethodName: DragPossitionUPToogle
         m_Mode: 1
         m_Arguments:
@@ -12634,6 +12847,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -12690,18 +12904,18 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1716563046844136}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -25.6875}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 224193367849147140}
-  m_Father: {fileID: 22467322}
-  m_RootOrder: 6
+  m_Father: {fileID: 421846}
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.6822532, y: 0.09200001}
   m_AnchorMax: {x: 0.80921286, y: 0.22373226}
-  m_AnchoredPosition: {x: 1.5, y: 1.8000183}
-  m_SizeDelta: {x: 7.3, y: -0.2}
+  m_AnchoredPosition: {x: 166, y: -239}
+  m_SizeDelta: {x: 133.41048, y: 63.457287}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &222414619931037202
 CanvasRenderer:
@@ -12878,6 +13092,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -12993,6 +13208,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -13180,10 +13396,11 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1935336922302666}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1

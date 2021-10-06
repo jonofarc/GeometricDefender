@@ -18,8 +18,8 @@ public class FPSDisplay : MonoBehaviour
 
         float msec = Time.unscaledDeltaTime * 1000.0f;
         
-        string text = string.Format("{0:0.0} ms ({1:0.} fps)", msec, fps);
-        fpsDisplay.text = text;
+       // string text = string.Format("{0:0.0} ms ({1:0.} fps)", msec, fps);
+        fpsDisplay.text = fps.ToString("f1")+" FPS";
 
     }
 }
