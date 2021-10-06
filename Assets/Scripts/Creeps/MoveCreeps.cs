@@ -37,7 +37,7 @@ public class MoveCreeps : MonoBehaviour
 		} else {
 			target = GlobalVariables.FinishTarget;
 		}
-		Debug.Log (GlobalVariables.FinishTarget.name);
+		//Debug.Log (GlobalVariables.FinishTarget.name);
 		path = new UnityEngine.AI.NavMeshPath ();
 
 		// get the components on the object we need ( should not be null due to require component so no need to check )
@@ -55,7 +55,7 @@ public class MoveCreeps : MonoBehaviour
 		InitialisationComplete = true;
 
 
-		Debug.Log ("Initialisation Complete");
+		//Debug.Log ("Initialisation Complete");
 	}
 	
 	// Update is called once per frame

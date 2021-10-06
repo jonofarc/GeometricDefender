@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
+  m_IndirectSpecularColor: {r: 0.44627142, g: 0.49606746, b: 0.57462853, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &4
 LightmapSettings:
@@ -279,7 +279,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 22407564, guid: 936f2fa6e2e0ddd4cbde6188f0b18d8b, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -0.3249569
+      value: -0.3249588
       objectReference: {fileID: 0}
     - target: {fileID: 22474918, guid: 936f2fa6e2e0ddd4cbde6188f0b18d8b, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -465,6 +465,7 @@ Terrain:
   m_DrawHeightmap: 1
   m_DrawInstanced: 0
   m_DrawTreesAndFoliage: 1
+  m_StaticShadowCaster: 0
   m_ReflectionProbeUsage: 1
   m_MaterialTemplate: {fileID: 10652, guid: 0000000000000000f000000000000000, type: 0}
   m_BakeLightProbesForTrees: 1
@@ -711,6 +712,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 114298304208438630, guid: 4d266249b77a5d3409e7a3c9105eecaa,
         type: 3}
+      propertyPath: CreepSpawnList
+      value: 
+      objectReference: {fileID: 4900000, guid: bc871253683cbd34597fbbfc5480e130, type: 3}
+    - target: {fileID: 114298304208438630, guid: 4d266249b77a5d3409e7a3c9105eecaa,
+        type: 3}
       propertyPath: BaseCreeps.Array.size
       value: 31
       objectReference: {fileID: 0}
@@ -768,7 +774,7 @@ PrefabInstance:
         type: 3}
       propertyPath: BossCreeps.Array.data[0]
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 2093481486}
     - target: {fileID: 114298304208438630, guid: 4d266249b77a5d3409e7a3c9105eecaa,
         type: 3}
       propertyPath: BaseCreeps.Array.data[10]
@@ -876,3 +882,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4d266249b77a5d3409e7a3c9105eecaa, type: 3}
+--- !u!1 &2093481486 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1131772379687586, guid: 4d266249b77a5d3409e7a3c9105eecaa,
+    type: 3}
+  m_PrefabInstance: {fileID: 2093481485}
+  m_PrefabAsset: {fileID: 0}

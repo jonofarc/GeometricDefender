@@ -1,0 +1,26 @@
+
+# We ignore any line that starts with "#" or that does not comply with the rules
+
+# Enemy Index
+# Nomal Creep "NC"
+# Fast Creep "FC"
+# Straight Creep "SC"
+# Shield Creep "SHC"
+# Force Field Creep "FFC"
+# Multi Creep "MC"
+# Elemental Abrosbent Creep "EAC"
+# Creep Boss "CB"
+
+# Rules
+# Line format Enemy type "," consecuitive waves
+# Example:
+# NC,2 // 2 Normal Creep consecuitive waves
+# FC,3 // 3 Fast Creep wave
+# CB,1 // 1 Creep Boss wave
+
+
+NC,5
+FC,5
+SC,5
+SHC,4
+CB,1

@@ -114,7 +114,7 @@ public class CreepSpawner : MonoBehaviour {
 
 		//Check when it is time to spawn next wave
 
-		if(CreepsSpawnedThisWave==WaveCreeps && (CurrentWave<=BaseCreeps.Length|| WaveLoop)){
+		if(CreepsSpawnedThisWave>=WaveCreeps && (CurrentWave<=BaseCreeps.Length || WaveLoop)){
 			
 			//Debug.Log ((elapsedNextWaveTime/GlobalVariables.GameSpeed)+"  :   "+NextWaveTime);
 			elapsedNextWaveTime += Time.deltaTime;
@@ -127,8 +127,8 @@ public class CreepSpawner : MonoBehaviour {
 
 	}
 	public void CreateCreep(){
-
-		if(GlobalVariables.HP<=0){
+		
+		if (GlobalVariables.HP<=0){
 			saveHighScores();
 		}
 
@@ -183,12 +183,11 @@ public class CreepSpawner : MonoBehaviour {
 			CreepType = OriginalCreeptype;
 		}
 
-
-		if(CreepsSpawnedThisWave==WaveCreeps && (CurrentWave<=BaseCreeps.Length|| WaveLoop)){
+		Debug.Log("Time for next wave " + (CreepsSpawnedThisWave >= WaveCreeps && (CurrentWave <= BaseCreeps.Length || WaveLoop)));
+		if (CreepsSpawnedThisWave>=WaveCreeps && (CurrentWave<=BaseCreeps.Length|| WaveLoop)){
 			SpawnActive=false;
-			//Invoke("NextWave",NextWaveTime);
 
-		//	Debug.Log("Time for next wave"+(spawnInterval*WaveCreeps));
+			Debug.Log("Time for next wave"+(spawnInterval*WaveCreeps));
 
 		} 
 
