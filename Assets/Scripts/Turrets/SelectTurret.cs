@@ -50,6 +50,10 @@ public class SelectTurret : MonoBehaviour {
 		GameObject PathChecker= GameObject.FindGameObjectWithTag(GlobalVariables.CreepPathCheckerTag);
 			if(PathChecker!= null){
 			PathChecker.SendMessage ("ReSetCreepsPath",SendMessageOptions.DontRequireReceiver);
+
+			GameObject mainCamera = GameObject.FindGameObjectWithTag(GlobalVariables.MainCameraTag);
+			mainCamera.SendMessage("PlaySound", "Sound/RemoveTurretSoundEffect");
+
 			Destroy (this.gameObject);
 			}
 			

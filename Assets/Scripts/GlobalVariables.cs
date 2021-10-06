@@ -31,6 +31,7 @@ public class GlobalVariables : MonoBehaviour {
 	public static string CreepPathCheckerTag="PathChecker";
 	public static string CreepRenderTag="CreepRender";
 	public static string TurretBuildingTag="TurretBuildingArea";
+	public static string MainCameraTag = "MainCamera";
 
 
 	// Use this for initialization
