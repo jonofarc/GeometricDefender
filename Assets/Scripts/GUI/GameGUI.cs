@@ -222,9 +222,9 @@ public class GameGUI : MonoBehaviour {
 		SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
 
 	}
-	public void getNextWave(string NextWaveCreepName ,Color CreepColor){ 
+	public void getNextWave(string NextWaveCreepName ,Color CreepColor){
 		
-		if(NextWaveCreepName==" " || NextWaveCreepName==null){
+		if (NextWaveCreepName==" " || NextWaveCreepName==null){
 			
 			NextWaveType.GetComponent<Image>().color= Color.black; 
 			NextWaveType.GetComponentInChildren<Text>().text=LocalizationText.GetText("LastWave"); 

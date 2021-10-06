@@ -43,7 +43,7 @@ public class RewardedAdsButton : MonoBehaviour, IUnityAdsLoadListener, IUnityAds
     {
         Debug.Log("Ad Loaded: " + adUnitId);
         addReady = true;
-        _showAdButton.interactable = true;
+        //_showAdButton.interactable = true;
 
         // Configure the button to call the ShowAd() method when clicked:
         //_showAdButton.onClick.AddListener(ShowAd);
@@ -111,13 +111,14 @@ public class RewardedAdsButton : MonoBehaviour, IUnityAdsLoadListener, IUnityAds
     //probably a better way to handle this but the listener is not enabling button as expected
     void FixedUpdate()
     {
-        if (addReady && GlobalVariables.Revives > 0)
+        if (addReady)
         {
             _showAdButton.interactable = true;
         }
         else {
             _showAdButton.interactable = false;
         }
+        
 
     }
 

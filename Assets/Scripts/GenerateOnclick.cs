@@ -43,7 +43,8 @@ public class GenerateOnclick : MonoBehaviour {
 
 		destroyPlaceHolder();
 		GameObject MyPlaceHolderTurret = GameObject.FindGameObjectWithTag("PlaceHolderTurret");	
-		if(GlobalVariables.DestroyTurret || ActiveCoolDowns){
+		if(GlobalVariables.DestroyTurret || ActiveCoolDowns || GlobalVariables.Money < GlobalVariables.TurretCost)
+		{
 			MyPlaceHolderTurret = GameObject.FindGameObjectWithTag("PlaceHolderTurretDestroy");	
 		}
 
