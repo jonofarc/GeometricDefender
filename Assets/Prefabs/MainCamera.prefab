@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 11454372}
   - component: {fileID: 9194017563281919500}
   - component: {fileID: 3225873047668452259}
+  - component: {fileID: 1684296466}
   m_Layer: 0
   m_Name: MainCamera
   m_TagString: MainCamera
@@ -220,3 +221,19 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1684296466
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 161458}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e497dc31f5c392047918ab1d6c8c409e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _androidGameId: 1485177
+  _iOsGameId: 1485178
+  _testMode: 1
+  _enablePerPlacementMode: 1

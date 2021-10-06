@@ -2949,7 +2949,7 @@ MonoBehaviour:
   CreepsSpawnedThisWave: 0
   CurrentWave: 1
   NextWaveTime: 10
-  waveHpPercentageIncrement: 1.25
+  waveHpPercentageIncrement: 1.18
   HPIncrementcurbe: 150
   waveCreepsIncrement: 1
   CreepColors: {fileID: 4900000, guid: 71b524fc13a9943458c3ee0240d88390, type: 3}

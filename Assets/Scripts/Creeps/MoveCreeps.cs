@@ -61,11 +61,14 @@ public class MoveCreeps : MonoBehaviour
 	// Update is called once per frame
 	void FixedUpdate ()
 	{
-		
-		for (int i = 0; i < path.corners.Length - 1; i++) {
+		if (path != null) {
+			for (int i = 0; i < path.corners.Length - 1; i++)
+			{
 
-			Debug.DrawLine (path.corners [i], path.corners [i + 1], Color.red);	
+				Debug.DrawLine(path.corners[i], path.corners[i + 1], Color.red);
+			}
 		}
+		
 
 	}
 //end update

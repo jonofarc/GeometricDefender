@@ -183,7 +183,7 @@ public class CreepSpawner : MonoBehaviour {
 			CreepType = OriginalCreeptype;
 		}
 
-		Debug.Log("Time for next wave " + (CreepsSpawnedThisWave >= WaveCreeps && (CurrentWave <= BaseCreeps.Length || WaveLoop)));
+		//Debug.Log("Time for next wave " + (CreepsSpawnedThisWave >= WaveCreeps && (CurrentWave <= BaseCreeps.Length || WaveLoop)));
 		if (CreepsSpawnedThisWave>=WaveCreeps && (CurrentWave<=BaseCreeps.Length|| WaveLoop)){
 			SpawnActive=false;
 

@@ -23,8 +23,9 @@ public class GlobalVariables : MonoBehaviour {
 	public static int CurrentBullets = 0;
 	public static int MaximunBullets=50;
 	public static int MaxRevives=1;// 0 also counts
-	public static int Revives=2;
-	public static int HPReward=3;
+	public static int Revives=1;
+	public static int HPReward=5;
+	public static bool ApplyRewards = false;
 	public static string TurretTag="Turret";
 	public static string FinishTargetTag="Finish";
 	public static string CreepTag="CreepG";

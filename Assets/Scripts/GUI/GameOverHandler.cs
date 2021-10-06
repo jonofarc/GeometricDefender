@@ -22,7 +22,7 @@ public class GameOverHandler : MonoBehaviour {
 	}
 	public void WatchAdd (){
 		Debug.Log ("The amount of revives is "+GlobalVariables.Revives);
-		Finish.SendMessage ("ShowRewardedAd");
+		Finish.SendMessage ("ApplyRewards");
 		if(GlobalVariables.Revives<=0){
 			
 			foreach (GameObject Dependent in ReviveDependent) {

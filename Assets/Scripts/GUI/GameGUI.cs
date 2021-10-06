@@ -26,7 +26,7 @@ public class GameGUI : MonoBehaviour {
 	public bool Automatic=true;
 	public string LevelName;
 
-
+	private bool loadVideo = false;
 
 	private int x=0;
 
@@ -66,6 +66,11 @@ public class GameGUI : MonoBehaviour {
 		}
 		if (GlobalVariables.LevelFailed == true) {
 			GameOverUI.SetActive (true);
+			if (loadVideo == false) {
+				GameOverUI.SendMessage("LoadAd");
+				loadVideo = true;
+			}
+
 
 		} else {
 			GameOverUI.SetActive (false);
