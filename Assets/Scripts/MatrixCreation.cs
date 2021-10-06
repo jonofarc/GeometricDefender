@@ -8,10 +8,11 @@ public class MatrixCreation : MonoBehaviour {
 	private GameObject clone;
 	// Use this for initialization
 	void Start () {
-	
+		BuildBase.SetActive(true);
+		
 
-	
-		for(int posicionX=0; posicionX<MatixWidth;posicionX++){
+
+		for (int posicionX=0; posicionX<MatixWidth;posicionX++){
 
 			for(int posicionZ=0; posicionZ<MatixHeight;posicionZ++){
 
