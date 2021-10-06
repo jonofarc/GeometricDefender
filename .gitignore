@@ -8,7 +8,7 @@
 /[Bb]uild/
 /[Bb]uilds/
 /[Ll]ogs/
-[Ll]ogs/
+Logs/
 /[Uu]ser[Ss]ettings/
 
 # MemoryCaptures can get excessive in size.
