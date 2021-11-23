@@ -112,7 +112,7 @@ public class GameGUI : MonoBehaviour {
 
 		GlobalVariables.GameSpeed=2.0f;
 		Time.timeScale = GlobalVariables.GameSpeed;
-		AdjustFPS (GlobalVariables.TargetFPS*GlobalVariables.GameSpeed);
+		//AdjustFPS (GlobalVariables.TargetFPS*GlobalVariables.GameSpeed);
 	
 	}
 	public void SuperFastFoward(){
@@ -120,7 +120,7 @@ public class GameGUI : MonoBehaviour {
 
 		GlobalVariables.GameSpeed=16.0f;
 		Time.timeScale = GlobalVariables.GameSpeed;
-		AdjustFPS (GlobalVariables.TargetFPS*GlobalVariables.GameSpeed);
+		//AdjustFPS (GlobalVariables.TargetFPS*GlobalVariables.GameSpeed);
 	 
 		
 	}
@@ -129,7 +129,7 @@ public class GameGUI : MonoBehaviour {
 
 		GlobalVariables.GameSpeed=1.0f;
 		Time.timeScale = GlobalVariables.GameSpeed;
-		AdjustFPS (GlobalVariables.TargetFPS*GlobalVariables.GameSpeed);
+		//AdjustFPS (GlobalVariables.TargetFPS*GlobalVariables.GameSpeed);
 		
 	}
 

@@ -275,6 +275,8 @@ public class CreepSpawner : MonoBehaviour {
 		GlobalVariables.GameStarted = true;
 	}
 
+
+
 	public void getNextWaveType(int CreepTypeColor){
 		
 		GameGUI GameGUIScript = (GameGUI) Canvas.GetComponent(typeof(GameGUI));
