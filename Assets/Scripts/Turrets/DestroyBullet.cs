@@ -31,8 +31,12 @@ public class DestroyBullet : MonoBehaviour {
 			//CreepTargetCenter.y=CreepTarget.transform.position.y+(CreepTarget.transform.localScale.y/2);
 			transform.position = Vector3.MoveTowards(transform.position, CreepTargetCenter, (BulletSpeed*Time.deltaTime)*GlobalVariables.GameSpeed);
 		}
+        if (transform.position.y < -1)
+        {
+            AutoDestroy();
+        }
 
-	}
+    }
 
 	void FireAtCreep (GameObject CreepTargetRecived) {
 		CreepTarget = CreepTargetRecived;
