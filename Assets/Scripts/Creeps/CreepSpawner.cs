@@ -221,7 +221,7 @@ public class CreepSpawner : MonoBehaviour {
 			CurrentCreeps[i].SetActive(false);
 		
 		}
-		if (true) {
+		if (CombinedWaves==false) {
 			CreepType++;
 
 			// we set he name of the extwave creeps
@@ -231,7 +231,7 @@ public class CreepSpawner : MonoBehaviour {
 		
 			if (CreepType == BaseCreeps.Length) { 
 				if (WaveLoop) {
-					Debug.Log ("reseteando creep type");
+					Debug.Log ("reseteando creep type"); 
 
 					CreepType = 0;
 				} else {
@@ -412,7 +412,7 @@ public class CreepSpawner : MonoBehaviour {
 	public void saveHighScores(){
 
 
-		Debug.Log ("gravando highscores");
+		Debug.Log ("saving highscores");
 		if(PlayerPrefs.GetInt(Application.loadedLevelName+"Wave") != null){
 			if(PlayerPrefs.GetInt(Application.loadedLevelName+"Wave")<=(CurrentWave-1)){
 				PlayerPrefs.SetInt(Application.loadedLevelName+"Wave",(CurrentWave-1));

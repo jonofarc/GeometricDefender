@@ -21,7 +21,7 @@
 
 NC,5
 FC,5
-SC,5
+SC,4
 CB,1
 SHC,5
 MC,5

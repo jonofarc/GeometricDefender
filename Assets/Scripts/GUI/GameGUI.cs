@@ -268,5 +268,14 @@ public class GameGUI : MonoBehaviour {
 
 	}
 
-	
+    public void EnableCameraRender()
+
+    {
+
+		Camera.main.GetComponent<Camera>().enabled = true;
+
+
+    }
+
+
 }

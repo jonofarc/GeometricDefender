@@ -19,8 +19,14 @@
 # CB,1 // 1 Creep Boss wave
 
 
-NC,5
-FC,5
-SC,5
-SHC,4
+NC,3
+SHC,1
+FC,2
+NC,1
+SC,1
+FC,2
+NC,2
+SC,3
+SHC,2
+SC,2
 CB,1

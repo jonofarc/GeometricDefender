@@ -34,7 +34,7 @@ public class DragTurrets : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		
-		if (Input.GetMouseButton (0)) { 
+		if (Input.GetMouseButton (0) && Camera.main != null) { 
 			RaycastHit hit; 
 			Ray ray;
 			if (DragAssistEnabled) {
@@ -64,7 +64,8 @@ public class DragTurrets : MonoBehaviour {
 
 
 			}
-		}else if(Input.GetMouseButtonUp(0) ){
+		}else if(Input.GetMouseButtonUp(0) && Camera.main != null)
+        {
 			if (GlobalVariables.PlaceHolderTurret != null) {
 				if(ActiveCoolDowns == false){
 					this.SendMessage ("ConfirmTurret", true);
