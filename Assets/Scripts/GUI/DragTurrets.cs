@@ -83,7 +83,8 @@ public class DragTurrets : MonoBehaviour {
 
 			RaycastHit hit; 
 			Ray ray;
-			if (DragAssistEnabled) {
+            Debug.Log("Dragassitenabled " + DragAssistEnabled);
+            if (DragAssistEnabled) {
 				ray = Camera.main.ScreenPointToRay ((Input.mousePosition+DragAssistCordinates)); 
 			} else {
 				ray = Camera.main.ScreenPointToRay (Input.mousePosition); 
@@ -100,8 +101,10 @@ public class DragTurrets : MonoBehaviour {
 		}
 	}
 	public void DragPossitionUPToogle(){
+
 		DragAssistEnabled = !DragAssistEnabled;
-	}
+        Debug.Log("Dragassitenabled " + DragAssistEnabled); // ensure you picked right object
+    }
 
 
 }

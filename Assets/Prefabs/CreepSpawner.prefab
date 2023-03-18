@@ -489,7 +489,7 @@ SphereCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.43
-  m_Center: {x: 0.000000059604645, y: -3.47, z: -0.00000008940697}
+  m_Center: {x: 0, y: -0.5, z: 0}
 --- !u!1 &1131772379687586
 GameObject:
   m_ObjectHideFlags: 0
@@ -715,7 +715,7 @@ SphereCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.5
-  m_Center: {x: 0.000000059604645, y: -2.62, z: -0.00000008940697}
+  m_Center: {x: 0, y: -2, z: 0}
 --- !u!1 &1152591983710554
 GameObject:
   m_ObjectHideFlags: 0
@@ -1511,8 +1511,8 @@ SphereCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.4
-  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
+  m_Radius: 0.5
+  m_Center: {x: 0, y: -0.5, z: 0}
 --- !u!1 &1251148728664440
 GameObject:
   m_ObjectHideFlags: 0
@@ -2389,7 +2389,7 @@ SphereCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.4
-  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
+  m_Center: {x: 0, y: -0.5, z: 0}
 --- !u!1 &1408698308345664
 GameObject:
   m_ObjectHideFlags: 0
@@ -2941,7 +2941,7 @@ MonoBehaviour:
   CurrentCreeps: []
   BossCreeps:
   - {fileID: 1131772379687586}
-  spawnInterval: 0.6
+  spawnInterval: 0.9
   SpawnActive: 1
   StartFirstWave: 0
   CreepsSpawned: 0
@@ -2949,8 +2949,8 @@ MonoBehaviour:
   CreepsSpawnedThisWave: 0
   CurrentWave: 1
   NextWaveTime: 10
-  waveHpPercentageIncrement: 1.18
-  HPIncrementcurbe: 150
+  waveHpPercentageIncrement: 1.1
+  HPIncrementcurbe: 140
   waveCreepsIncrement: 1
   CreepColors: {fileID: 4900000, guid: 71b524fc13a9943458c3ee0240d88390, type: 3}
   CreepSpawnList: {fileID: 4900000, guid: 83973ff887dffbe4b9445929aac492b4, type: 3}
@@ -3417,7 +3417,7 @@ SphereCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 1.21
-  m_Center: {x: 0, y: 0.11, z: 0}
+  m_Center: {x: 0, y: -0.09, z: 0}
 --- !u!1 &1571840851372122
 GameObject:
   m_ObjectHideFlags: 0
@@ -4443,7 +4443,7 @@ SphereCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.4
-  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
+  m_Center: {x: 0, y: -0.5, z: 0}
 --- !u!1 &1783043596734234
 GameObject:
   m_ObjectHideFlags: 0
@@ -4664,7 +4664,7 @@ SphereCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.63
-  m_Center: {x: 0, y: -0.44, z: 0}
+  m_Center: {x: 0, y: -0.5, z: 0}
 --- !u!1 &1802775525345302
 GameObject:
   m_ObjectHideFlags: 0

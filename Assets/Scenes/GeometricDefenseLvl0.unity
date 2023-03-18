@@ -495,6 +495,11 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114966791640904976, guid: 3d5723dc8af158943b500d5312896174,
+        type: 3}
+      propertyPath: StartMoney
+      value: 50
+      objectReference: {fileID: 0}
     - target: {fileID: 208006455614603188, guid: 3d5723dc8af158943b500d5312896174,
         type: 3}
       propertyPath: m_Enabled

@@ -224,7 +224,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 874ef702d0080514884017b555867759, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DragAssistEnabled: 0
+  DragAssistEnabled: 1
   DragAssist: {x: 0, y: 8.3}
   DragAssistCordinates: {x: 0, y: 0, z: 0}
   ActiveCoolDowns: 0
@@ -13194,7 +13194,7 @@ MonoBehaviour:
   AimAtCreep: 1
   ClosestCreep: {fileID: 0}
   targetTag: CreepG
-  turretRange: 5
+  turretRange: 6
   turretRangeAreaMarker: {fileID: 1098881765042438}
   target: {fileID: 0}
   RequireTarget: 1

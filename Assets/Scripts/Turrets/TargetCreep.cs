@@ -19,7 +19,7 @@ public class TargetCreep : MonoBehaviour {
 	public GameObject projectile;
 	private GameObject bullet;
 
-	private float myTimeTillNextShoot=0;
+	public float myTimeTillNextShoot=0;
 
 
 	// Use this for initialization
@@ -62,8 +62,12 @@ public class TargetCreep : MonoBehaviour {
 
 			TimeTillNextShoot ();
 		}
+        else if (RequireTarget == true && myTimeTillNextShoot < ShootingSpeed) //load bullet while no enemies are targeted
+        {
+            myTimeTillNextShoot += Time.deltaTime;
+        }
 
-	}
+    }
 
 	void TimeTillNextShoot(){
 		myTimeTillNextShoot += Time.deltaTime;
