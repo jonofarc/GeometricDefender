@@ -224,7 +224,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 874ef702d0080514884017b555867759, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DragAssistEnabled: 1
+  DragAssistEnabled: 0
   DragAssist: {x: 0, y: 8.3}
   DragAssistCordinates: {x: 0, y: 0, z: 0}
   ActiveCoolDowns: 0
@@ -3549,7 +3549,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1.05
-  m_Text: 'Turret Cost: 42'
+  m_Text: 'Turret Cost: 35'
 --- !u!1 &126224
 GameObject:
   m_ObjectHideFlags: 0
@@ -3994,7 +3994,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 359ac01df4e29c943af223bd23ab7401, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BulletDamage: 2
+  BulletDamage: 6
   BulletDamageIncrease: 1.5
   ContinousDamage: 1
   DamageDone: 0
@@ -5811,7 +5811,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BulletStatusEffect:
-  - Freeze,0.5
+  - Freeze,0.30
   statusSent: 0
   statusProperties: []
 --- !u!1 &150048

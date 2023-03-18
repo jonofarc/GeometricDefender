@@ -436,11 +436,6 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 5a252f63c4fbfb741a1d18a109e396ee, type: 2}
-    - target: {fileID: 33371549314357616, guid: 4d266249b77a5d3409e7a3c9105eecaa,
-        type: 3}
-      propertyPath: m_Mesh
-      value: 
-      objectReference: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
     - target: {fileID: 114367386008467006, guid: 4d266249b77a5d3409e7a3c9105eecaa,
         type: 3}
       propertyPath: target
@@ -688,7 +683,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 22474918, guid: 936f2fa6e2e0ddd4cbde6188f0b18d8b, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -3.3065796
+      value: -3.306549
       objectReference: {fileID: 0}
     - target: {fileID: 114993500934717812, guid: 936f2fa6e2e0ddd4cbde6188f0b18d8b,
         type: 3}

@@ -893,10 +893,10 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.45
-  m_Speed: 20
+  m_Speed: 12
   m_Acceleration: 10
   avoidancePriority: 50
-  m_AngularSpeed: 260
+  m_AngularSpeed: 500
   m_StoppingDistance: 0
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
@@ -936,7 +936,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b149782bf19ce8541964c4653eeddfb2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CreepHP: 13
+  CreepHP: 16
   CreepShield: 0
   LootAmount: 1
   EffectBeforeDiying: 0
@@ -3338,7 +3338,7 @@ MonoBehaviour:
   LootAmount: 1
   EffectBeforeDiying: 1
   LootOnEfect: 1
-  HPLeftTrigger: 0.5
+  HPLeftTrigger: 0.35
   maxHP: 0
   HPBar: {fileID: 1323947300780220}
   HP66: {fileID: 2100000, guid: 264976ebd479b2a468c06548e1b91148, type: 2}
@@ -4766,7 +4766,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1832652325567610}
-  m_Mesh: {fileID: -2432090755550338912, guid: 5d39c10704631e747871f22bc1d7b3bd, type: 3}
+  m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!23 &23498662067037584
 MeshRenderer:
   m_ObjectHideFlags: 0

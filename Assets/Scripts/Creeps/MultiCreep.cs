@@ -4,7 +4,7 @@ using System.Collections;
 public class MultiCreep : MonoBehaviour {
 
 
-	float MiniCreepInterval=1.0f;
+	float MiniCreepInterval=2.0f;
 	public bool Execute=true;
 
 	// Use this for initialization
@@ -27,12 +27,6 @@ public class MultiCreep : MonoBehaviour {
 			CancelInvoke ("moveMiniCreeps");
 		}
 
-
-			
-
-
-			
-		
 
 	}
 	void moveMiniCreeps () {
