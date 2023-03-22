@@ -4,8 +4,11 @@ using UnityEngine;
 using UnityEngine.UI; // Required when Using UI elements.
 
 public class DragTurrets : MonoBehaviour {
+
+
+    public GameObject DragAssistUI; 
 	public bool DragAssistEnabled = true;
-	[Header("Drag Assist on Screen %")]
+    [Header("Drag Assist on Screen %")]
 	public Vector2 DragAssist;
 	public Vector3 DragAssistCordinates;
 	public bool ActiveCoolDowns = false;
@@ -17,7 +20,21 @@ public class DragTurrets : MonoBehaviour {
 		DragAssistCordinates = new Vector3 ((s.x*DragAssist.x/100f),(s.y*DragAssist.y/100f),0); 
 		ButtonsCheckmarks = GameObject.FindGameObjectsWithTag ("Checkmark");
 
-	}
+
+		// setDragAssist
+		if (PlayerPrefs.GetInt("DragAssistEnabled", 0) == 0) 
+        {
+            DragAssistEnabled = false; 
+        }
+        else
+        {
+            DragAssistEnabled = true ;
+        }
+
+
+		DragAssistUI.GetComponent<Toggle>().isOn = DragAssistEnabled;
+
+    }
 
 	void FixedUpdate()
 	{
@@ -98,11 +115,26 @@ public class DragTurrets : MonoBehaviour {
 			}
 
 
-		}
-	}
-	public void DragPossitionUPToogle(){
 
-		DragAssistEnabled = !DragAssistEnabled;
+        }
+       
+    }
+	public void DragPossitionUPToogle(){
+		DragAssistEnabled = DragAssistUI.GetComponent<Toggle>().isOn;
+
+        if (DragAssistEnabled)
+        {
+            PlayerPrefs.SetInt("DragAssistEnabled", 1);
+            Debug.Log("set true" );
+            
+        }
+        else
+        {
+            PlayerPrefs.SetInt("DragAssistEnabled", 0);
+            Debug.Log("set false");
+        }
+
+        
         Debug.Log("Dragassitenabled " + DragAssistEnabled); // ensure you picked right object
     }
 

@@ -112,10 +112,10 @@ RectTransform:
   - {fileID: 407022}
   - {fileID: 22472860}
   - {fileID: 22456538}
+  - {fileID: 224682560011088574}
   - {fileID: 22411280}
   - {fileID: 22408726}
   - {fileID: 22496990}
-  - {fileID: 224682560011088574}
   m_Father: {fileID: 439834}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -224,6 +224,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 874ef702d0080514884017b555867759, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  DragAssistUI: {fileID: 1486572673191864}
   DragAssistEnabled: 1
   DragAssist: {x: 0, y: 8.3}
   DragAssistCordinates: {x: 0, y: 0, z: 0}
@@ -585,8 +586,9 @@ MonoBehaviour:
   turretRangeAreaMarker: {fileID: 198588}
   target: {fileID: 0}
   RequireTarget: 1
-  ShootingSpeed: 5
+  ShootingSpeed: 3
   projectile: {fileID: 113082}
+  myTimeTillNextShoot: 0
 --- !u!82 &2779670462886915713
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1427,6 +1429,7 @@ MonoBehaviour:
   RequireTarget: 0
   ShootingSpeed: 0.5
   projectile: {fileID: 127578}
+  myTimeTillNextShoot: 0
 --- !u!1 &110854
 GameObject:
   m_ObjectHideFlags: 0
@@ -1629,7 +1632,7 @@ RectTransform:
   - {fileID: 22497678}
   - {fileID: 22419342}
   m_Father: {fileID: 22467322}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1764,7 +1767,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 359ac01df4e29c943af223bd23ab7401, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BulletDamage: 30
+  BulletDamage: 35
   BulletDamageIncrease: 1.5
   ContinousDamage: 1
   DamageDone: 0
@@ -2159,6 +2162,7 @@ MonoBehaviour:
   RequireTarget: 1
   ShootingSpeed: 1
   projectile: {fileID: 149650}
+  myTimeTillNextShoot: 0
 --- !u!82 &8113218218730883613
 AudioSource:
   m_ObjectHideFlags: 0
@@ -3075,7 +3079,7 @@ RectTransform:
   - {fileID: 22464378}
   - {fileID: 22465644}
   m_Father: {fileID: 22467322}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -3549,7 +3553,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1.05
-  m_Text: 'Turret Cost: 35'
+  m_Text: 'Turret Cost: 20'
 --- !u!1 &126224
 GameObject:
   m_ObjectHideFlags: 0
@@ -4402,6 +4406,7 @@ MonoBehaviour:
   RequireTarget: 1
   ShootingSpeed: 2.5
   projectile: {fileID: 198800}
+  myTimeTillNextShoot: 0
 --- !u!82 &2337583781354670383
 AudioSource:
   m_ObjectHideFlags: 0
@@ -6821,6 +6826,7 @@ MonoBehaviour:
   RequireTarget: 1
   ShootingSpeed: 1
   projectile: {fileID: 120006}
+  myTimeTillNextShoot: 0
 --- !u!82 &2105854473160913706
 AudioSource:
   m_ObjectHideFlags: 0
@@ -7543,7 +7549,7 @@ RectTransform:
   - {fileID: 224346431088955676}
   - {fileID: 22405328}
   m_Father: {fileID: 22467322}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -9685,6 +9691,7 @@ MonoBehaviour:
   RequireTarget: 1
   ShootingSpeed: 0.3
   projectile: {fileID: 114262}
+  myTimeTillNextShoot: 0
 --- !u!82 &8843112249332829395
 AudioSource:
   m_ObjectHideFlags: 0
@@ -13194,12 +13201,13 @@ MonoBehaviour:
   AimAtCreep: 1
   ClosestCreep: {fileID: 0}
   targetTag: CreepG
-  turretRange: 6
+  turretRange: 5
   turretRangeAreaMarker: {fileID: 1098881765042438}
   target: {fileID: 0}
   RequireTarget: 1
   ShootingSpeed: 1
   projectile: {fileID: 1797612011582234}
+  myTimeTillNextShoot: 0
 --- !u!82 &7414486947497077904
 AudioSource:
   m_ObjectHideFlags: 0
@@ -13327,7 +13335,7 @@ RectTransform:
   - {fileID: 224469168107104012}
   - {fileID: 224988344284868798}
   m_Father: {fileID: 22467322}
-  m_RootOrder: 8
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
