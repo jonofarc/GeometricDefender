@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
+using UnityEngine.Analytics;
 
 public class SelectTurret : MonoBehaviour {
 	public int TurretCost=20;
@@ -41,8 +42,13 @@ public class SelectTurret : MonoBehaviour {
 	}
 	public void DestroyTurret(float MoneyBackPercentage ){
 
+
+			if (GlobalVariables.GameStarted == false) { 
+			MoneyBackPercentage = 1;
+			}
 			
 			GlobalVariables.Money = GlobalVariables.Money + ((int)(TurretCost * MoneyBackPercentage));
+
 			this.transform.parent.gameObject.GetComponent<BoxCollider> ().enabled = true;
 			foreach (Transform child in this.transform) {
 				GameObject.Destroy(child.gameObject);

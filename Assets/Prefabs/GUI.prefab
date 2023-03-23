@@ -869,7 +869,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &22485934
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3553,7 +3553,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1.05
-  m_Text: 'Turret Cost: 20'
+  m_Text: 'Turret Cost: 35'
 --- !u!1 &126224
 GameObject:
   m_ObjectHideFlags: 0
