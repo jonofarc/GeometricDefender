@@ -16,7 +16,9 @@ public class GameGUI : MonoBehaviour {
     public GameObject FreezeTurret; 
     public GameObject SniperTurret;
 	public GameObject ToxicTurret;
-	[Header("Floor Panels")]
+    [Header("Obstacles")]
+    public GameObject Wall;
+    [Header("Floor Panels")]
 	public GameObject FirePanel;
 	[Header(" ")]
     public GameObject LevelClearedUI;
@@ -190,7 +192,17 @@ public class GameGUI : MonoBehaviour {
 		InfoText.text = LocalizationText.GetText("TurretCost")+": "+GlobalVariables.TurretCost.ToString ();
 
 	}
-	public void FirePanelButton()
+    public void WallButton()
+    {
+
+        GlobalVariables.DestroyTurret = false;
+        GlobalVariables.CurrentTurret = Wall;
+        SelectTurret cost = (SelectTurret)Wall.GetComponent(typeof(SelectTurret));
+        GlobalVariables.TurretCost = cost.getTurretCost();
+        InfoText.text = LocalizationText.GetText("TurretCost") + ": " + GlobalVariables.TurretCost.ToString();
+
+    }
+    public void FirePanelButton()
 	{
 
 		GlobalVariables.DestroyTurret = false;

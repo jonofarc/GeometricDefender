@@ -436,6 +436,11 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 5a252f63c4fbfb741a1d18a109e396ee, type: 2}
+    - target: {fileID: 114298304208438630, guid: 4d266249b77a5d3409e7a3c9105eecaa,
+        type: 3}
+      propertyPath: CreepSpawnList
+      value: 
+      objectReference: {fileID: 4900000, guid: e4091372b323e744c87a87c469d03832, type: 3}
     - target: {fileID: 114367386008467006, guid: 4d266249b77a5d3409e7a3c9105eecaa,
         type: 3}
       propertyPath: target

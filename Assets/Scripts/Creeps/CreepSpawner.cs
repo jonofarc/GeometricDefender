@@ -30,7 +30,9 @@ public class CreepSpawner : MonoBehaviour {
 	private float NextWaveTimeOriginal=10;
 	public float waveHpPercentageIncrement=1f;
 	[Header("growth curve values (higer values higher hp increases)")]
-	public float HPIncrementcurbe=150f;
+	public float HPIncrementcurbe= 150f;
+	public int WaveHPIncreaseCap = 0;
+
 	public int waveCreepsIncrement=1;
 
 
@@ -213,6 +215,11 @@ public class CreepSpawner : MonoBehaviour {
 		//we increase creep hp once per type
 
 		float increment = waveHpPercentageIncrement - Mathf.Sqrt(CurrentWave)/HPIncrementcurbe;
+
+		if (WaveHPIncreaseCap > 0 && WaveHPIncreaseCap < CurrentWave) {
+			increment = 1;
+		}
+
 		//float increment = waveHpPercentageIncrement;
 		Debug.Log (increment);
 		for ( int i = 0; i < CurrentCreeps.Count; i++){

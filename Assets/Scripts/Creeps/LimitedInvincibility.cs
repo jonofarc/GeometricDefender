@@ -21,6 +21,7 @@ public class LimitedInvincibility : MonoBehaviour {
 	public void CreepEfect(){
 
 		if(ShieldUsed==false){
+			ShieldUsed = true;
 			SetShield ();
 			Invoke ("DestroyShield",InvincibilityTime);
 		}
