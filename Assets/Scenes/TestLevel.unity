@@ -383,6 +383,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1684833520690686, guid: 4d266249b77a5d3409e7a3c9105eecaa, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4130650299815900, guid: 4d266249b77a5d3409e7a3c9105eecaa, type: 3}
       propertyPath: m_LocalRotation.w
       value: -0.11041513
@@ -436,6 +440,11 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 5a252f63c4fbfb741a1d18a109e396ee, type: 2}
+    - target: {fileID: 23536455559687852, guid: 4d266249b77a5d3409e7a3c9105eecaa,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 114298304208438630, guid: 4d266249b77a5d3409e7a3c9105eecaa,
         type: 3}
       propertyPath: CreepSpawnList
@@ -481,6 +490,11 @@ PrefabInstance:
       propertyPath: target
       value: 
       objectReference: {fileID: 2008352467}
+    - target: {fileID: 7854242165937851836, guid: 4d266249b77a5d3409e7a3c9105eecaa,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: babcd3174795bd946ac2d6c59fe090c9, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4d266249b77a5d3409e7a3c9105eecaa, type: 3}
 --- !u!1 &757854046
@@ -678,6 +692,11 @@ PrefabInstance:
       propertyPath: m_LocalRotation.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 11421908, guid: 936f2fa6e2e0ddd4cbde6188f0b18d8b, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: c845a912414eb06448fe8916e335638d,
+        type: 3}
     - target: {fileID: 22407564, guid: 936f2fa6e2e0ddd4cbde6188f0b18d8b, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 0.20542908
