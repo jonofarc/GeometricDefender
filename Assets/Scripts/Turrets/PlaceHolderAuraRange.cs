@@ -8,8 +8,14 @@ public class PlaceHolderAuraRange : MonoBehaviour {
         //  if there is one selected we find the turret range of the current selected turret
         if (GlobalVariables.CurrentTurret != null)
         {
+           
             TargetCreep myscript = GlobalVariables.CurrentTurret.gameObject.GetComponentInChildren<TargetCreep>();
-            turretRange = myscript.turretRange;
+
+            if (myscript != null)
+            {
+                turretRange = myscript.turretRange;
+            }
+            
             this.transform.localScale = new Vector3(turretRange, 0.01f, turretRange);
             this.GetComponent<Renderer>().enabled = true;
 

@@ -9,6 +9,7 @@
 # Force Field Creep "FFC"
 # Multi Creep "MC"
 # Elemental Abrosbent Creep "EAC"
+# Rock Creep "RC"
 # Creep Boss "CB"
 
 # Rules
@@ -23,7 +24,7 @@ NC,5
 FFC,1
 FC,5
 FFC,1
-SC,5
+RC,5
 FFC,1
 SHC,5
 FFC,1

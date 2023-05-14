@@ -49,17 +49,21 @@ public class StatusChange : MonoBehaviour {
 	}
 
 	public void Freeze(float SlowAmount){
-		//reverse the efect of freeze
-		if(ElementalAbsorvent){
-			SlowAmount++;
-		}
-		Debug.Log ("slowAmount: "+ SlowAmount);
-		this.gameObject.GetComponent<UnityEngine.AI.NavMeshAgent> ().speed = NormalSpeed* SlowAmount ;
-		Debug.Log ("normal speed:"+NormalSpeed+ "  CurrentSpeed="+this.gameObject.GetComponent<UnityEngine.AI.NavMeshAgent> ().speed);
-		CreepFreeze = true;
-		MaterialAdjust ();
-        CancelInvoke("UnFreeze");
-		Invoke("UnFreeze",FreezeStatusTime);
+		if (!ElementalResistant) {
+            //reverse the efect of freeze
+            if (ElementalAbsorvent)
+            {
+                SlowAmount++;
+            }
+            Debug.Log("slowAmount: " + SlowAmount);
+            this.gameObject.GetComponent<UnityEngine.AI.NavMeshAgent>().speed = NormalSpeed * SlowAmount;
+            Debug.Log("normal speed:" + NormalSpeed + "  CurrentSpeed=" + this.gameObject.GetComponent<UnityEngine.AI.NavMeshAgent>().speed);
+            CreepFreeze = true;
+            MaterialAdjust();
+            CancelInvoke("UnFreeze");
+            Invoke("UnFreeze", FreezeStatusTime);
+        }
+		
 
 	}
     public void UnFreeze() { 
@@ -70,21 +74,24 @@ public class StatusChange : MonoBehaviour {
 		MaterialAdjust ();
     }
 	public void Poison(float DoTDamage){
-		Debug.Log ("Entering Poison");
+		if (!ElementalResistant)
+		{
+			Debug.Log("Entering Poison");
 
-		if(ElementalAbsorvent){
-			DoTDamage = -1*DoTDamage;
+			if (ElementalAbsorvent)
+			{
+				DoTDamage = -1 * DoTDamage;
+			}
+			//This is to prevent Poison stacking
+			CancelInvoke("ApplyDamage");
+
+			CurrentDoTDamage = DoTDamage;
+
+			CreepPoison = true;
+			MaterialAdjust();
+			InvokeRepeating("ApplyDamage", DoTTicksTime, DoTTicksTime);
+
 		}
-		//This is to prevent Poison stacking
-		CancelInvoke ("ApplyDamage");
-
-		CurrentDoTDamage = DoTDamage;
-
-		CreepPoison = true;
-		MaterialAdjust ();
-		InvokeRepeating ("ApplyDamage",DoTTicksTime,DoTTicksTime);
-
-		
 	}
 	public void ApplyDamage(){
 		Debug.Log ("PoisonDPS: " +CurrentDoTDamage+" Times:"+DoTTicks);

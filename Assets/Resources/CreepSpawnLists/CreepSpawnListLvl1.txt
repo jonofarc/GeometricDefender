@@ -9,6 +9,7 @@
 # Force Field Creep "FFC"
 # Multi Creep "MC"
 # Elemental Abrosbent Creep "EAC"
+# Rock Creep "RC"
 # Creep Boss "CB"
 
 # Rules
@@ -18,10 +19,9 @@
 # FC,3 // 3 Fast Creep wave
 # CB,1 // 1 Creep Boss wave
 
-
 NC,4
 FC,2
 NC,2
 FC,2
 NC,2
-SC,3
+RC,3

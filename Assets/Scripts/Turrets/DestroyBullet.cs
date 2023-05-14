@@ -67,7 +67,7 @@ public class DestroyBullet : MonoBehaviour {
 				DamageDone = false;
 			}else{
 				DamageDone = true;
-				Debug.Log (GlobalVariables.CurrentBullets);
+
 				//Destroy(this.gameObject.GetComponent<Collider>());
 				if (GlobalVariables.CurrentBullets < GlobalVariables.MaximunBullets) {
 					//Destroy (this.gameObject.GetComponent<Collider> ());

@@ -20,10 +20,10 @@
 
 
 
-NC,3
-FC,2
-SC,1
+NC,1
+FC,1
 SHC,1
-EAC,2
+EAC,1
 FFC,1
-MC,2
+MC,1
+RC,1

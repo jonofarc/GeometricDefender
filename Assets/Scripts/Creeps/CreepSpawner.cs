@@ -56,6 +56,7 @@ public class CreepSpawner : MonoBehaviour {
 	public GameObject ForceFieldCreep;
 	public GameObject MultiCreep;
 	public GameObject ElementalAbsorbentCreep;
+	public GameObject RockCreep;
 	public GameObject CreepBoss;
 
 
@@ -367,9 +368,12 @@ public class CreepSpawner : MonoBehaviour {
 						case CreepsIndex.ElementalAbsorbentCreep:
 							CreepWaveList.Add (ElementalAbsorbentCreep);
 							break;
-						case CreepsIndex.CreepBoss:
-							CreepWaveList.Add (CreepBoss);
-							break;
+                        case CreepsIndex.RockCreep:
+                            CreepWaveList.Add(RockCreep);
+                            break;
+                        case CreepsIndex.CreepBoss:
+						CreepWaveList.Add (CreepBoss);
+						break;
 						}
 
 					}
