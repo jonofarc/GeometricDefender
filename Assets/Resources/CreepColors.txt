@@ -1,3 +1,9 @@
 Creep,0,0,0,1
-FastCreep,0.31,0.85,1,1
-StraightCreep,1,0.77,0.39,1
+CreepBoss,0.95,0.14,0.15,1
+FastCreep,0.05,0.54,0.62,1
+StraightCreep,0.27,0.49,0.61,1
+ShieldCreep,0.84,0.79,0.45,1
+ForceFieldCreep,0.36,0.50,0.51,1
+Multicreep,0.68,0.34,0.62,1
+ElementAbsorbentCreep,0.31,0.08,0.43,1
+RockCreep,0.72,0.62,0.59,1
