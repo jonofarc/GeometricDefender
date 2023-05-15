@@ -1,72 +1,78 @@
 ﻿using UnityEngine;
-using System.Collections;
 
-public class GenerateOnclick : MonoBehaviour {
-	private GameObject PathChecker;
-	private GameObject clone;
-
-
+public class GenerateOnclick : MonoBehaviour
+{
+    private GameObject PathChecker;
+    private GameObject clone;
 
 
 
 
-	// Use this for initialization
-	void Start () {
 
 
-		PathChecker=GameObject.FindGameObjectWithTag(GlobalVariables.CreepPathCheckerTag);
+    // Use this for initialization
+    void Start()
+    {
 
-	
-	}
-	
-	// Update is called once per frame
-	void Update () { 
 
-	
-	}
-	void OnMouseDown(){
+        PathChecker = GameObject.FindGameObjectWithTag(GlobalVariables.CreepPathCheckerTag);
 
-      //  setPlaceHolder();
+
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+
+
+    }
+    void OnMouseDown()
+    {
+
+        //  setPlaceHolder();
         //PlaceTurret();
 
     }
-    void destroyPlaceHolder() {
+    void destroyPlaceHolder()
+    {
         if (GlobalVariables.PlaceHolderTurret != null)
         {
             Destroy(GlobalVariables.PlaceHolderTurret);
         }
     }
-	void setPlaceHolder(bool ActiveCoolDowns) {
+    void setPlaceHolder(bool ActiveCoolDowns)
+    {
 
-        
-		GlobalVariables.CurrentTurretPlace = this.gameObject;
 
-		destroyPlaceHolder();
-		GameObject MyPlaceHolderTurret = GameObject.FindGameObjectWithTag("PlaceHolderTurret");	
-		if(GlobalVariables.DestroyTurret || ActiveCoolDowns || GlobalVariables.Money < GlobalVariables.TurretCost)
-		{
-			MyPlaceHolderTurret = GameObject.FindGameObjectWithTag("PlaceHolderTurretDestroy");	
-		}
+        GlobalVariables.CurrentTurretPlace = this.gameObject;
 
-		clone = Instantiate(MyPlaceHolderTurret, MyPlaceHolderTurret.transform.position, MyPlaceHolderTurret.transform.rotation) as GameObject;
-		clone.gameObject.SetActive(true);
+        destroyPlaceHolder();
+        GameObject MyPlaceHolderTurret = GameObject.FindGameObjectWithTag("PlaceHolderTurret");
+        if (GlobalVariables.DestroyTurret || ActiveCoolDowns || GlobalVariables.Money < GlobalVariables.TurretCost)
+        {
+            MyPlaceHolderTurret = GameObject.FindGameObjectWithTag("PlaceHolderTurretDestroy");
+        }
 
-		clone.transform.parent = this.transform;
-		clone.transform.localScale = MyPlaceHolderTurret.transform.localScale;
-		clone.transform.localPosition = new Vector3(0, -0.49f, 0);
-		clone.name = "PlaceHolderTurret";
+        clone = Instantiate(MyPlaceHolderTurret, MyPlaceHolderTurret.transform.position, MyPlaceHolderTurret.transform.rotation) as GameObject;
+        clone.gameObject.SetActive(true);
 
-		GlobalVariables.PlaceHolderTurret = clone;
+        clone.transform.parent = this.transform;
+        clone.transform.localScale = MyPlaceHolderTurret.transform.localScale;
+        clone.transform.localPosition = new Vector3(0, -0.49f, 0);
+        clone.name = "PlaceHolderTurret";
+
+        GlobalVariables.PlaceHolderTurret = clone;
 
 
     }
 
-    void PlaceTurret() {
+    void PlaceTurret()
+    {
 
         if (GlobalVariables.Money >= GlobalVariables.TurretCost && GlobalVariables.CurrentTurret != null)
         {
-            
-			GlobalVariables.CurrentTurret.SendMessage ("DisableAura");
+
+            GlobalVariables.CurrentTurret.SendMessage("DisableAura");
             GlobalVariables.Money = GlobalVariables.Money - GlobalVariables.TurretCost;
             clone = Instantiate(GlobalVariables.CurrentTurret, GlobalVariables.CurrentTurret.transform.position, GlobalVariables.CurrentTurret.transform.rotation) as GameObject;
             clone.gameObject.SetActive(true);
@@ -81,35 +87,40 @@ public class GenerateOnclick : MonoBehaviour {
 
             this.gameObject.GetComponent<Collider>().enabled = false;
 
-			ReCheckPath ();
+            ReCheckPath();
 
         }
         else
         {
             Debug.Log("no price set for turret or selected turret not valid");
         }
-		destroyPlaceHolder();
+        destroyPlaceHolder();
 
     }
-	void ReverseTurret(){
-		Debug.Log ("Destruyendo");
-		if(clone != null){
-			Destroy (clone);
-			ReCheckPath ();
+    void ReverseTurret()
+    {
+        Debug.Log("Destruyendo");
+        if (clone != null)
+        {
+            Destroy(clone);
+            ReCheckPath();
 
 
-		}
+        }
 
-	}
-	public void ReCheckPath(){
-		GameObject CreepPathChecker = GameObject.FindGameObjectWithTag (GlobalVariables.CreepPathCheckerTag);
-		GameObject[] CurrentCreeps = GameObject.FindGameObjectsWithTag (GlobalVariables.CreepTag);
-		for (int i=0; i<CurrentCreeps.Length; i++){
-			CurrentCreeps [i].SendMessage ("PathCheck");
-		}
-		CreepPathChecker.SendMessage ("PathCheck");
-	}
-	public void DragSelect(bool ActiveCoolDowns){
-		setPlaceHolder (ActiveCoolDowns);
-	}
+    }
+    public void ReCheckPath()
+    {
+        GameObject CreepPathChecker = GameObject.FindGameObjectWithTag(GlobalVariables.CreepPathCheckerTag);
+        GameObject[] CurrentCreeps = GameObject.FindGameObjectsWithTag(GlobalVariables.CreepTag);
+        for (int i = 0; i < CurrentCreeps.Length; i++)
+        {
+            CurrentCreeps[i].SendMessage("PathCheck");
+        }
+        CreepPathChecker.SendMessage("PathCheck");
+    }
+    public void DragSelect(bool ActiveCoolDowns)
+    {
+        setPlaceHolder(ActiveCoolDowns);
+    }
 }

@@ -3272,7 +3272,7 @@ PrefabInstance:
     - target: {fileID: 5104989100025414991, guid: 7d762720fb81ebc47b02481337ed7bf0,
         type: 3}
       propertyPath: CreepHP
-      value: 45
+      value: 35
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7d762720fb81ebc47b02481337ed7bf0, type: 3}

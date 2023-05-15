@@ -1,132 +1,158 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI; // Required when Using UI elements.
 
-public class DragTurrets : MonoBehaviour {
+public class DragTurrets : MonoBehaviour
+{
 
 
-    public GameObject DragAssistUI; 
-	public bool DragAssistEnabled = true;
+    public GameObject DragAssistUI;
+    public bool DragAssistEnabled = true;
     [Header("Drag Assist on Screen %")]
-	public Vector2 DragAssist;
-	public Vector3 DragAssistCordinates;
-	public bool ActiveCoolDowns = false;
-	private GameObject[] ButtonsCheckmarks;
-	public float CoolDownTime = 3.0f;
-	// Use this for initialization
-	void Start () {
-		Vector2 s = new Vector2 (Screen.width,Screen.height);
-		DragAssistCordinates = new Vector3 ((s.x*DragAssist.x/100f),(s.y*DragAssist.y/100f),0); 
-		ButtonsCheckmarks = GameObject.FindGameObjectsWithTag ("Checkmark");
+    public Vector2 DragAssist;
+    public Vector3 DragAssistCordinates;
+    public bool ActiveCoolDowns = false;
+    private GameObject[] ButtonsCheckmarks;
+    public float CoolDownTime = 3.0f;
+    // Use this for initialization
+    void Start()
+    {
+        Vector2 s = new Vector2(Screen.width, Screen.height);
+        DragAssistCordinates = new Vector3((s.x * DragAssist.x / 100f), (s.y * DragAssist.y / 100f), 0);
+        ButtonsCheckmarks = GameObject.FindGameObjectsWithTag("Checkmark");
 
 
-		// setDragAssist
-		if (PlayerPrefs.GetInt("DragAssistEnabled", 0) == 0) 
+        // setDragAssist
+        if (PlayerPrefs.GetInt("DragAssistEnabled", 0) == 0)
         {
-            DragAssistEnabled = false; 
+            DragAssistEnabled = false;
         }
         else
         {
-            DragAssistEnabled = true ;
+            DragAssistEnabled = true;
         }
 
 
-		DragAssistUI.GetComponent<Toggle>().isOn = DragAssistEnabled;
+        DragAssistUI.GetComponent<Toggle>().isOn = DragAssistEnabled;
 
     }
 
-	void FixedUpdate()
-	{
-		if(ActiveCoolDowns){
-			foreach (GameObject ButtonCheckmark in ButtonsCheckmarks ){
-				ButtonCheckmark.GetComponent<Image>().fillAmount += 1.0f / CoolDownTime * Time.deltaTime;
-			}
-			// if we Finished CD time
-			if(ButtonsCheckmarks[ButtonsCheckmarks.Length-1].GetComponent<Image>().fillAmount >= 1){
-				ActiveCoolDowns = false;
-			}
-		}
-	}
-	// Update is called once per frame
-	void Update () {
-		
-		if (Input.GetMouseButton (0) && Camera.main != null) { 
-			RaycastHit hit; 
-			Ray ray;
-			if (DragAssistEnabled) {
-				ray = Camera.main.ScreenPointToRay ((Input.mousePosition+DragAssistCordinates)); 
-			} else {
-				ray = Camera.main.ScreenPointToRay (Input.mousePosition); 
-			}
-
-			if (Physics.Raycast (ray, out hit, 100.0f)) {
-				
-				//Debug.Log ("You selected the " + hit.transform.name); // ensure you picked right object
-				if (hit.transform.gameObject.tag == GlobalVariables.TurretBuildingTag || hit.transform.gameObject.tag == GlobalVariables.TurretTag) {
-					hit.transform.gameObject.SendMessage ("DragSelect",ActiveCoolDowns, SendMessageOptions.DontRequireReceiver);
-
-
-					if(hit.transform.gameObject.tag == GlobalVariables.TurretTag && GlobalVariables.PlaceHolderTurret != null) {
-						Destroy(GlobalVariables.PlaceHolderTurret);
-					}
-					//this.SendMessage ("CheckTurretOptions",true);
-				} else if (GlobalVariables.PlaceHolderTurret != null) {
-					
-
-					Destroy (GlobalVariables.PlaceHolderTurret);
-					GlobalVariables.CurrentTurret.SendMessage ("DisableAura",SendMessageOptions.DontRequireReceiver);
-					
-				} 
-
-
-			}
-		}else if(Input.GetMouseButtonUp(0) && Camera.main != null)
+    void FixedUpdate()
+    {
+        if (ActiveCoolDowns)
         {
-			if (GlobalVariables.PlaceHolderTurret != null) {
-				if(ActiveCoolDowns == false){
-					this.SendMessage ("ConfirmTurret", true);
-					if (GlobalVariables.GameStarted) {
-						ActiveCoolDowns = true;	
-						foreach (GameObject ButtonCheckmark in ButtonsCheckmarks) {
-							ButtonCheckmark.GetComponent<Image> ().fillAmount = 0;
-						}
-					}
-				}else {
-					this.SendMessage ("ConfirmTurret", false);
-				}
+            foreach (GameObject ButtonCheckmark in ButtonsCheckmarks)
+            {
+                ButtonCheckmark.GetComponent<Image>().fillAmount += 1.0f / CoolDownTime * Time.deltaTime;
+            }
+            // if we Finished CD time
+            if (ButtonsCheckmarks[ButtonsCheckmarks.Length - 1].GetComponent<Image>().fillAmount >= 1)
+            {
+                ActiveCoolDowns = false;
+            }
+        }
+    }
+    // Update is called once per frame
+    void Update()
+    {
 
-			} 
+        if (Input.GetMouseButton(0) && Camera.main != null)
+        {
+            RaycastHit hit;
+            Ray ray;
+            if (DragAssistEnabled)
+            {
+                ray = Camera.main.ScreenPointToRay((Input.mousePosition + DragAssistCordinates));
+            }
+            else
+            {
+                ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            }
 
-			RaycastHit hit; 
-			Ray ray;
+            if (Physics.Raycast(ray, out hit, 100.0f))
+            {
+
+                //Debug.Log ("You selected the " + hit.transform.name); // ensure you picked right object
+                if (hit.transform.gameObject.tag == GlobalVariables.TurretBuildingTag || hit.transform.gameObject.tag == GlobalVariables.TurretTag)
+                {
+                    hit.transform.gameObject.SendMessage("DragSelect", ActiveCoolDowns, SendMessageOptions.DontRequireReceiver);
+
+
+                    if (hit.transform.gameObject.tag == GlobalVariables.TurretTag && GlobalVariables.PlaceHolderTurret != null)
+                    {
+                        Destroy(GlobalVariables.PlaceHolderTurret);
+                    }
+                    //this.SendMessage ("CheckTurretOptions",true);
+                }
+                else if (GlobalVariables.PlaceHolderTurret != null)
+                {
+
+
+                    Destroy(GlobalVariables.PlaceHolderTurret);
+                    GlobalVariables.CurrentTurret.SendMessage("DisableAura", SendMessageOptions.DontRequireReceiver);
+
+                }
+
+
+            }
+        }
+        else if (Input.GetMouseButtonUp(0) && Camera.main != null)
+        {
+            if (GlobalVariables.PlaceHolderTurret != null)
+            {
+                if (ActiveCoolDowns == false)
+                {
+                    this.SendMessage("ConfirmTurret", true);
+                    if (GlobalVariables.GameStarted)
+                    {
+                        ActiveCoolDowns = true;
+                        foreach (GameObject ButtonCheckmark in ButtonsCheckmarks)
+                        {
+                            ButtonCheckmark.GetComponent<Image>().fillAmount = 0;
+                        }
+                    }
+                }
+                else
+                {
+                    this.SendMessage("ConfirmTurret", false);
+                }
+
+            }
+
+            RaycastHit hit;
+            Ray ray;
             Debug.Log("Dragassitenabled " + DragAssistEnabled);
-            if (DragAssistEnabled) {
-				ray = Camera.main.ScreenPointToRay ((Input.mousePosition+DragAssistCordinates)); 
-			} else {
-				ray = Camera.main.ScreenPointToRay (Input.mousePosition); 
-			}
+            if (DragAssistEnabled)
+            {
+                ray = Camera.main.ScreenPointToRay((Input.mousePosition + DragAssistCordinates));
+            }
+            else
+            {
+                ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            }
 
-			if (Physics.Raycast (ray, out hit, 100.0f)) {
+            if (Physics.Raycast(ray, out hit, 100.0f))
+            {
 
-				if (GlobalVariables.DestroyTurret) {
-					hit.transform.gameObject.SendMessage ("DestroyTurret",0.5f, SendMessageOptions.DontRequireReceiver);
-				}
-			}
+                if (GlobalVariables.DestroyTurret)
+                {
+                    hit.transform.gameObject.SendMessage("DestroyTurret", 0.5f, SendMessageOptions.DontRequireReceiver);
+                }
+            }
 
 
 
         }
-       
+
     }
-	public void DragPossitionUPToogle(){
-		DragAssistEnabled = DragAssistUI.GetComponent<Toggle>().isOn;
+    public void DragPossitionUPToogle()
+    {
+        DragAssistEnabled = DragAssistUI.GetComponent<Toggle>().isOn;
 
         if (DragAssistEnabled)
         {
             PlayerPrefs.SetInt("DragAssistEnabled", 1);
-            Debug.Log("set true" );
-            
+            Debug.Log("set true");
+
         }
         else
         {
@@ -134,7 +160,7 @@ public class DragTurrets : MonoBehaviour {
             Debug.Log("set false");
         }
 
-        
+
         Debug.Log("Dragassitenabled " + DragAssistEnabled); // ensure you picked right object
     }
 

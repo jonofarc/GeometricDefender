@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 
@@ -8,7 +7,7 @@ namespace UnityStandardAssets.SceneUtils
     {
         public float surfaceOffset = 1.5f;
         public GameObject setTargetOn;
-		public GameObject[] creeps;
+        public GameObject[] creeps;
 
         // Update is called once per frame
         private void Update()
@@ -23,18 +22,19 @@ namespace UnityStandardAssets.SceneUtils
             {
                 return;
             }
-            transform.position = hit.point + hit.normal*surfaceOffset;
+            transform.position = hit.point + hit.normal * surfaceOffset;
             if (setTargetOn != null)
             {
 
-				creeps = GameObject.FindGameObjectsWithTag(setTargetOn.tag);
-				
-				foreach (GameObject creep in creeps) {
-					creep.SendMessage("SetTarget", transform);
-				}
+                creeps = GameObject.FindGameObjectsWithTag(setTargetOn.tag);
+
+                foreach (GameObject creep in creeps)
+                {
+                    creep.SendMessage("SetTarget", transform);
+                }
 
 
-               
+
             }
         }
     }

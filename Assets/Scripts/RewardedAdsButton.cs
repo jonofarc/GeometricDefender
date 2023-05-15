@@ -1,6 +1,6 @@
 using UnityEngine;
-using UnityEngine.UI;
 using UnityEngine.Advertisements;
+using UnityEngine.UI;
 
 public class RewardedAdsButton : MonoBehaviour, IUnityAdsLoadListener, IUnityAdsShowListener
 {
@@ -11,7 +11,7 @@ public class RewardedAdsButton : MonoBehaviour, IUnityAdsLoadListener, IUnityAds
     private bool addReady = false;
     private GameObject Finish;
     GameObject[] ReviveDependent;
-    
+
 
     void Awake()
     {
@@ -21,7 +21,7 @@ public class RewardedAdsButton : MonoBehaviour, IUnityAdsLoadListener, IUnityAds
             : _androidAdUnitId;
 
         //Disable button until ad is ready to show
-       // _showAdButton.interactable = false;
+        // _showAdButton.interactable = false;
 
         ReviveDependent = GameObject.FindGameObjectsWithTag("ReviveDependent");
         Finish = GameObject.FindGameObjectWithTag("Finish");
@@ -32,7 +32,7 @@ public class RewardedAdsButton : MonoBehaviour, IUnityAdsLoadListener, IUnityAds
     // Load content to the Ad Unit:
     public void LoadAd()
     {
-       // _showAdButton.interactable = false;
+        // _showAdButton.interactable = false;
         // IMPORTANT! Only load content AFTER initialization (in this example, initialization is handled in a different script).
         Debug.Log("Loading Ad: " + _adUnitId);
         Advertisement.Load(_adUnitId, this);
@@ -48,19 +48,20 @@ public class RewardedAdsButton : MonoBehaviour, IUnityAdsLoadListener, IUnityAds
         // Configure the button to call the ShowAd() method when clicked:
         //_showAdButton.onClick.AddListener(ShowAd);
         // Enable the button for users to click:
-        
+
     }
 
     // Implement a method to execute when the user clicks the button.
     public void ShowAd()
     {
-        if (addReady) {
+        if (addReady)
+        {
             //_showAdButton.interactable = false;
             // Then show the ad:
             Advertisement.Show(_adUnitId, this);
         }
         // Disable the button: 
-        
+
     }
 
     // Implement the Show Listener's OnUnityAdsShowComplete callback method to determine if the user gets a reward:
@@ -115,10 +116,11 @@ public class RewardedAdsButton : MonoBehaviour, IUnityAdsLoadListener, IUnityAds
         {
             _showAdButton.interactable = true;
         }
-        else {
+        else
+        {
             _showAdButton.interactable = false;
         }
-        
+
 
     }
 

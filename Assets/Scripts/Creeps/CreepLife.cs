@@ -1,36 +1,40 @@
 ﻿using UnityEngine;
-using System.Collections;
 
-public class CreepLife : MonoBehaviour {
-	public float CreepHP=20;
-	public float CreepShield=0;
-	public int LootAmount=1;
-	public bool EffectBeforeDiying=false;
-	public bool LootOnEfect=false;
-	private bool LootGiven = false;
-	public float HPLeftTrigger=0;
-	public float maxHP;
+public class CreepLife : MonoBehaviour
+{
+    public float CreepHP = 20;
+    public float CreepShield = 0;
+    public int LootAmount = 1;
+    public bool EffectBeforeDiying = false;
+    public bool LootOnEfect = false;
+    private bool LootGiven = false;
+    public float HPLeftTrigger = 0;
+    public float maxHP;
 
 
-	public GameObject HPBar;
-	public Material HP66;
-	public Material HP33;
-	public Material HP0;
+    public GameObject HPBar;
+    public Material HP66;
+    public Material HP33;
+    public Material HP0;
 
-	// Use this for initialization
-	void Start () {
-		maxHP = CreepHP;
+    // Use this for initialization
+    void Start()
+    {
+        maxHP = CreepHP;
 
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
-	public void takeDamage(float Damage){
-		if(Damage>CreepShield || Damage<0){ 
-			CreepHP -= Damage;
-			//Debug.Log ("CreepHP ============ " + CreepHP); 
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+
+    }
+    public void takeDamage(float Damage)
+    {
+        if (Damage > CreepShield || Damage < 0)
+        {
+            CreepHP -= Damage;
+            //Debug.Log ("CreepHP ============ " + CreepHP); 
 
             if (CreepHP > (maxHP * 0.66))
             {
@@ -65,41 +69,46 @@ public class CreepLife : MonoBehaviour {
         }
 
 
-		
 
 
 
 
-		if(CreepHP<=0){
-			if(LootGiven==false){
-				GlobalVariables.Money=GlobalVariables.Money+LootAmount;
-				LootGiven = true;
-			}
-			MoveCreeps myMoveCreeps = GetComponent<MoveCreeps>();
-			myMoveCreeps.CancelPathCheck ();
 
-			Destroy(this.gameObject); 
+        if (CreepHP <= 0)
+        {
+            if (LootGiven == false)
+            {
+                GlobalVariables.Money = GlobalVariables.Money + LootAmount;
+                LootGiven = true;
+            }
+            MoveCreeps myMoveCreeps = GetComponent<MoveCreeps>();
+            myMoveCreeps.CancelPathCheck();
 
-
-		}
-
-//		Debug.Log (maxHP *(HPLeftTrigger/100));
-		if(EffectBeforeDiying && CreepHP<=(maxHP *HPLeftTrigger)){
-			if(LootOnEfect && LootGiven==false){
-				GlobalVariables.Money=GlobalVariables.Money+LootAmount;
-				LootGiven=true;
-			}
-			this.SendMessage("CreepEfect");
-		}
+            Destroy(this.gameObject);
 
 
-	}
-	void IncreaseLife(float increment){
-		CreepHP *= increment;
-		maxHP = CreepHP;
+        }
 
-	}
-	/*
+        //		Debug.Log (maxHP *(HPLeftTrigger/100));
+        if (EffectBeforeDiying && CreepHP <= (maxHP * HPLeftTrigger))
+        {
+            if (LootOnEfect && LootGiven == false)
+            {
+                GlobalVariables.Money = GlobalVariables.Money + LootAmount;
+                LootGiven = true;
+            }
+            this.SendMessage("CreepEfect");
+        }
+
+
+    }
+    void IncreaseLife(float increment)
+    {
+        CreepHP *= increment;
+        maxHP = CreepHP;
+
+    }
+    /*
 	void OnTriggerEnter(Collider other) {
 
 		if(other.gameObject.tag=="Bullet"){

@@ -21,11 +21,12 @@ public class FPSDisplay : MonoBehaviour
         float fps = 1.0f / deltaTime;
 
         float msec = Time.unscaledDeltaTime * 1000.0f;
-        if (fpsDisplay != null) {
+        if (fpsDisplay != null)
+        {
             fpsDisplay.text = fps.ToString("n0") + " FPS";
         }
-       // string text = string.Format("{0:0.0} ms ({1:0.} fps)", msec, fps);
-        
+        // string text = string.Format("{0:0.0} ms ({1:0.} fps)", msec, fps);
+
 
     }
 }

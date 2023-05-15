@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 #if UNITY_EDITOR
 using UnityEditor;
@@ -55,13 +54,15 @@ namespace UnityStandardAssets.Utility
 
         private void CheckEnableContent()
         {
-#if (UNITY_IPHONE || UNITY_ANDROID || UNITY_WP8 || UNITY_BLACKBERRY )
-		if (m_BuildTargetGroup == BuildTargetGroup.Mobile)
-		{
-			EnableContent(true);
-		} else {
-			EnableContent(false);
-		}
+#if (UNITY_IPHONE || UNITY_ANDROID || UNITY_WP8 || UNITY_BLACKBERRY)
+            if (m_BuildTargetGroup == BuildTargetGroup.Mobile)
+            {
+                EnableContent(true);
+            }
+            else
+            {
+                EnableContent(false);
+            }
 #endif
 
 #if !(UNITY_IPHONE || UNITY_ANDROID || UNITY_WP8 || UNITY_BLACKBERRY )

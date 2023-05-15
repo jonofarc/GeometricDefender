@@ -1,9 +1,7 @@
-using System;
 using UnityEngine;
 using UnityStandardAssets.CrossPlatformInput;
-using UnityEngine.UI;
 
-[RequireComponent(typeof (Texture))]
+[RequireComponent(typeof(Texture))]
 public class ForcedReset : MonoBehaviour
 {
     private void Update()

@@ -1,81 +1,81 @@
 ﻿using UnityEngine;
-using System.Collections;
 using UnityEngine.UI;
-using UnityEngine.Advertisements;
 
 
 public class ReachEnd : MonoBehaviour
 {
 
-	public int HP = 20;
-	public int DefaultDamage = 1;
-	public int StartMoney = 20;
-	private Text HPtext;
-	public GameObject[] ReviveDependent;
-	// Use this for initialization
-	void Awake()
-	{
+    public int HP = 20;
+    public int DefaultDamage = 1;
+    public int StartMoney = 20;
+    private Text HPtext;
+    public GameObject[] ReviveDependent;
+    // Use this for initialization
+    void Awake()
+    {
 
-	}
-	void Start()
-	{
+    }
+    void Start()
+    {
 
-		GlobalVariables.Revives = GlobalVariables.MaxRevives;
-		HPtext = GameObject.FindGameObjectWithTag("HP_Text").GetComponent<Text>();
-		GlobalVariables.HP = HP;
+        GlobalVariables.Revives = GlobalVariables.MaxRevives;
 
-		HPtext.text = LocalizationText.GetText("HP") + ": " + HP.ToString();
-		GlobalVariables.Money = StartMoney;
-	}
+        GlobalVariables.HP = HP;
+        HPtext = GameObject.FindGameObjectWithTag("HP_Text").GetComponent<Text>();
+        HPtext.text = LocalizationText.GetText("HP") + ": " + HP.ToString();
+        GlobalVariables.Money = StartMoney;
 
-	// Update is called once per frame
-	void Update()
-	{
-		if (GlobalVariables.ApplyRewards) {
-			GlobalVariables.ApplyRewards = false;
-			ApplyRewards();
-			ReviveDependentReactivation();
-		}
-	}
-	void OnTriggerEnter(Collider other)
-	{
+    }
 
-		if (other.gameObject.tag == GlobalVariables.CreepTag || other.gameObject.tag == "CreepF")
-		{
-			Destroy(other.gameObject);
-			//	Debug.Log ("-1 hp");
-			ReciveDamage(DefaultDamage);
-			//ShowRewardedAd ();
+    // Update is called once per frame
+    void Update()
+    {
+        if (GlobalVariables.ApplyRewards)
+        {
+            GlobalVariables.ApplyRewards = false;
+            ApplyRewards();
+            ReviveDependentReactivation();
+        }
+    }
+    void OnTriggerEnter(Collider other)
+    {
 
-		}
+        if (other.gameObject.tag == GlobalVariables.CreepTag || other.gameObject.tag == "CreepF")
+        {
+            Destroy(other.gameObject);
+            //	Debug.Log ("-1 hp");
+            ReciveDamage(DefaultDamage);
+            //ShowRewardedAd ();
 
-	}
-	public void ReciveDamage(int Damage)
-	{
+        }
 
-		//	Debug.Log ("-1 hp");
-		GlobalVariables.HP = GlobalVariables.HP - Damage;
-		HPtext.text = LocalizationText.GetText("HP") + ": " + GlobalVariables.HP.ToString();
-		//	Debug.Log ("Remaining health "+HP);
-		if (GlobalVariables.HP <= 0)
-		{
-			//Invoke("GameOver",1);
-			GameOver();
-		}
-	}
-	public void GameOver()
-	{
+    }
+    public void ReciveDamage(int Damage)
+    {
 
-		GlobalVariables.LevelFailed = true;
+        //	Debug.Log ("-1 hp");
+        GlobalVariables.HP = GlobalVariables.HP - Damage;
+        HPtext.text = LocalizationText.GetText("HP") + ": " + GlobalVariables.HP.ToString();
+        //	Debug.Log ("Remaining health "+HP);
+        if (GlobalVariables.HP <= 0)
+        {
+            //Invoke("GameOver",1);
+            GameOver();
+        }
+    }
+    public void GameOver()
+    {
 
-		Time.timeScale = 0.0F;
+        GlobalVariables.LevelFailed = true;
 
-	}
+        Time.timeScale = 0.0F;
+
+    }
 
 
 
-	public void ShowDefaultAd()
-	{
+    public void ShowDefaultAd()
+    {
 #if UNITY_ADS
 		if (!Advertisement.IsReady())
 		{
@@ -85,11 +85,11 @@ public class ReachEnd : MonoBehaviour
 
 		Advertisement.Show();
 #endif
-	}
+    }
 
-	public void ShowRewardedAd()
-	{
-		const string RewardedPlacementId = "rewardedVideo";
+    public void ShowRewardedAd()
+    {
+        const string RewardedPlacementId = "rewardedVideo";
 
 #if UNITY_ADS
 		if (!Advertisement.IsReady(RewardedPlacementId))
@@ -104,7 +104,7 @@ public class ReachEnd : MonoBehaviour
 
 
 
-	}
+    }
 
 #if UNITY_ADS
 	private void HandleShowResult(ShowResult result)
@@ -130,32 +130,32 @@ public class ReachEnd : MonoBehaviour
 
 #endif
 
-	public void ApplyRewards()
-	{
-		GlobalVariables.HP = GlobalVariables.HPReward;
-		HPtext.text = LocalizationText.GetText("HP") + ": " + GlobalVariables.HP.ToString();
+    public void ApplyRewards()
+    {
+        GlobalVariables.HP = GlobalVariables.HPReward;
+        HPtext.text = LocalizationText.GetText("HP") + ": " + GlobalVariables.HP.ToString();
 
-		//Activate Pause button here
-		GameObject Canvas = GameObject.FindGameObjectWithTag("Canvas");
-		GameObject PauseButton = Canvas.transform.Find("SpeedButtons/Pause").gameObject;
-		Toggle PauseButtonScript = PauseButton.GetComponent<Toggle>();
-		PauseButtonScript.isOn = true;
+        //Activate Pause button here
+        GameObject Canvas = GameObject.FindGameObjectWithTag("Canvas");
+        GameObject PauseButton = Canvas.transform.Find("SpeedButtons/Pause").gameObject;
+        Toggle PauseButtonScript = PauseButton.GetComponent<Toggle>();
+        PauseButtonScript.isOn = true;
 
-		GlobalVariables.Revives--;
-		GlobalVariables.LevelFailed = false;
+        GlobalVariables.Revives--;
+        GlobalVariables.LevelFailed = false;
 
-		
 
-	}
 
-	// not the best solution but being 7/20/2017 at 12:35 AM I cant think of other option is this or move the button so the add close button and this would not overlap
-	public void ReviveDependentReactivation()
-	{
-		ReviveDependent = GameObject.FindGameObjectsWithTag("ReviveDependent");
-		foreach (GameObject Dependent in ReviveDependent)
-		{
-			Dependent.GetComponent<Button>().enabled = true;
-		}
-	}
+    }
+
+    // not the best solution but being 7/20/2017 at 12:35 AM I cant think of other option is this or move the button so the add close button and this would not overlap
+    public void ReviveDependentReactivation()
+    {
+        ReviveDependent = GameObject.FindGameObjectsWithTag("ReviveDependent");
+        foreach (GameObject Dependent in ReviveDependent)
+        {
+            Dependent.GetComponent<Button>().enabled = true;
+        }
+    }
 
 }

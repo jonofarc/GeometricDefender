@@ -1,36 +1,40 @@
-﻿using UnityEngine;
-using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
+using UnityEngine;
 
-public class DestroyBullet : MonoBehaviour {
-	public float BulletDamage=10;
-	public float BulletDamageIncrease=1; 
-	public bool ContinousDamage=false;
-	public bool DamageDone=false;
-	public float BulletSpeed = 20f;
-	public float TimeToDisapear = 2f;
-	private GameObject CreepTarget;
-	// Use this for initialization
-	void Start () {
-		
-		//Debug.Log (GlobalVariables.CurrentBullets);
-		//if (GlobalVariables.CurrentBullets < GlobalVariables.MaximunBullets || ContinousDamage == true) {
-			Invoke ("AutoDestroy", TimeToDisapear);
-			if(ContinousDamage == false){
-				GlobalVariables.CurrentBullets++;
-			}
-		//} 
-	}
+public class DestroyBullet : MonoBehaviour
+{
+    public float BulletDamage = 10;
+    public float BulletDamageIncrease = 1;
+    public bool ContinousDamage = false;
+    public bool DamageDone = false;
+    public float BulletSpeed = 20f;
+    public float TimeToDisapear = 2f;
+    private GameObject CreepTarget;
+    // Use this for initialization
+    void Start()
+    {
 
-	// Update is called once per frame
-	//void Update () {
-	void Update(){
-		if (DamageDone==false && CreepTarget != null ){
-			Vector3 CreepTargetCenter=CreepTarget.transform.position;
-			//CreepTargetCenter.y=CreepTarget.transform.position.y+(CreepTarget.transform.localScale.y/2);
-			transform.position = Vector3.MoveTowards(transform.position, CreepTargetCenter, (BulletSpeed*Time.deltaTime)*GlobalVariables.GameSpeed);
-		}
+        //Debug.Log (GlobalVariables.CurrentBullets);
+        //if (GlobalVariables.CurrentBullets < GlobalVariables.MaximunBullets || ContinousDamage == true) {
+        Invoke("AutoDestroy", TimeToDisapear);
+        if (ContinousDamage == false)
+        {
+            GlobalVariables.CurrentBullets++;
+        }
+        //} 
+    }
+
+    // Update is called once per frame
+    //void Update () {
+    void Update()
+    {
+        if (DamageDone == false && CreepTarget != null)
+        {
+            Vector3 CreepTargetCenter = CreepTarget.transform.position;
+            //CreepTargetCenter.y=CreepTarget.transform.position.y+(CreepTarget.transform.localScale.y/2);
+            transform.position = Vector3.MoveTowards(transform.position, CreepTargetCenter, (BulletSpeed * Time.deltaTime) * GlobalVariables.GameSpeed);
+        }
         if (transform.position.y < -1)
         {
             AutoDestroy();
@@ -38,85 +42,102 @@ public class DestroyBullet : MonoBehaviour {
 
     }
 
-	void FireAtCreep (GameObject CreepTargetRecived) {
-		CreepTarget = CreepTargetRecived;
-	}
+    void FireAtCreep(GameObject CreepTargetRecived)
+    {
+        CreepTarget = CreepTargetRecived;
+    }
 
 
-	void OnTriggerEnter(Collider other) {
-
-	
-
-		RecivedCollision (other.gameObject); 
-	}
-
-	void OnCollisionEnter(Collision collision) {
-
-
-		RecivedCollision (collision.gameObject);
-
-
-	} 
-	void RecivedCollision (GameObject collision) {
+    void OnTriggerEnter(Collider other)
+    {
 
 
 
-		if(collision.gameObject.tag==GlobalVariables.CreepTag && DamageDone==false){
-			collision.gameObject.SendMessage("takeDamage",BulletDamage);
-			if(ContinousDamage){
-				DamageDone = false;
-			}else{
-				DamageDone = true;
+        RecivedCollision(other.gameObject);
+    }
 
-				//Destroy(this.gameObject.GetComponent<Collider>());
-				if (GlobalVariables.CurrentBullets < GlobalVariables.MaximunBullets) {
-					//Destroy (this.gameObject.GetComponent<Collider> ());
-				} else {
-					
-					AutoDestroy ();
-				}
-			}
+    void OnCollisionEnter(Collision collision)
+    {
+
+
+        RecivedCollision(collision.gameObject);
+
+
+    }
+    void RecivedCollision(GameObject collision)
+    {
 
 
 
-		}
+        if (collision.gameObject.tag == GlobalVariables.CreepTag && DamageDone == false)
+        {
+            collision.gameObject.SendMessage("takeDamage", BulletDamage);
+            if (ContinousDamage)
+            {
+                DamageDone = false;
+            }
+            else
+            {
+                DamageDone = true;
+
+                //Destroy(this.gameObject.GetComponent<Collider>());
+                if (GlobalVariables.CurrentBullets < GlobalVariables.MaximunBullets)
+                {
+                    //Destroy (this.gameObject.GetComponent<Collider> ());
+                }
+                else
+                {
+
+                    AutoDestroy();
+                }
+            }
 
 
-		//AutoDestroy();
+
+        }
+
+
+        //AutoDestroy();
 
 
 
 
-	}//end RecivedCollision
+    }//end RecivedCollision
 
-	void AutoDestroy(){
-		//		Debug.Log ("destroying bullet");
-		if(ContinousDamage == false){
-			GlobalVariables.CurrentBullets--;
-		}
-		Destroy(this.gameObject);
-	}
-	void CancelAutoDestroy(){
-		CancelInvoke ("AutoDestroy");
-	}
-	void ChangeDamage(){
-		BulletDamage = BulletDamage* BulletDamageIncrease;
+    void AutoDestroy()
+    {
+        //		Debug.Log ("destroying bullet");
+        if (ContinousDamage == false)
+        {
+            GlobalVariables.CurrentBullets--;
+        }
+        Destroy(this.gameObject);
+    }
+    void CancelAutoDestroy()
+    {
+        CancelInvoke("AutoDestroy");
+    }
+    void ChangeDamage()
+    {
+        BulletDamage = BulletDamage * BulletDamageIncrease;
 
-		StatusEffect myStatusEffect = this.gameObject.GetComponent<StatusEffect> ();
-		 List<string> statusProperties;
-		for(int i=0; i<=myStatusEffect.BulletStatusEffect.Length-1; i++){
+        StatusEffect myStatusEffect = this.gameObject.GetComponent<StatusEffect>();
+        List<string> statusProperties;
+        for (int i = 0; i <= myStatusEffect.BulletStatusEffect.Length - 1; i++)
+        {
 
-			statusProperties = myStatusEffect.BulletStatusEffect[i].Split(',').ToList();
+            statusProperties = myStatusEffect.BulletStatusEffect[i].Split(',').ToList();
 
-			// ugly hack to increase posion damage should remake everything regarding status efect
-			if(statusProperties[0]=="Poison"){
-				statusProperties [1] = (int.Parse (statusProperties [1]) * BulletDamageIncrease).ToString ();
+            // ugly hack to increase posion damage should remake everything regarding status efect
+            if (statusProperties[0] == "Poison")
+            {
+                statusProperties[1] = (int.Parse(statusProperties[1]) * BulletDamageIncrease).ToString();
 
-				myStatusEffect.BulletStatusEffect [i] = statusProperties [0] + "," + statusProperties [1];
-				Debug.Log (myStatusEffect.BulletStatusEffect [i]);
-			}
+                myStatusEffect.BulletStatusEffect[i] = statusProperties[0] + "," + statusProperties[1];
+                Debug.Log(myStatusEffect.BulletStatusEffect[i]);
+            }
 
 
-		}
-	}
+        }
+    }
 }
