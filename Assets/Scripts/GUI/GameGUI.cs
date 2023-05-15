@@ -22,6 +22,8 @@ public class GameGUI : MonoBehaviour
     public GameObject FirePanel;
     [Header(" ")]
     public GameObject LevelClearedUI;
+    public Text LevelClearedText;
+    public Text ContinueText;
     public GameObject GameOverUI;
     public GameObject NextWaveType;
     [Header("NextLevel")]
@@ -42,6 +44,8 @@ public class GameGUI : MonoBehaviour
         LevelClearedUI.SetActive(false);
         GameOverUI.SetActive(false);
         Time.timeScale = 1.0F;
+        LevelClearedText.text = LocalizationText.GetText("LevelCleared");
+        ContinueText.text = LocalizationText.GetText("Continue");
 
         NormalSpeed();
     }
