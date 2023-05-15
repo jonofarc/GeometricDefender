@@ -3072,6 +3072,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4083051981902479254, guid: 6103f1dd7f6af2d4db59f30b5b2768ae,
+        type: 3}
+      propertyPath: m_Mass
+      value: 20
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6103f1dd7f6af2d4db59f30b5b2768ae, type: 3}
 --- !u!4 &4589623127886358 stripped
@@ -3181,6 +3186,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 76543572425438567, guid: 7d762720fb81ebc47b02481337ed7bf0,
         type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.68948436
+      objectReference: {fileID: 0}
+    - target: {fileID: 76543572425438567, guid: 7d762720fb81ebc47b02481337ed7bf0,
+        type: 3}
       propertyPath: m_LocalPosition.x
       value: -13.73
       objectReference: {fileID: 0}
@@ -3233,6 +3243,36 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: RockCreep
+      objectReference: {fileID: 0}
+    - target: {fileID: 2828067141133615053, guid: 7d762720fb81ebc47b02481337ed7bf0,
+        type: 3}
+      propertyPath: m_Height
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3325760610206495805, guid: 7d762720fb81ebc47b02481337ed7bf0,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3325760610206495805, guid: 7d762720fb81ebc47b02481337ed7bf0,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.20000003
+      objectReference: {fileID: 0}
+    - target: {fileID: 3325760610206495805, guid: 7d762720fb81ebc47b02481337ed7bf0,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3325760610206495805, guid: 7d762720fb81ebc47b02481337ed7bf0,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.59000015
+      objectReference: {fileID: 0}
+    - target: {fileID: 5104989100025414991, guid: 7d762720fb81ebc47b02481337ed7bf0,
+        type: 3}
+      propertyPath: CreepHP
+      value: 45
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7d762720fb81ebc47b02481337ed7bf0, type: 3}

@@ -13,6 +13,7 @@ public class MainMenu : MonoBehaviour {
 	public Text LanguageText;
 	public Text ExitText;
     public Text LoadingText;
+    public Text OptionsText;
     public GameObject FPS30;
     public GameObject FPS60;
 
@@ -94,9 +95,11 @@ public class MainMenu : MonoBehaviour {
 		NewGameText.text=LocalizationText.GetText("NewGame");
 		ContinueText.text=LocalizationText.GetText("Continue");
 		InfiniteText.text=LocalizationText.GetText("Infinite");
-		LanguageText.text=LocalizationText.GetText("Language");
+		
 		ExitText.text=LocalizationText.GetText("Exit");
-        LoadingText.text = LocalizationText.GetText("Loading");
+        LoadingText.text = LocalizationText.GetText("Loading"); 
+        OptionsText.text = LocalizationText.GetText("Options");
+        LanguageText.text = LocalizationText.GetText("Language");
     }
 
 	void OnGUI(){
