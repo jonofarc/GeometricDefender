@@ -46,7 +46,7 @@ public class GameGUI : MonoBehaviour
         Time.timeScale = 1.0F;
         LevelClearedText.text = LocalizationText.GetText("LevelCleared");
         ContinueText.text = LocalizationText.GetText("Continue");
-        GlobalVariables.CurrentTurret = CannonTurret;//set canon turret as default turret at start of the game
+        CannonTurretButton();//set canon turret as default turret at start of the game
 
         NormalSpeed();
     }

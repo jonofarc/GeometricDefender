@@ -3246,6 +3246,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2828067141133615053, guid: 7d762720fb81ebc47b02481337ed7bf0,
         type: 3}
+      propertyPath: m_Speed
+      value: 1.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 2828067141133615053, guid: 7d762720fb81ebc47b02481337ed7bf0,
+        type: 3}
       propertyPath: m_Height
       value: 2
       objectReference: {fileID: 0}
@@ -3272,7 +3277,7 @@ PrefabInstance:
     - target: {fileID: 5104989100025414991, guid: 7d762720fb81ebc47b02481337ed7bf0,
         type: 3}
       propertyPath: CreepHP
-      value: 35
+      value: 30
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7d762720fb81ebc47b02481337ed7bf0, type: 3}
