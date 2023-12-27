@@ -1,0 +1,192 @@
+
+// We ignore any line that starts with "//" or that does not comply with the rules
+
+// Enemy Index
+// Nomal Creep "NC"
+// Fast Creep "FC"
+// Straight Creep "SC"
+// Shield Creep "SHC"
+// Force Field Creep "FFC"
+// Multi Creep "MC"
+// Elemental Abrosbent Creep "EAC"
+// Rock Creep "RC"
+// Creep Boss "CB"
+
+// Rules
+// Line format Enemy type "," consecuitive waves
+// Example:
+// NC,2 // 2 Normal Creep consecuitive waves
+// FC,3 // 3 Fast Creep wave
+// CB,1 // 1 Creep Boss wave
+
+
+//Section start with level identifier (ex: lvl0) and ends with same identifier but with prepended "!"(ex: !lvl0)
+
+// MainMEnu
+lvlMM
+NC,1
+FC,1
+SHC,1
+EAC,1
+FFC,1
+MC,1
+RC,1
+
+!lvlMM
+
+
+// level Infinite
+lvlI
+NC,3
+FC,2
+RC,1
+SHC,1
+EAC,2
+FFC,1
+MC,2
+CB,1 
+!lvlI
+
+// level T
+lvlT
+NC,1
+RC,1
+!lvlT
+
+// level 0
+lvl0
+NC,3
+!lvl0
+
+// level 1
+lvl1
+NC,4
+FC,2
+NC,2
+FC,2
+NC,2
+RC,3
+!lvl1
+
+// level 2
+lvl2
+NC,3
+SHC,1
+FC,2
+NC,1
+RC,1
+FC,2
+NC,2
+RC,3
+SHC,2
+RC,2
+CB,1
+!lvl2
+
+// level 3
+lvl3
+NC,5
+FC,5
+RC,4
+CB,1
+SHC,5
+MC,5
+NC,1
+FC,1
+RC,1
+SHC,1
+MC,1
+CB,1
+!lvl3
+
+// level 4
+lvl4
+NC,5
+FC,5
+RC,5
+CB,1
+SHC,5
+MC,5
+NC,1
+FC,1
+RC,1
+SHC,5
+MC,1
+CB,1
+NC,1
+FC,1
+RC,1
+SHC,1
+CB,1
+!lvl4
+
+// level 5
+lvl5
+NC,5
+FFC,1
+FC,5
+FFC,1
+RC,5
+FFC,1
+SHC,5
+FFC,1
+MC,5
+FFC,1
+NC,5
+FC,5
+FFC,3
+CB,1
+!lvl5
+
+// level 6
+lvl6
+NC,5
+FC,5
+RC,5
+SHC,5
+MC,5
+NC,5
+FFC,5
+EAC,1
+NC,5
+MC,2
+EAC,2
+CB,1
+!lvl6
+
+// level 7
+lvl7
+NC,4
+SHC,1
+FC,4
+NC,1
+FC,1
+RC,1
+NC,2
+RC,1
+MC,1
+NC,1
+RC,1
+EAC,1
+FFC,1
+NC,1
+FC,1
+RC,1
+SHC,1
+FFC,1
+EAC,1
+NC,1
+FC,1
+RC,1
+SHC,1
+FFC,1
+EAC,1
+NC,1
+FC,1
+RC,1
+SHC,1
+FFC,1
+EAC,1
+NC,3
+CB,1
+!lvl7

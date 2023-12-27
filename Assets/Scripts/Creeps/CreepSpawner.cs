@@ -36,6 +36,7 @@ public class CreepSpawner : MonoBehaviour
 
 
     public TextAsset CreepColors;
+    public string CreepSpawnListIdentifierString;
     public TextAsset CreepSpawnList;
 
     private List<string> FileLines;
@@ -371,6 +372,9 @@ public class CreepSpawner : MonoBehaviour
 
     public void readCreepList()
     {
+        var ValidSection = false;
+
+
         FileLines = CreepSpawnList.text.Split('\n').ToList();
         //Check wich lines are valid
         List<GameObject> CreepWaveList = new List<GameObject>();
@@ -379,53 +383,80 @@ public class CreepSpawner : MonoBehaviour
 
             string Line = FileLines[i];
 
-            if (!Line.Equals(" ") && !Line.StartsWith("#") && !Line.StartsWith(" "))
+            if (!Line.Equals(" ") && !Line.StartsWith("#") && !Line.StartsWith("//") && !Line.StartsWith(" "))
             {
 
-                //check wich creep is the line stating
-                List<string> LineInformation = Line.Split(',').ToList();
-                if (LineInformation.Count == 2)
+                if (CreepSpawnListIdentifierString != null && CreepSpawnListIdentifierString != "")
                 {
-                    //check wich type of creep 
-                    string CreepType = LineInformation[0];
-                    //check how many waves of that creep
-                    int CreepWaves = int.Parse(LineInformation[1]);
-                    // Add creep gameobject to list
-                    for (int j = 0; j < CreepWaves; j++)
+                    //check if we are on the right section of the file
+                    if (Line.StartsWith(CreepSpawnListIdentifierString))
                     {
-                        switch (CreepType)
-                        {
-                            case CreepsIndex.NomalCreep:
-                                CreepWaveList.Add(NomalCreep);
-                                break;
-                            case CreepsIndex.FastCreep:
-                                CreepWaveList.Add(FastCreep);
-                                break;
-                            case CreepsIndex.StraightCreep:
-                                CreepWaveList.Add(StraightCreep);
-                                break;
-                            case CreepsIndex.ShieldCreep:
-                                CreepWaveList.Add(ShieldCreep);
-                                break;
-                            case CreepsIndex.ForceFieldCreep:
-                                CreepWaveList.Add(ForceFieldCreep);
-                                break;
-                            case CreepsIndex.MultiCreep:
-                                CreepWaveList.Add(MultiCreep);
-                                break;
-                            case CreepsIndex.ElementalAbsorbentCreep:
-                                CreepWaveList.Add(ElementalAbsorbentCreep);
-                                break;
-                            case CreepsIndex.RockCreep:
-                                CreepWaveList.Add(RockCreep);
-                                break;
-                            case CreepsIndex.CreepBoss:
-                                CreepWaveList.Add(CreepBoss);
-                                break;
-                        }
-
+                        ValidSection = true;
+                    }
+                    if (Line.StartsWith("!" + CreepSpawnListIdentifierString))
+                    {
+                        ValidSection = false;
                     }
                 }
+                else {
+                    ValidSection = true;
+                }
+                
+                
+
+                if (ValidSection) {
+                    //check wich creep is the line stating
+                    List<string> LineInformation = Line.Split(',').ToList();
+                    if (LineInformation.Count == 2)
+                    {
+                        //check wich type of creep 
+                        string CreepType = LineInformation[0];
+                        //check how many waves of that creep
+                        int CreepWaves = int.Parse(LineInformation[1]);
+                        // Add creep gameobject to list
+                        for (int j = 0; j < CreepWaves; j++)
+                        {
+                            switch (CreepType)
+                            {
+                                case CreepsIndex.NomalCreep:
+                                    CreepWaveList.Add(NomalCreep);
+                                    break;
+                                case CreepsIndex.FastCreep:
+                                    CreepWaveList.Add(FastCreep);
+                                    break;
+                                case CreepsIndex.StraightCreep:
+                                    CreepWaveList.Add(StraightCreep);
+                                    break;
+                                case CreepsIndex.ShieldCreep:
+                                    CreepWaveList.Add(ShieldCreep);
+                                    break;
+                                case CreepsIndex.ForceFieldCreep:
+                                    CreepWaveList.Add(ForceFieldCreep);
+                                    break;
+                                case CreepsIndex.MultiCreep:
+                                    CreepWaveList.Add(MultiCreep);
+                                    break;
+                                case CreepsIndex.ElementalAbsorbentCreep:
+                                    CreepWaveList.Add(ElementalAbsorbentCreep);
+                                    break;
+                                case CreepsIndex.RockCreep:
+                                    CreepWaveList.Add(RockCreep);
+                                    break;
+                                case CreepsIndex.CreepBoss:
+                                    CreepWaveList.Add(CreepBoss);
+                                    break;
+                            }
+
+                        }
+                    }
+                }
+
+                
+
+
+
+
+
             }
         }
 

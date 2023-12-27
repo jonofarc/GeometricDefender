@@ -67,6 +67,13 @@ public class GameGUI : MonoBehaviour
         {
             SuperFastFoward();
         }
+        if (Input.GetKeyDown(KeyCode.Alpha4))
+        {
+            for (int i=0; i < 10; i++) {
+                InfiniteGold();
+            }
+            
+        }
 
         // this should not be on the update but instead only called once every time is needed thats when gold is earned or wasted as well as when damage is taken
 

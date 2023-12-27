@@ -630,11 +630,16 @@ PrefabInstance:
         type: 3}
       propertyPath: CreepSpawnList
       value: 
-      objectReference: {fileID: 4900000, guid: 6167ae74ca580774a840d35cced3bbae, type: 3}
+      objectReference: {fileID: 4900000, guid: 8d0d4598be7ac064dac599145223052b, type: 3}
     - target: {fileID: 114298304208438630, guid: 4d266249b77a5d3409e7a3c9105eecaa,
         type: 3}
       propertyPath: HPIncrementcurbe
       value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 114298304208438630, guid: 4d266249b77a5d3409e7a3c9105eecaa,
+        type: 3}
+      propertyPath: CreepSpawnListIdentifierString
+      value: lvl4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4d266249b77a5d3409e7a3c9105eecaa, type: 3}
