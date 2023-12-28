@@ -21,6 +21,23 @@
 
 
 //Section start with level identifier (ex: lvl0) and ends with same identifier but with prepended "!"(ex: !lvl0)
+//@level indictae the level is part of the levels to be defined in the level select
+
+
+@level
+@level
+@level
+@level
+@level
+@level
+@level
+@level
+@level
+@level
+@level
+@level
+@level
+@level
 
 // MainMEnu
 lvlMM
@@ -54,11 +71,13 @@ RC,1
 !lvlT
 
 // level 0
+@level
 lvl0
 NC,3
 !lvl0
 
 // level 1
+@level
 lvl1
 NC,4
 FC,2
@@ -69,6 +88,7 @@ RC,3
 !lvl1
 
 // level 2
+@level
 lvl2
 NC,3
 SHC,1
@@ -84,6 +104,7 @@ CB,1
 !lvl2
 
 // level 3
+@level
 lvl3
 NC,5
 FC,5
@@ -100,6 +121,7 @@ CB,1
 !lvl3
 
 // level 4
+@level
 lvl4
 NC,5
 FC,5
@@ -121,6 +143,7 @@ CB,1
 !lvl4
 
 // level 5
+@level
 lvl5
 NC,5
 FFC,1
@@ -139,6 +162,7 @@ CB,1
 !lvl5
 
 // level 6
+@level
 lvl6
 NC,5
 FC,5
@@ -155,6 +179,7 @@ CB,1
 !lvl6
 
 // level 7
+@level
 lvl7
 NC,4
 SHC,1

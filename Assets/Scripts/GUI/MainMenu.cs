@@ -14,7 +14,7 @@ public class MainMenu : MonoBehaviour
     public Text ExitText;
     public Text LoadingText;
     public Text OptionsText;
-    public Text LevelSelect;
+   
     public GameObject FPS30;
     public GameObject FPS60;
 
@@ -114,7 +114,7 @@ public class MainMenu : MonoBehaviour
         LoadingText.text = LocalizationText.GetText("Loading");
         OptionsText.text = LocalizationText.GetText("Options");
         LanguageText.text = LocalizationText.GetText("Language");
-        LevelSelect.text = LocalizationText.GetText("LevelSelect");
+
     }
 
     void OnGUI()
