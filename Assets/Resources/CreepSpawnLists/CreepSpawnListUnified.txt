@@ -24,6 +24,42 @@
 //@level indictae the level is part of the levels to be defined in the level select
 
 
+@level
+@level
+@level
+@level
+@level
+@level
+@level
+@level@level
+@level
+@level
+@level
+@level
+@level
+@level
+@level@level
+@level
+@level
+@level
+@level
+@level
+@level
+@level@level
+@level
+@level
+@level
+@level
+@level
+@level
+@level@level
+@level
+@level
+@level
+@level
+@level
+@level
+@level
 
 
 // MainMEnu

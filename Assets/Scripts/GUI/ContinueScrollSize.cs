@@ -50,10 +50,10 @@ public class ContinueScrollSize : MonoBehaviour
             }
             
         }
-        Debug.Log("LevelCount" + LevelCount);
+
         
         
-        // Change the height to a new value (e.g., 200 units)
+
         ChangeHeightValue((((LevelCount-9)/3)* itemSize)+margingTop);
         CreateLevelButtons(LevelCount);
 
@@ -61,7 +61,7 @@ public class ContinueScrollSize : MonoBehaviour
 
     void CreateLevelButtons(int buttonAmount)
     {
-        //All of this logic could probably be solkved in a better way but at this piont this is the first solution that comes to mind
+        //All of this logic could probably be solved in a better way but at this piont this is the first solution that comes to mind
         int YMultiplier = 0;
         int YIncreaseFlag = 0;
         for (int i =1; i< buttonAmount+1; i++) {
@@ -78,15 +78,15 @@ public class ContinueScrollSize : MonoBehaviour
             Text textComponent = duplicatedObject.GetComponentInChildren<Text>();
             textComponent.text = i.ToString();
 
-            // Optionally, you can set the position, rotation, and other properties of the duplicated object
-            if (i % 2 == 0 && i % 3  != 0) // If i is even
+
+            if (i % 2 == 0 && i % 3  != 0) 
             {
                 duplicatedObject.transform.localPosition = new Vector3(parentRectTransform.localPosition.x+325.0f, parentRectTransform.localPosition.y - (YMultiplier * 130), 0f);
-            }else if (i % 3 == 0) // If i is even
+            }else if (i % 3 == 0) 
             {
                 duplicatedObject.transform.localPosition = new Vector3(parentRectTransform.localPosition.x+650.0f, parentRectTransform.localPosition.y - (YMultiplier * 130), 0f);
             }
-            else // If i is odd
+            else 
             {
                 duplicatedObject.transform.localPosition = new Vector3(parentRectTransform.localPosition.x, parentRectTransform.localPosition.y-(YMultiplier*130), 0f); 
             }
@@ -114,7 +114,7 @@ public class ContinueScrollSize : MonoBehaviour
 
 
             // Create a new Rect with the updated height
-            //Rect newRect = new Rect(rect.x, rect.y, rect.right, newHeight);
+          
             Rect newRect = new Rect(rect.x, rect.y, 0, newHeight);
 
             // Apply the modified rect values back to the RectTransform
