@@ -96,7 +96,7 @@ RC,1
 // level 0
 @level
 lvl0
-NC,3
+NC,10
 !lvl0
 
 // level 1

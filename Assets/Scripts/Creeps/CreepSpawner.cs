@@ -243,7 +243,7 @@ public class CreepSpawner : MonoBehaviour
         }
 
         //float increment = waveHpPercentageIncrement;
-        Debug.Log(increment);
+
         for (int i = 0; i < CurrentCreeps.Count; i++)
         {
             CurrentCreeps[i].SetActive(true);
